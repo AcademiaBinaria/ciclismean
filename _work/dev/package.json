@@ -1,0 +1,16 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "description": "App boilerplate",
+    "author": "Agora Binaria",
+    "license": "ISC",
+    "scripts": {
+        "prestart": "npm install && cd ../../src/client && npm install && cd ../server && npm install",
+        "start": "gulp"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-nodemon": "^2.0.3",
+        "nodemon": "^1.4.0"
+    }
+}

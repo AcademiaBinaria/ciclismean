@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: vm.isActive('dashboard') }">
+                    <a ui-sref="dashboard">Dashboard</a>
+                </li>
+                <li ng-class="{ active: vm.isActive('login') }">
+                    <a ui-sref="login">Login</a>
+                </li>
+                <li ng-class="{ active: vm.isActive('register')}">
+                    <a ui-sref="register">Register</a>
+                </li>
+                <li ng-class="{active: vm.isActive('profile')}">
+                    <a ui-sref="profile">Profile</a>
+                </li>
+                <li ng-class="{active: vm.isActive('teams')}">
+                    <a ui-sref="teams">Teams</a>
+                </li>
+                <li ng-class="{active: vm.isActive('competition')}">
+                    <a ui-sref="competition">Competition</a>
+                </li>
+                <li ng-class="{ active: vm.isActive('riders')}">
+                    <a ui-sref="riders">Riders</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

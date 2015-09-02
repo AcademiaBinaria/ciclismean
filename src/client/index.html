@@ -1,0 +1,63 @@
+<html ng-app="template">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="!" name="fragment">
+    <base href="/">
+    <title>MEAN template</title>
+    <!-- <link href="/assests/paper.min.css" rel="stylesheet"> -->
+    <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- build:css custom.css -->
+    <link rel="stylesheet" href="app/_common/footer/footer.css">
+    <link rel="stylesheet" href="app/_common/main/main.css">
+    <!-- endbuild -->
+
+</head>
+
+<body>
+    <navbar></navbar>
+
+    <main-content></main-content>
+
+    <footerbar></footerbar>
+
+    <!-- build:js node_modules.js -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/api-check/dist/api-check.min.js"></script>
+    <script src="node_modules/angular-formly/dist/formly.min.js"></script>
+    <script src="node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js common.js -->
+    <script src="app/_common/app.js"></script>
+    <script src="app/_common/states.js"></script>
+    <script src="app/_common/security.js"></script>
+    <script src="app/_common/main/main.js"></script>
+    <script src="app/_common/navbar/navbar.js"></script>
+    <script src="app/_common/footer/footer.js"></script>
+    <script src="app/_common/form-messages/form-messages.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js components.js -->
+    <script src="app/components/dashboard/dashboard.js"></script>
+    <script src="app/components/user/user.js"></script>
+    <script src="app/components/user/login/login.js"></script>
+    <script src="app/components/user/register/register.js"></script>
+    <script src="app/components/user/forgot-password/forgot-password.js"></script>
+    <script src="app/components/user/profile/profile.js"></script>
+    <script src="app/components/teams/teams.js"></script>
+    <script src="app/components/teams/riders/riders.js"></script>
+    <script src="app/components/competition/competition.js"></script>
+    <!-- endbuild -->
+
+</body>
+
+</html>
