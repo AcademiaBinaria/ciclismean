@@ -1,6 +1,6 @@
 var express = require('express');
-var crud = require('./util/crud.js');
-var roles = require('../../data/roles.js');
+var crudApi = require('./util/crudApi.js');
+var rolesData = require('../../data/rolesData.js');
 
 var router = express.Router({
     mergeParams: true
@@ -14,6 +14,6 @@ var schema = {
         },
         required: ["_id", "name"]
     }
-crud(router,roles, schema);
+crudApi(router,rolesData, schema);
     
 module.exports = router;

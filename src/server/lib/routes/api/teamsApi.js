@@ -1,7 +1,7 @@
 var express = require('express');
-var crud = require('./util/crud.js');
-var teams = require('../../data/teams.js');
-var riders = require('../../data/riders.js');
+var crudApi = require('./util/crudApi.js');
+var teamsData = require('../../data/teamsData.js');
+var ridersData = require('../../data/ridersData.js');
 var convert = require('../../convert.js');
 
 var router = express.Router({
@@ -21,11 +21,11 @@ var schema = {
         },
         required: ["_id", "safe_name"]
     }
-crud(router,teams, schema);
+crudApi(router,teamsData, schema);
 
 router
     .get('/:id/riders', function (req, res) {
-        convert.prom2res(riders.finding({query:{"team":req.params.id}}), res);
+        convert.prom2res(ridersData.finding({query:{"team":req.params.id}}), res);
     });
 
 module.exports = router;

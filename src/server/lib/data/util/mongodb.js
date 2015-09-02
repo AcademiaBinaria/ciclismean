@@ -1,7 +1,7 @@
 var Q = require('q');
 var MongoClient = require('mongodb').MongoClient;
 var logger = require('../../logger.js');
-var settings = require('../..//settings.js');
+var settings = require('../../settings.js');
 var convert = require('../../convert.js');
 
 var connection;

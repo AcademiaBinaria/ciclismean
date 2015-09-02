@@ -1,9 +1,9 @@
 var colName = 'competitions';
-var _crud = require('./util/crud.js')
+var crudData = require('./util/crudData.js')
     .crud(colName,
         { _id: 1 });
 
-exports.crud = _crud;
+exports.crud = crudData;
 
 
 

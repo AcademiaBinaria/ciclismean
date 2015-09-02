@@ -1,6 +1,6 @@
 var express = require('express');
-var crud = require('./util/crud.js');
-var riders = require('../../data/riders.js');
+var crudApi = require('./util/crudApi.js');
+var ridersData = require('../../data/ridersData.js');
 
 var router = express.Router({
     mergeParams: true
@@ -18,7 +18,8 @@ var schema = {
         },
         required: ["_id", "safe_name", "team", "safe_name_team","country"]
     }
-crud(router,riders, schema);
+crudApi(router,ridersData, schema);
+
 
 
 module.exports = router;

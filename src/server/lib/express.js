@@ -5,7 +5,7 @@ exports.createApp = function () {
     var express = require('express');
     var middleware = require('./middleware.js');
     var staticFiles = require('./routes/staticFiles.js')
-    var api = require('./routes/api.js')
+    var apiIndex = require('./routes/apiIndex.js')
     var other = require('./routes/other.js')
     
     // creataing the express application
@@ -21,7 +21,7 @@ exports.createApp = function () {
     
     // routes
     staticFiles.staticFileRoutes(app);
-    api.apiRoutes(app);
+    apiIndex.apiRoutes(app);
     other.otherRoutes(app);
     
     return app;

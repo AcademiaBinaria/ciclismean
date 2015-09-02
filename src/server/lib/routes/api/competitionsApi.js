@@ -1,7 +1,7 @@
 var logger = require('../../logger.js');
 var express = require('express');
-var crud = require('./util/crud.js');
-var competitions = require('../../data/competitions.js');
+var crudApi = require('./util/crudApi.js');
+var competitionsData = require('../../data/competitionsData.js');
 
 var router = express.Router({
     mergeParams: true
@@ -18,7 +18,7 @@ var schema = {
         required: ["_id", "category"]
     }
     
-crud(router,competitions, schema);
+crudApi(router,competitionsData, schema);
 
 
 

@@ -20,9 +20,9 @@ function finding(mongoQuery) {
 function inserting(document) {
     return mongodb.inserting(this._colName, document);
 }
-function updating(document) {
+function updating(id,document) {
      return mongodb.updating(this.colName, { _id: id }, document, null);
 }
-function removing(document) {
+function removing(id,document) {
      return mongodb.removing(this.colName, { _id: id }, null);
 }
