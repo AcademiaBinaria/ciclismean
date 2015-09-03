@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Equipo {{vm.team_id}}</h1>
+    <div ng-repeat="rider in vm.riders" class="row col-md-3">
+        <h3>{{rider._id}}</h3>
+        <p>{{rider.lob}}</p>
+        <p>{{rider.dob | date: 'yyyy/MM/dd'}}</p>
+    </div>
+</div>

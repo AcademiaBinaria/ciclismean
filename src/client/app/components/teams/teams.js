@@ -1,7 +1,7 @@
 "use strict";
 (function () {
     angular
-        .module('teams', ['ui.router', 'riders'])
+        .module('teams', ['ui.router', 'riders', 'team'])
         .config(config)
         .directive('teams', directive)
         .factory('teamsDataService', teamsDataService)
@@ -23,16 +23,20 @@
         }
     }
 
-    function controller(teamsDataService, $rootScope) {
+    function controller(teamsDataService) {
         var vm = this;
 
-        teamsDataService.gettingTeams({
-                limit: 100,
-                sort: 'status'
-            })
-            .then(function (teams) {
-                vm.teams = teams;
-            });
+        init();
+
+        function init() {
+            teamsDataService.gettingTeams({
+                    limit: 100,
+                    sort: 'status'
+                })
+                .then(function (teams) {
+                    vm.teams = teams;
+                });
+        }
     }
 
     function teamsDataService($resource) {

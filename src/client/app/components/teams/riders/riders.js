@@ -4,7 +4,7 @@
         .module('riders', ['ui.router', 'ngResource'])
         .config(config)
         .directive('riders', directive)
-        .factory('riderDataService', riderDataService)
+        .factory('ridersDataService', ridersDataService)
 
     function config($stateProvider) {
         $stateProvider
@@ -23,13 +23,13 @@
         }
     }
 
-    function controller(riderDataService) {
+    function controller(ridersDataService) {
         var vm = this;
 
         init();
 
         function init() {
-            riderDataService.gettingRiders({
+            ridersDataService.gettingRiders({
                     limit: 100,
                     skip: 1,
                     sort: '-_id'
@@ -41,7 +41,7 @@
 
     }
 
-    function riderDataService($resource) {
+    function ridersDataService($resource) {
         var factory = {};
 
         var riders = $resource('api/riders', {});
