@@ -1,22 +1,22 @@
 "use strict";
 (function () {
     angular
-        .module('competition', ['ui.router'])
+        .module('competitions', ['ui.router'])
         .config(config)
-        .directive('competition', directive)
+        .directive('competitions', directive)
         .factory('competitionDataService', competitionDataService)
 
     function config($stateProvider) {
         $stateProvider
-            .state('competition', {
-                url: '/competition/:name',
-                template: '<competition></competition>'
+            .state('competitions', {
+                url: '/competitions/:name',
+                template: '<competitions></competitions>'
             });
     }
 
     function directive() {
         return {
-            templateUrl: 'app/components/competition/competition.html',
+            templateUrl: 'app/components/competitions/competitions.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
