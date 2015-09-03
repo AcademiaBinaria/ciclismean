@@ -1,3 +1,8 @@
 <div class="container">
     <h1>Teams</h1>
+    <div ng-repeat="team in vm.teams" class="row col-md-3">
+        <h3>{{team._id}}</h3>
+        <p>{{team.country}}</p>
+        <p>{{team.status}}</p>
+    </div>
 </div>

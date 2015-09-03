@@ -26,12 +26,23 @@
     function controller(teamsDataService, $rootScope) {
         var vm = this;
 
+        teamsDataService.gettingTeams({
+                limit: 100,
+                sort: 'status'
+            })
+            .then(function (teams) {
+                vm.teams = teams;
+            });
     }
 
     function teamsDataService($resource) {
         var factory = {};
 
+        var teams = $resource('api/teams', {});
 
+        factory.gettingTeams = function (params) {
+            return teams.query(params).$promise;
+        }
 
         return factory;
     }
