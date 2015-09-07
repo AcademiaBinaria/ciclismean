@@ -23,16 +23,33 @@
         }
     }
 
-    function controller() {
+    function controller(competitionDataService) {
         var vm = this;
+
+        init();
+
+        function init() {
+            competitionDataService.gettingCompetitions({
+                    limit: 100,
+                    sort: 'status'
+                })
+                .then(function (competitions) {
+                    vm.competitions = competitions;
+                });
+        }
 
     }
 
     function competitionDataService($resource) {
         var factory = {};
 
+        var competitions = $resource('api/competitions', {});
+
+        factory.gettingCompetitions = function (params) {
+            return competitions.query(params).$promise;
+        }
+
         return factory;
     }
-
 
 })();

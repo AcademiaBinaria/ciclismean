@@ -1,3 +1,7 @@
 <div class="container">
     <h1>Competitions</h1>
+    <div ng-repeat="competitions in vm.competitions" class="row col-md-4">
+        <h3><a ng-href="#">{{competitions._id}}</a></h3>
+        <p>{{competitions.category}}</p>
+    </div>
 </div>
