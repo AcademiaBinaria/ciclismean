@@ -5,15 +5,6 @@
                 <li ng-class="{ active: vm.isActive('dashboard') }">
                     <a ui-sref="dashboard">Dashboard</a>
                 </li>
-                <li ng-class="{ active: vm.isActive('login') }">
-                    <a ui-sref="login">Login</a>
-                </li>
-                <li ng-class="{ active: vm.isActive('register')}">
-                    <a ui-sref="register">Register</a>
-                </li>
-                <li ng-class="{active: vm.isActive('profile')}">
-                    <a ui-sref="profile">Profile</a>
-                </li>
                 <li ng-class="{active: vm.isActive('teams')}">
                     <a ui-sref="teams">Teams</a>
                 </li>
@@ -22,6 +13,23 @@
                 </li>
                 <li ng-class="{ active: vm.isActive('riders')}">
                     <a ui-sref="riders">Riders</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-class="{ active: vm.isActive('login') }">
+                            <a ui-sref="login">Login</a>
+                        </li>
+                        <li ng-class="{active: vm.isActive('profile')}">
+                            <a ui-sref="profile">Profile</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li ng-class="{ active: vm.isActive('register')}">
+                            <a ui-sref="register">Register</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
