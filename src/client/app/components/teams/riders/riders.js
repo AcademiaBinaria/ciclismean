@@ -25,6 +25,7 @@
 
     function controller(ridersDataService) {
         var vm = this;
+        vm.now = new Date().getTime();
 
         init();
 
@@ -36,7 +37,11 @@
                 })
                 .then(function (riders) {
                     vm.riders = riders;
-                })
+                    riders.forEach(function (element) {
+                        element.age = vm.now - new Date(element.dob);
+                        element.age = Math.floor(element.age / 31536000000);
+                    }, this);
+                });
         }
 
     }
