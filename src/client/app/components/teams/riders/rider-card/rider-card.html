@@ -1,0 +1,26 @@
+<div class="avatar">
+    <div class="victories">
+        <div class="fa fa-trophy">
+
+        </div>
+    </div>
+    <div class="rider-flag">
+        <img itemprop="nacionality" ng-src="assets/images/flags/{{vm.riderId.country}}.png" />
+    </div>
+    <img ng-src="assets/images/riders_img/{{vm.year}}/{{vm.riderId.safe_name_team}}/{{vm.riderId.safe_name}}.jpg" ng-attr-alt="{{vm.riderId._id}}" width="240" heigth="304" />
+    <div class="team-name-wrapper text-center" itemprop="affiliation">{{vm.riderId.team}}</div>
+</div>
+<div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
+    <div itemprop="name" class="name">
+        <b>{{vm.riderId._id}}</b>
+    </div>
+    <small itempropclass="title">{{vm.riderId.lob}}</small>
+    <small>-</small>
+    <small id="age">{{vm.riderId.age}}</small>
+    <small>años</small>
+    <small id="date" class="due-date" name="dateBirth" itemprop="birthDate">{{vm.riderId.dob | date:'yyyy/MM/dd'}}</small>
+    <small class="rider-type yellow">
+        <span class="{{vm.riderId.rol_icon}}"></span>
+        <small itemprop="roleName" class="title">{{vm.riderId.team_rol}}</small>
+    </small>
+</div>
