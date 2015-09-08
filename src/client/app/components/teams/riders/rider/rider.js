@@ -19,7 +19,7 @@
         }
 
         return {
-            templateUrl: 'client/app/components/teams/riders/rider/rider.html',
+            templateUrl: 'app/components/teams/riders/rider/rider.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
