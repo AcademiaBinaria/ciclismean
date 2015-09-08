@@ -1,7 +1,7 @@
 "use strict";
 (function () {
     angular
-        .module('teams', ['ui.router', 'riders', 'team'])
+        .module('teams', ['ui.router', 'riders', 'team', 'rider'])
         .config(config)
         .directive('teams', directive)
         .factory('teamsDataService', teamsDataService)

@@ -26,6 +26,7 @@
     function controller(ridersDataService) {
         var vm = this;
         vm.now = new Date().getTime();
+        vm.year = new Date().getFullYear();
 
         init();
 

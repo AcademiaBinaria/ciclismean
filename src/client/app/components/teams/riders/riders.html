@@ -1,8 +1,8 @@
 <div class="container">
-    <h1>Riders</h1>
-    <div ng-repeat="rider in vm.riders" class="row col-md-3">
-        <h2>{{rider._id}}</h2>
-        <p>{{rider.team}}</p>
+    <div ng-repeat="rider in vm.riders" class="row col-md-3 text-center">
+        <img ng-src="assets/images/riders_img/{{vm.year}}/{{rider.safe_name_team}}/{{rider.safe_name}}.jpg" ng-attr-alt="{{rider._id}}" />
+        <h3>{{rider.team}}</h3>
+        <h4>{{rider._id}} <img ng-src="assets/images/flags/{{rider.country}}.png" /></h4>
         <p>{{rider.lob}} - {{rider.age}} años</p>
         <p>{{rider.dob | date:'yyyy/MM/dd'}}</p>
         <p>{{rider.team_rol}}

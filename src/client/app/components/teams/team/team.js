@@ -8,7 +8,7 @@
     function config($stateProvider) {
         $stateProvider
             .state('team', {
-                url: '/equipos/:id',
+                url: '/equipo/:id/:year',
                 template: '<team></team>'
             });
     }
