@@ -30,16 +30,24 @@
     function controller(teamsDataService) {
         var vm = this;
 
+        function getTeams(status) {
+            return teamsDataService.gettingTeams({
+                limit: 100,
+                sort: '-_id',
+                q: 'status:' + status
+            });
+        }
+
         init();
 
         function init() {
-            teamsDataService.gettingTeams({
-                    limit: 100,
-                    sort: 'status'
-                })
-                .then(function (teams) {
-                    vm.teams = teams;
-                });
+            vm.year = new Date().getFullYear();
+            getTeams('WT').then(function (teams) {
+                vm.teams_WT = teams;
+            });
+            getTeams('PCT').then(function (teams) {
+                vm.teams_PCT = teams;
+            })
         }
     }
 

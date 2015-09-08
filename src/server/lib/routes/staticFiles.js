@@ -10,6 +10,9 @@ module.exports.staticFileRoutes = function (app) {
     app.get('/app/*', function (req, res, next) {
         cache.getFile(req, res);
     });
+    app.get('/assets/*', function (req, res, next) {
+        cache.getFile(req, res);
+    });
     /** routes for client side static files */
     app.get('/node_modules/*', function (req, res, next) {
         cache.getFile(req, res);

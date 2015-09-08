@@ -1,8 +1,22 @@
 <div class="container">
-    <h1>Teams</h1>
-    <div ng-repeat="team in vm.teams" class="row col-md-3">
-        <h3><a ui-sref="team({id: team._id})">{{team._id}}</a></h3>
-        <p>{{team.country}}</p>
-        <p>{{team.status}}</p>
+    <div class="row">
+        <p class="text-center">Equipos World Tour</p>
+        <div ng-repeat="team in vm.teams_WT" class="col-md-3">
+            <a ui-sref="team({id: team._id})">
+                <img ng-src="/assets/images/teams_covers/{{vm.year}}/{{team.safe_name}}.png" ng-attr-alt="{{team._id}}" />
+            </a>
+            <h4 class="text-center">{{team._id}}</h3>
+            <p class="text-center">{{team.country}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <p class="text-center">Equipos Pro Continental Team</p>
+        <div ng-repeat="team in vm.teams_PCT" class="col-md-3">
+            <a ui-sref="team({id: team._id})">
+                <img ng-src="/assets/images/teams_covers/{{vm.year}}/{{team.safe_name}}.png" ng-attr-alt="{{team._id}}" />
+            </a>
+            <h4 class="text-center">{{team._id}}</h3>
+            <p class="text-center">{{team.country}}</p>
+        </div>
     </div>
 </div>
