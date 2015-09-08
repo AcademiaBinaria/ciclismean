@@ -1,14 +1,16 @@
 <div class="avatar">
-    <div class="victories">
-        <div class="fa fa-trophy">
+    <a ui-sref="rider({teamId: vm.riderId.safe_name_team, year: vm.year, riderId: vm.riderId.safe_name})">
+        <div class="victories">
+            <div class="fa fa-trophy">
 
+            </div>
         </div>
-    </div>
-    <div class="rider-flag">
-        <img itemprop="nacionality" ng-src="assets/images/flags/{{vm.riderId.country}}.png" />
-    </div>
-    <img ng-src="assets/images/riders_img/{{vm.year}}/{{vm.riderId.safe_name_team}}/{{vm.riderId.safe_name}}.jpg" ng-attr-alt="{{vm.riderId._id}}" width="240" heigth="304" />
-    <div class="team-name-wrapper text-center" itemprop="affiliation">{{vm.riderId.team}}</div>
+        <div class="rider-flag">
+            <img itemprop="nacionality" ng-src="assets/images/flags/{{vm.riderId.country}}.png" />
+        </div>
+        <img ng-src="assets/images/riders_img/{{vm.year}}/{{vm.riderId.safe_name_team}}/{{vm.riderId.safe_name}}.jpg" ng-attr-alt="{{vm.riderId._id}}" width="240" heigth="304" />
+        <div class="team-name-wrapper text-center" itemprop="affiliation">{{vm.riderId.team}}</div>
+    </a>
 </div>
 <div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
     <div itemprop="name" class="name">

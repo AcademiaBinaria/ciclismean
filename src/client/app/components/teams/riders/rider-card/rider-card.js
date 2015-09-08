@@ -18,7 +18,7 @@
 
     function controller() {
         var vm = this;
-
+        vm.year = new Date().getFullYear();
         init();
 
         function init() {
