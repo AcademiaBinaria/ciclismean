@@ -8,6 +8,10 @@
 
     function config($stateProvider) {
         $stateProvider
+            .state('home', {
+                url: '/',
+                template: '<teams></teams>'
+            })
             .state('teams', {
                 url: '/equipos',
                 template: '<teams></teams>'
