@@ -6,11 +6,9 @@
     "license": "ISC",
     "scripts": {
         "prestart": "npm install && cd ../../src/client && npm install && cd ../server && npm install",
-        "start": "gulp"
+        "start": "cd ../../src/server && nodemon ciclismean.js"
     },
     "devDependencies": {
-        "gulp": "^3.9.0",
-        "gulp-nodemon": "^2.0.3",
         "nodemon": "^1.4.0"
     }
 }
