@@ -45,7 +45,7 @@
             getTeams('WT').then(function (teams) {
                 vm.teams_WT = teams;
             });
-            getTeams('PCT').then(function (teams) {
+            getTeams('PC').then(function (teams) {
                 vm.teams_PCT = teams;
             })
         }

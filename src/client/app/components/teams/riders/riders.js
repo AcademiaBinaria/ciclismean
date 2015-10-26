@@ -27,34 +27,45 @@
         var vm = this;
         vm.now = new Date().getTime();
         vm.year = new Date().getFullYear();
+        var skip = 0;
+        var limit = 12;
+        vm.riders = [];
 
-        init();
 
-        function init() {
+        vm.init = function () {
             ridersDataService.gettingRiders({
-                    limit: 100,
-                    skip: 1,
+                    limit: limit,
+                    skip: skip,
                     sort: '-_id'
                 })
                 .then(function (riders) {
-                    vm.riders = riders;
-                    riders.forEach(function (element) {
-                        element.age = vm.now - new Date(element.dob);
-                        element.age = Math.floor(element.age / 31536000000);
-                    }, this);
+                    riders.forEach(function (rider) {
+                        rider.age = vm.now - new Date(rider.dob);
+                        rider.age = Math.floor(rider.age / 31536000000);
+                        vm.riders.push(rider);
+                    });
+                    skip += limit;
                 });
-        }
+        };
+
+        vm.init();
 
     }
 
     function ridersDataService($resource) {
         var factory = {};
-
         var riders = $resource('api/riders', {});
 
         factory.gettingRiders = function (params) {
             return riders.query(params).$promise;
         }
+
+        factory.calculateAge = function (birthday) {
+            var dateOfBirth = new Date(birthday);
+            var ageDifMs = Date.now() - dateOfBirth.getTime();
+            var ageDate = new Date(ageDifMs);
+            return (ageDate.getUTCFullYear() - 1970);
+        };
 
         return factory;
     }

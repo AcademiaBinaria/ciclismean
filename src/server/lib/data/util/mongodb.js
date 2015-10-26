@@ -11,7 +11,8 @@ module.exports = {
 	connecting:connecting,
 	/** connection to a database */
 	connection:connection,
-	
+	/** saves the current database connection*/
+	setConnection: setConnection,
 	/** performs a find operation that returna an array*/
 	finding: finding,
 	/** performs a find operation that returns an item*/
@@ -29,10 +30,13 @@ module.exports = {
 function connecting() {
     var deferred = Q.defer();
     MongoClient.connect(settings.mongoUrl, function (err, db) {
-        connection = db;
-		convert.cllbck2prom(err, db, deferred);
+			convert.cllbck2prom(err, db, deferred);
     });
     return deferred.promise;
+}
+
+function setConnection(db) {
+		connection=db;
 }
 
 function finding(colName, query, proj, skip, limit, sort) {

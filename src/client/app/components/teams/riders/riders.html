@@ -2,4 +2,7 @@
     <div ng-repeat="rider in vm.riders" class="row col-md-3">
         <rider-card rider-id="rider"></rider-card>
     </div>
+    <div class="btn-more-wrapper">
+        <button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" data-loading-text="Cargando...">Ver mas ciclistas</button>
+    </div>
 </div>
