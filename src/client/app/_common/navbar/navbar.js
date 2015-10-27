@@ -13,9 +13,10 @@
         }
     }
 
-    function controller($state, UtilService, $scope) {
+    function controller($state, UtilService, $rootScope) {
         var vm = this;
-        //vm.user = UtilService.isLogged();
+
+
         this.isActive = function (state) {
             return $state.is(state);
         }

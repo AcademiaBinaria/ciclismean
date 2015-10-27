@@ -1,0 +1,10 @@
+<div class="container row">
+    <form novalidate>
+        <formly-form model="vm.rider" fields="vm.fields">
+        </formly-form>
+        <div class="row">
+            <button class="btn btn-default" ng-click="vm.guardarMovimiento()">Guardar Movimiento</button>
+        </div>
+    </form>
+</div>
+<pre>{{vm.rider | json}}</pre>
