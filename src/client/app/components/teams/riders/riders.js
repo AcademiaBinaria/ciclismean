@@ -60,13 +60,6 @@
             return riders.query(params).$promise;
         }
 
-        factory.calculateAge = function (birthday) {
-            var dateOfBirth = new Date(birthday);
-            var ageDifMs = Date.now() - dateOfBirth.getTime();
-            var ageDate = new Date(ageDifMs);
-            return (ageDate.getUTCFullYear() - 1970);
-        };
-
         return factory;
     }
 })();

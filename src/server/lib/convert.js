@@ -6,7 +6,9 @@ module.exports = {
     /** request to mongo query */
     req2mongo: request2mongoq,
     /** takes callback parameters and returns a promise response */
-    cllbck2prom: callback2Promise
+    cllbck2prom: callback2Promise,
+    /** logs and sends error messages to clients */
+    resError: resError
 }
 
 function promise2response(prom, res, statusOk) {
@@ -24,8 +26,7 @@ function promise2response(prom, res, statusOk) {
             if (err.code === 11000) {
                 logger.warn(err);
                 res.status(409).send(err);
-            }
-            else {
+            } else {
                 logger.error(err);
                 res.status(500).send(err);
             }
@@ -34,7 +35,7 @@ function promise2response(prom, res, statusOk) {
 
 function request2mongoq(req) {
     var mongoQuery = {}
-    // coll/:id
+        // coll/:id
     if (req.params.id) {
         mongoQuery.query = {};
         mongoQuery.query._id = req.params.id;
@@ -87,4 +88,10 @@ function callback2Promise(err, result, deferred) {
     } else {
         deferred.resolve(result);
     }
+}
+
+function resError(err, res, code) {
+    var status = code || 500;
+    logger.debug(err);
+    res.status(status).send(err);
 }

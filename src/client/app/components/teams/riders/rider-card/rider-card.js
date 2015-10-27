@@ -16,14 +16,14 @@
         }
     }
 
-    function controller(ridersDataService) {
+    function controller(UtilService) {
         var vm = this;
         init();
 
         function init() {
-        vm.year = new Date().getFullYear();
-        vm.riderId.age = ridersDataService.calculateAge(vm.riderId.dob);
-        vm.riderId.dob = new Date(vm.riderId.dob);
+            vm.year = new Date().getFullYear();
+            vm.riderId.age = UtilService.calculateAge(vm.riderId.dob);
+            vm.riderId.dob = new Date(vm.riderId.dob);
         }
     }
 })();
