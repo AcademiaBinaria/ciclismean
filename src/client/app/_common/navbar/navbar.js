@@ -13,10 +13,16 @@
         }
     }
 
-    function controller($state) {
+    function controller($state, UtilService, $scope) {
         var vm = this;
+        //vm.user = UtilService.isLogged();
         this.isActive = function (state) {
             return $state.is(state);
         }
+
+        vm.logout = function () {
+            UtilService.removeSession();
+        }
+
     }
 })();

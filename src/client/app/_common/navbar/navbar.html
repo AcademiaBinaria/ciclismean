@@ -4,7 +4,8 @@
             <ul class="nav navbar-nav">
                 <li ng-class="{active: vm.isActive('teams')}">
                     <a ui-sref="teams">Teams</a>
-                </li><!--<li ng-class="{active: vm.isActive('competitions')}">
+                </li>
+                <!--<li ng-class="{active: vm.isActive('competitions')}">
     <a ui-sref="competitions">Competitions</a>
 </li>-->
                 <li ng-class="{ active: vm.isActive('riders')}">
@@ -20,6 +21,11 @@
                         </li>
                         <li ng-class="{active: vm.isActive('profile')}">
                             <a ui-sref="profile">Profile</a>
+                        </li>
+                        <li ng-class="{active: vm.isActive('logout')}">
+                            <a href="">
+                                <div ng-click="vm.logout()">Logout</div>
+                            </a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li ng-class="{ active: vm.isActive('register')}">

@@ -31,9 +31,9 @@
         }
     }
 
-    function controller(usersDataService, UtilService) {
+    function controller(usersDataService, UtilService, $state) {
         var vm = this;
-
-
+        if (!UtilService.isLogged())
+            $state.go('login');
     }
 })();

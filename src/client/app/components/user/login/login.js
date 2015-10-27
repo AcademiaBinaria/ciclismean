@@ -48,7 +48,7 @@
                 login.email = vm.form.email;
                 login.password = vm.form.password;
                 login.$save().then(function (data) {
-                    UtilService.saveSession(login.email, data.token);
+                    UtilService.saveSession(vm.form.email, data.token);
                     $state.go('dashboard');
                 }, function (err) {
                     form.token.$error.invalidtoken = true;
