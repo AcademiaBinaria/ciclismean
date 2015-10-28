@@ -30,6 +30,7 @@
         teamsDataService.gettingTeams().then(function (data) {
             vm.teams = data;
         });
+        vm.showMessage = false;
 
         vm.addYear = function () {
             if (!vm.rider.seasons)
@@ -55,6 +56,8 @@
             vm.rider.safe_name = UtilService.getSafeName(vm.rider._id);
             var rider = vm.rider.$save();
             console.log(rider);
+            if (rider)
+                vm.showMessage = true;
         }
     }
 })();
