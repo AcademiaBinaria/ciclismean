@@ -1,9 +1,126 @@
 <div class="container row">
-    <form novalidate>
-        <formly-form model="vm.rider" fields="vm.fields">
-        </formly-form>
+    <form>
         <div class="row">
-            <button class="btn btn-default" ng-click="vm.guardarMovimiento()">Guardar Movimiento</button>
+            <label>Nombre:</label>
+            <input type="text" ng-model="vm.rider._id" placeholder="Jose Luís Rubio" required>
+        </div>
+        <div class="row">
+            <label>Equipo actual:</label>
+            <select ng-options="team as team._id for team in vm.teams" ng-model="vm.riderTeam" required></select>
+        </div>
+        <div class="row">
+            <label>Rol de equipo:</label>
+            <select ng-options="roles for roles in vm.roles" ng-model="vm.rider.team_rol" required></select>
+        </div>
+        <div class="row">
+            <label>Fecha de nacimiento:</label>
+            <input type="date" ng-model="vm.rider.dob" required>
+        </div>
+        <div class="row">
+            <label>Lugar de nacimiento:</label>
+            <input type="text" ng-model="vm.rider.lob" placeholder="Palencia, España" required>
+        </div>
+        <div class="row">
+            <label>Nacionalidad:</label>
+            <input type="text" ng-model="vm.rider.country" placeholder="es, bg, it...  " required>
+        </div>
+        <div class="row">
+            <label>Dorsal:</label>
+            <input type="number" ng-model="vm.rider.dorsal_actual">
+        </div>
+        <div class="row">
+            <label>Icono rol:</label>
+            <input type="text" ng-model="vm.rider.rol_icon" placeholder="fa fa-flash, ti-crown ..." required>
+        </div>
+        <div class="row">
+            <label>Victorias totales:</label>
+            <input type="number" ng-model="vm.rider.total_victories" required>
+        </div>
+        <div class="row">
+            <label>Temporadas</label>
+            <div ng-repeat="season in vm.rider.seasons">
+                <label>Año:</label>
+                <input type="number" ng-model="season.year">
+                <label>Equipo:</label>
+                <select ng-options="team.safe_name as team._id for team in vm.teams" ng-model="season.team" required></select>
+                <div ng-repeat="competition in season.palmares">
+                    <label>Nombre de la competición:</label>
+                    <input type="text" ng-model="competition.competition">
+                    <label>Posición:</label>
+                    <input type="text" ng-model="competition.position" placeholder="1º">
+                    <label>Victorias de etapa:</label>
+                    <input type="number" ng-model="competition.victories">
+                </div>
+                <button type="button" ng-click="vm.addCompetition(season.palmares)">Añadir competición a la temporada</button>
+            </div>
+            <!--<input type="text" ng-model="vm.year">-->
+            <button type="button" ng-click="vm.addYear()">Añadir Temporada</button>
+        </div>
+        <div class="row">
+            <h4>Giro</h4>
+        </div>
+        <div class="row">
+            <label>Mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.giroBestResult" placeholder="1º" required>
+        </div>
+        <div class="row">
+            <label>Año con mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.giroYearBestResult" placeholder="2015" required>
+        </div>
+        <div class="row">
+            <label>Victorias de etapa</label>
+            <input type="text" ng-model="vm.rider.giroTotalVictories" placeholder="5" required>
+        </div>
+        <div class="row">
+            <h4>Tour</h4>
+        </div>
+        <div class="row">
+            <label>Mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.tourBestResult" placeholder="1º" required>
+        </div>
+        <div class="row">
+            <label>Año con mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.tourYearBestResult" placeholder="2015" required>
+        </div>
+        <div class="row">
+            <label>Victorias de etapa</label>
+            <input type="text" ng-model="vm.rider.tourTotalVictories" placeholder="5" required>
+        </div>
+        <div class="row">
+            <h4>Vuelta</h4>
+        </div>
+        <div class="row">
+            <label>Mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.vueltaBestResult" placeholder="1º" required>
+        </div>
+        <div class="row">
+            <label>Año con mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.vueltaYearBestResult" placeholder="2015" required>
+        </div>
+        <div class="row">
+            <label>Victorias de etapa</label>
+            <input type="text" ng-model="vm.rider.vueltaTotalVictories" placeholder="5" required>
+        </div>
+        <div class="row">
+            <h4>Mundial</h4>
+        </div>
+        <div class="row">
+            <label>Mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.wcBestResult" placeholder="1º" required>
+        </div>
+        <div class="row">
+            <label>Año con mejor resultado:</label>
+            <input type="text" ng-model="vm.rider.wcYearBestResult" placeholder="2015" required>
+        </div>
+        <div class="row">
+            <h4>Clásicas</h4>
+        </div>
+        <div class="row">
+            <label>Victorias:</label>
+            <input type="text" ng-model="vm.rider.classicsTotalVictories" placeholder="5" required>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-default" ng-click="vm.saveRider()">Guardar Corredor</button>
         </div>
     </form>
 </div>

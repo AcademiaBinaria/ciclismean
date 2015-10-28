@@ -15,7 +15,7 @@
 
     function controller($state, UtilService, $rootScope) {
         var vm = this;
-
+        vm.username = UtilService.getSession();
 
         this.isActive = function (state) {
             return $state.is(state);
@@ -24,6 +24,10 @@
         vm.logout = function () {
             UtilService.removeSession();
         }
+
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            vm.username = UtilService.getSession();
+        });
 
     }
 })();

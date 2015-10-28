@@ -54,10 +54,10 @@
 
     function ridersDataService($resource) {
         var factory = {};
-        var riders = $resource('api/riders', {});
+        factory.riders = $resource('api/riders', {});
 
         factory.gettingRiders = function (params) {
-            return riders.query(params).$promise;
+            return factory.riders.query(params).$promise;
         }
 
         return factory;

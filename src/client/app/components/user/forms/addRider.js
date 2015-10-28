@@ -4,7 +4,6 @@
         .module('addRider', ['ui.router', 'formMessages'])
         .config(config)
         .directive('addRider', directive)
-        .factory('usersDataService', usersDataService)
 
 
     function config($stateProvider) {
@@ -24,161 +23,38 @@
         }
     }
 
-    function controller(usersDataService, UtilService, $state) {
+    function controller(UtilService, teamsDataService, ridersDataService, $state) {
         var vm = this;
+        vm.rider = new ridersDataService.riders();
+        vm.roles = UtilService.getRoles();
+        teamsDataService.gettingTeams().then(function (data) {
+            vm.teams = data;
+        });
 
-        vm.season = [];
-        var roles = UtilService.getRoles();
+        vm.addYear = function () {
+            if (!vm.rider.seasons)
+                vm.rider.seasons = [];
+            vm.rider.seasons.push({
+                "year": 2015,
+                "team": "",
+                "palmares": []
+            })
+        };
 
-        vm.fields = [
-            {
-                key: '_id',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Nombre y apellidos',
-                    required: true,
-                    type: 'text'
-                }
-            },
-            {
-                key: 'team',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Elige categoría',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'team_rol',
-                type: 'select',
-                templateOptions: {
-                    placeholder: 'Rol de equipo',
-                    required: true,
-                    options: roles
-                }
-            }, {
-                key: 'dob',
-                type: 'input',
-                templateOptions: {
-                    label: 'Fecha de nacimiento',
-                    required: true,
-                    type: 'date'
-                }
-            }, {
-                key: 'lob',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Lugar de nacimiento',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'country',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'nacionalidad',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'dorsal_actual',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Dorsal en la competición actual (no obligatorio)',
-                    required: false,
-                    type: 'number'
-                }
-            }, {
-                key: 'rol_icon',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Icono de rol',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'total_victories',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Victorias totales',
-                    required: true,
-                    type: 'number'
-                }
-            }
-            , {
-                key: 'giroBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Mejor resultado en el Giro',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'giroYearBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Año mejor resultado en el Giro',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'giroTotalVictories',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Victorias totales en el Giro',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'tourBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Mejor resultado en el Tour',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'tourYearBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Año mejor resultado en el Tour',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'tourTotalVictories',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Victorias totales en el Tour',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'vueltaBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Mejor resultado en el Vuelta',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'vueltaYearBestResult',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Año mejor resultado en el Vuelta',
-                    required: true,
-                    type: 'text'
-                }
-            }, {
-                key: 'vueltaTotalVictories',
-                type: 'input',
-                templateOptions: {
-                    placeholder: 'Victorias totales en el Vuelta',
-                    required: true,
-                    type: 'text'
-                }
-            }
-        ]
+        vm.addCompetition = function (palmares) {
+            palmares.push({
+                "competition": "",
+                "position": "",
+                "victories": 0
+            })
+        };
 
+        vm.saveRider = function () {
+            vm.rider.team = vm.riderTeam._id;
+            vm.rider.safe_name_team = vm.riderTeam.safe_name;
+            vm.rider.safe_name = UtilService.getSafeName(vm.rider._id);
+            var rider = vm.rider.$save();
+            console.log(rider);
+        }
     }
 })();

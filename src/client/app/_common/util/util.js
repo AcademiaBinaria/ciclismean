@@ -4,16 +4,14 @@
         .module('util', ['ui.router', 'ngStorage'])
         .service('UtilService', UtilService)
 
-    function UtilService($localStorage, $state, $rootScope) {
+    function UtilService($localStorage, $state) {
         var roles = ['Sprinter', 'Todoterreno', 'Escalador', 'Cazaetapas', 'Gregario', 'Líder de equipo', 'Contrarrelojista'];
-
         this.saveSession = function (username, token) {
             $localStorage.username = username;
             $localStorage.xAccessToken = token;
         }
 
         this.removeSession = function () {
-            $rootScope.username = undefined;
             delete $localStorage['xAccessToken'];
             delete $localStorage['username'];
             $state.go('home');
@@ -25,7 +23,6 @@
 
         this.isLogged = function () {
             if ($localStorage.xAccessToken) {
-                $rootScope.username = $localStorage.username;
                 return {
                     username: $localStorage.username,
                     token: $localStorage.xAccessToken
@@ -33,6 +30,14 @@
             } else {
                 return undefined;
             }
+        }
+
+        this.getSession = function (username, token) {
+            return $localStorage.username;
+        }
+
+        this.getSafeName = function (name) {
+            return name.split(" ").join("_");
         }
 
         this.calculateAge = function (birthday) {
