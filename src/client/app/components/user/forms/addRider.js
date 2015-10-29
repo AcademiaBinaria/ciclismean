@@ -27,7 +27,9 @@
         var vm = this;
         vm.rider = new ridersDataService.riders();
         vm.roles = UtilService.getRoles();
-        teamsDataService.gettingTeams().then(function (data) {
+        teamsDataService.gettingTeams({
+            limit: 100
+        }).then(function (data) {
             vm.teams = data;
         });
         vm.showMessage = false;
