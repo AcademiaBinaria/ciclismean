@@ -68,5 +68,9 @@
             return (ageDate.getUTCFullYear() - 1970);
         };
 
+        this.has_error = function (form, field) {
+            return (form.$submitted || field.$touched) && field.$invalid;
+        }
+
     }
 })();

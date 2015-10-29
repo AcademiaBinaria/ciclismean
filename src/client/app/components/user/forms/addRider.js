@@ -25,20 +25,26 @@
 
     function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService) {
         var vm = this;
-        vm.rider = new ridersDataService.riders();
-        vm.roles = UtilService.getRoles();
-        competitionDataService.gettingCompetitions({
-            limit: 100
-        }).then(function (data) {
-            vm.competitions = data;
-            console.log(data);
-        });
-        teamsDataService.gettingTeams({
-            limit: 100
-        }).then(function (data) {
-            vm.teams = data;
-        });
-        vm.showMessage = false;
+        var limit = 100;
+        vm.has_error = UtilService.has_error;
+
+        init();
+
+        function init() {
+            vm.rider = new ridersDataService.riders();
+            vm.roles = UtilService.getRoles();
+            competitionDataService.gettingCompetitions({
+                limit: limit
+            }).then(function (data) {
+                vm.competitions = data;
+            });
+            teamsDataService.gettingTeams({
+                limit: limit
+            }).then(function (data) {
+                vm.teams = data;
+            });
+            vm.showMessage = false;
+        }
 
         $rootScope.$watch(function () {
             return vm.team_rol
@@ -85,10 +91,10 @@
         };
 
         vm.saveRider = function () {
-            var rider = vm.rider.$save();
-            console.log(rider);
-            if (rider)
+            if (!vm.addRiderForm.$invalid) {
+                var rider = vm.rider.$save();
                 vm.showMessage = true;
+            }
         }
     }
 })();
