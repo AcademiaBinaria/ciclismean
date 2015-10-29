@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <label>Rol de equipo:</label>
-            <select ng-options="roles for roles in vm.roles" ng-model="vm.rider.team_rol" required></select>
+            <select ng-options="roles as roles.role for roles in vm.roles" ng-model="vm.team_rol" required></select>
         </div>
         <div class="row">
             <label>Fecha de nacimiento:</label>
@@ -30,10 +30,6 @@
             <input type="number" ng-model="vm.rider.dorsal_actual">
         </div>
         <div class="row">
-            <label>Icono rol:</label>
-            <input type="text" ng-model="vm.rider.rol_icon" placeholder="fa fa-flash, ti-crown ..." required>
-        </div>
-        <div class="row">
             <label>Victorias totales:</label>
             <input type="number" ng-model="vm.rider.total_victories" required>
         </div>
@@ -46,7 +42,7 @@
                 <select ng-options="team.safe_name as team._id for team in vm.teams" ng-model="season.team" required></select>
                 <div ng-repeat="competition in season.palmares">
                     <label>Nombre de la competición:</label>
-                    <input type="text" ng-model="competition.competition">
+                    <select ng-options="competition._id as competition._id for competition in vm.competitions" ng-model="competition.competition" required></select>
                     <label>Posición:</label>
                     <input type="text" ng-model="competition.position" placeholder="1º">
                     <label>Victorias de etapa:</label>
@@ -118,6 +114,10 @@
         <div class="row">
             <label>Victorias:</label>
             <input type="text" ng-model="vm.rider.classicsTotalVictories" placeholder="5" required>
+        </div>
+        <div class="row">
+            <label>¿Ciclista ya retirado?:</label>
+            <input type="checkbox" ng-model="vm.rider.retired">
         </div>
         <div class="row">
             <button type="submit" class="btn btn-default" ng-click="vm.saveRider()">Guardar Corredor</button>

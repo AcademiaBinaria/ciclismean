@@ -23,16 +23,48 @@
         }
     }
 
-    function controller(UtilService, teamsDataService, ridersDataService, $state) {
+    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService) {
         var vm = this;
         vm.rider = new ridersDataService.riders();
         vm.roles = UtilService.getRoles();
+        competitionDataService.gettingCompetitions({
+            limit: 100
+        }).then(function (data) {
+            vm.competitions = data;
+            console.log(data);
+        });
         teamsDataService.gettingTeams({
             limit: 100
         }).then(function (data) {
             vm.teams = data;
         });
         vm.showMessage = false;
+
+        $rootScope.$watch(function () {
+            return vm.team_rol
+        }, function (newValue, oldValue) {
+            if (newValue) {
+                vm.rider.team_rol = newValue.role;
+                vm.rider.rol_icon = newValue.rol_icon;
+            }
+        });
+
+        $rootScope.$watch(function () {
+            return vm.riderTeam
+        }, function (newValue, oldValue) {
+            if (newValue) {
+                vm.rider.team = vm.riderTeam._id;
+                vm.rider.safe_name_team = vm.riderTeam.safe_name;
+            }
+        });
+
+        $rootScope.$watch(function () {
+            return vm.rider._id;
+        }, function (newValue, oldValue) {
+            if (newValue) {
+                vm.rider.safe_name = UtilService.getSafeName(vm.rider._id);
+            }
+        });
 
         vm.addYear = function () {
             if (!vm.rider.seasons)
@@ -53,9 +85,6 @@
         };
 
         vm.saveRider = function () {
-            vm.rider.team = vm.riderTeam._id;
-            vm.rider.safe_name_team = vm.riderTeam.safe_name;
-            vm.rider.safe_name = UtilService.getSafeName(vm.rider._id);
             var rider = vm.rider.$save();
             console.log(rider);
             if (rider)

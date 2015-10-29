@@ -5,7 +5,28 @@
         .service('UtilService', UtilService)
 
     function UtilService($localStorage, $state) {
-        var roles = ['Sprinter', 'Todoterreno', 'Escalador', 'Cazaetapas', 'Gregario', 'Líder de equipo', 'Contrarrelojista'];
+        var roles = [{
+            role: 'Sprinter',
+            rol_icon: "fa fa-flash"
+        }, {
+            role: 'Todoterreno',
+            rol_icon: "ti-car"
+        }, {
+            role: 'Escalador',
+            rol_icon: "help-font help-mountains"
+        }, {
+            role: 'Cazaetapas',
+            rol_icon: "help-font help-arrow-streamline-target"
+        }, {
+            role: 'Gregario',
+            rol_icon: "ti-settings"
+        }, {
+            role: 'Líder de equipo',
+            rol_icon: "ti-crown"
+        }, {
+            role: 'Contrarrelojista',
+            rol_icon: "ti-timer"
+        }];
         this.saveSession = function (username, token) {
             $localStorage.username = username;
             $localStorage.xAccessToken = token;
@@ -37,7 +58,7 @@
         }
 
         this.getSafeName = function (name) {
-            return name.split(" ").join("_");
+            return name.toLowerCase().split(" ").join("-");
         }
 
         this.calculateAge = function (birthday) {
