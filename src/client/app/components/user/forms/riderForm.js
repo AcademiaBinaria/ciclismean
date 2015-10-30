@@ -56,12 +56,15 @@
 
         function initEditRider() {
             vm.rider = new ridersDataService.rider();
+            vm.riderId = vm.rider._id;
             var url_safe_name = $stateParams.id;
             ridersDataService.gettingRiders({
                 limit: 1,
                 q: 'safe_name:' + url_safe_name
             }).then(function (rider) {
-                vm.rider = rider[0];
+                for (var propertyName in rider[0]) {
+                    vm.rider[propertyName] = rider[0][propertyName];
+                }
                 vm.rider.dob = new Date(Date.parse(vm.rider.dob));
                 vm.teams.forEach(function (team) {
                     if (team._id == vm.rider.team)
@@ -129,7 +132,11 @@
 
         vm.editRider = function () {
             if (!vm.addRiderForm.$invalid) {
-                vm.rider.$save();
+                console.log(vm.rider);
+                vm.rider.$update();
+                /*new ridersDataService.rider({
+                    _id: id
+                }).$delete();*/
                 vm.showMessage = true;
             }
         }
