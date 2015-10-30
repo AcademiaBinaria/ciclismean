@@ -31,24 +31,49 @@
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
-        if ($state.current.name == "add-rider")
-            initAddRider();
-        //initEditRider();
 
-        function initAddRider() {
-            vm.rider = new ridersDataService.riders();
+        init();
+
+        function init() {
             vm.roles = UtilService.getRoles();
             competitionDataService.gettingCompetitions({
                 limit: limit
             }).then(function (data) {
                 vm.competitions = data;
-            });
-            teamsDataService.gettingTeams({
-                limit: limit
-            }).then(function (data) {
-                vm.teams = data;
+                teamsDataService.gettingTeams({
+                    limit: limit
+                }).then(function (data) {
+                    vm.teams = data;
+                    if ($state.current.name == "edit-rider")
+                        initEditRider();
+                    else
+                        vm.rider = new ridersDataService.riders();
+                });
             });
             vm.showMessage = false;
+
+        }
+
+        function initEditRider() {
+            vm.rider = new ridersDataService.rider();
+            var url_safe_name = $stateParams.id;
+            ridersDataService.gettingRiders({
+                limit: 1,
+                q: 'safe_name:' + url_safe_name
+            }).then(function (rider) {
+                vm.rider = rider[0];
+                vm.rider.dob = new Date(Date.parse(vm.rider.dob));
+                vm.teams.forEach(function (team) {
+                    if (team._id == vm.rider.team)
+                        vm.riderTeam = team;
+                });
+                vm.roles.forEach(function (role) {
+                    if (role.role == vm.rider.team_rol) {
+                        vm.team_rol = role;
+                    }
+                });
+            });
+            vm.editPage = ($state.current.name == "edit-rider");
         }
 
         $rootScope.$watch(function () {
@@ -97,7 +122,14 @@
 
         vm.saveRider = function () {
             if (!vm.addRiderForm.$invalid) {
-                var rider = vm.rider.$save();
+                vm.rider.$save();
+                vm.showMessage = true;
+            }
+        }
+
+        vm.editRider = function () {
+            if (!vm.addRiderForm.$invalid) {
+                vm.rider.$save();
                 vm.showMessage = true;
             }
         }

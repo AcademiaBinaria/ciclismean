@@ -55,6 +55,13 @@
     function ridersDataService($resource) {
         var factory = {};
         factory.riders = $resource('api/riders', {});
+        factory.rider = $resource('api/riders/:id', {
+            id: '@_id'
+        }, {
+            'update': {
+                method: 'PUT'
+            }
+        });
         var riderskeywords = $resource('api/riders/keywords/:keywords');
 
         factory.gettingRiders = function (params) {

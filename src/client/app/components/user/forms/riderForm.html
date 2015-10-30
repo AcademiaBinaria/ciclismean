@@ -1,6 +1,6 @@
 <div class="container row">
     <form name="vm.addRiderForm" novalidate>
-        <uib-alert type="success" ng-if="vm.showMessage">Añadido ciclista: {{vm.rider._id}}</uib-alert>
+        <div class="alert alert-success" role="alert" ng-if="vm.showMessage">Añadido ciclista: {{vm.rider._id}}</div>
         <div class=" row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm._id)}">
             <label for="_id">Nombre:</label>
             <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" required>
@@ -61,16 +61,16 @@
             <label>Temporadas</label>
             <div ng-repeat="season in vm.rider.seasons">
                 <label>Año:</label>
-                <input class="form-control" type="number" ng-model="season.year">
+                <input class="form-control" type="text" ng-model="season.year">
                 <label>Equipo:</label>
-                <select class="form-control" ng-options="team.safe_name as team._id for team in vm.teams" ng-model="season.team" required></select>
+                <select class="form-control" ng-options="team._id as team._id for team in vm.teams" ng-model="season.team" required></select>
                 <div ng-repeat="competition in season.palmares">
                     <label>Nombre de la competición:</label>
                     <select class="form-control" ng-options="competition._id as competition._id for competition in vm.competitions" ng-model="competition.competition" required></select>
                     <label>Posición:</label>
                     <input class="form-control" type="text" ng-model="competition.position" placeholder="1º">
                     <label>Victorias de etapa:</label>
-                    <input class="form-control" type="number" ng-model="competition.victories">
+                    <input class="form-control" type="text" ng-model="competition.victories">
                 </div>
                 <button type="button" class="btn btn-default" ng-click="vm.addCompetition(season.palmares)">Añadir competición a la temporada</button>
             </div>
@@ -183,7 +183,8 @@
             </div>
         </div>
         <div class="row">
-            <button type="submit" class="btn btn-default" ng-click="vm.saveRider()">Guardar Corredor</button>
+            <button type="submit" class="btn btn-default" ng-click="vm.saveRider()" ng-if="!vm.editPage">Guardar Corredor</button>
+            <button type="submit" class="btn btn-default" ng-click="vm.editRider()" ng-if="vm.editPage">Editar Corredor</button>
         </div>
     </form>
 </div>
