@@ -11,7 +11,7 @@
         factory.login = $resource('api/users/session');
 
 
-        return factory; //esechinako@gmail.com
+        return factory;
     }
 
     function config($stateProvider) {
@@ -31,9 +31,23 @@
         }
     }
 
-    function controller(usersDataService, UtilService, $state) {
+    function controller(usersDataService, UtilService, $state, ridersDataService) {
         var vm = this;
         if (!UtilService.isLogged())
             $state.go('login');
+
+        vm.findRiders = function () { //Más bonito pls
+            ridersDataService.gettingRidersBykeywords({
+                keywords: vm.keywords
+            }).then(function (riders) {
+                vm.riders = riders;
+            });
+        };
+
+        vm.isSubmit = function (keypressed) {
+            if (keypressed === 13) {
+                vm.findRiders();
+            }
+        }
     }
 })();

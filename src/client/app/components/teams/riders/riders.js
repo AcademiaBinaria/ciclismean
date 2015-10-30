@@ -55,9 +55,14 @@
     function ridersDataService($resource) {
         var factory = {};
         factory.riders = $resource('api/riders', {});
+        var riderskeywords = $resource('api/riders/keywords/:keywords');
 
         factory.gettingRiders = function (params) {
             return factory.riders.query(params).$promise;
+        }
+
+        factory.gettingRidersBykeywords = function (params) {
+            return riderskeywords.query(params).$promise;
         }
 
         return factory;

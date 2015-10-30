@@ -1,36 +1,41 @@
 "use strict";
 (function () {
     angular
-        .module('addRider', ['ui.router', 'formMessages'])
+        .module('riderForm', ['ui.router', 'formMessages'])
         .config(config)
-        .directive('addRider', directive)
+        .directive('riderForm', directive)
 
 
     function config($stateProvider) {
         $stateProvider
             .state('add-rider', {
                 url: '/forms/add-rider',
-                template: '<add-rider></add-rider>'
+                template: '<rider-form></rider-form>'
+            })
+            .state('edit-rider', {
+                url: '/forms/edit-rider/:id',
+                template: '<rider-form></rider-form>'
             });
     }
 
     function directive() {
         return {
-            templateUrl: 'app/components/user/forms/addRider.html',
+            templateUrl: 'app/components/user/forms/riderForm.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
         }
     }
 
-    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService) {
+    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams) {
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
+        if ($state.current.name == "add-rider")
+            initAddRider();
+        //initEditRider();
 
-        init();
-
-        function init() {
+        function initAddRider() {
             vm.rider = new ridersDataService.riders();
             vm.roles = UtilService.getRoles();
             competitionDataService.gettingCompetitions({

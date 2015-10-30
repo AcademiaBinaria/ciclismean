@@ -30,5 +30,13 @@ var schema = {
 }
 crudApi(router, ridersData, schema);
 
+router.get('/keywords/:keywords', function (req, res) {
+    console.log(req.params);
+    ridersData.findingByKeywords(req.params.keywords).then(function (data) {
+        res.send(data);
+    }).fail(function (err) {
+        convert.resError(err, res);
+    });
+});
 
 module.exports = router;
