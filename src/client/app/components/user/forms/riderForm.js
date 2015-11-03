@@ -133,7 +133,9 @@
         vm.editRider = function () {
             if (!vm.addRiderForm.$invalid) {
                 console.log(vm.rider);
-                vm.rider.$update();
+                vm.rider.$update({
+                    _id: vm.riderId
+                });
                 /*new ridersDataService.rider({
                     _id: id
                 }).$delete();*/

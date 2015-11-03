@@ -21,8 +21,8 @@ function inserting(document) {
     return mongodb.inserting(this._colName, document);
 }
 function updating(id,document) {
-     return mongodb.updating(this.colName, { _id: id }, document, null);
+     return mongodb.updating(this._colName, { _id: id }, document, null);
 }
 function removing(id,document) {
-     return mongodb.removing(this.colName, { _id: id }, null);
+     return mongodb.removing(this._colName, { _id: id }, null);
 }

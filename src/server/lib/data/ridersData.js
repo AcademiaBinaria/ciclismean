@@ -6,7 +6,14 @@ var crudData = require('./util/crudData.js')
     });
 
 exports.crud = crudData;
+
 var mongodb = require('./util/mongodb.js');
+exports.findingById = function (id) {
+    return mongodb.findingOne(colName, {
+        _id: id
+    }, null);
+}
+
 
 exports.findingByKeywords = function (keywords) {
     var rq = {
