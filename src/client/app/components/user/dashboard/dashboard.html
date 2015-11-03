@@ -2,7 +2,7 @@
     <h1>Dashboard</h1>
     <ul class="list-group">
         <a class="list-group-item" ui-sref="add-rider">Crear ciclistas</a>
-        <a class="list-group-item" href="#">Crear equipos</a>
+        <a class="list-group-item" ui-sref="edit-team">Crear/Editar equipos</a>
         <a class="list-group-item" href="#">Crear competiciones</a>
     </ul>
     <input type="text" class="form-control" placeholder="Buscador de ciclistas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">

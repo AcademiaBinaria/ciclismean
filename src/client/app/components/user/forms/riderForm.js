@@ -35,6 +35,7 @@
         init();
 
         function init() {
+            vm.message = "Añadido ciclista: ";
             vm.roles = UtilService.getRoles();
             competitionDataService.gettingCompetitions({
                 limit: limit
@@ -55,6 +56,7 @@
         }
 
         function initEditRider() {
+            vm.message = "Editado ciclista: ";
             vm.rider = new ridersDataService.rider();
             vm.riderId = vm.rider._id;
             var url_safe_name = $stateParams.id;

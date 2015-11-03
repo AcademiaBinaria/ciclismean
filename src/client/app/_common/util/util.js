@@ -61,6 +61,10 @@
             return name.toLowerCase().split(" ").join("-");
         }
 
+        this.getTeamSafeName = function (name) {
+            return name.toLowerCase().split(" ").join("_");
+        }
+
         this.calculateAge = function (birthday) {
             var dateOfBirth = new Date(birthday);
             var ageDifMs = Date.now() - dateOfBirth.getTime();

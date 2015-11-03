@@ -54,10 +54,10 @@
     function teamsDataService($resource) {
         var factory = {};
 
-        var teams = $resource('api/teams', {});
+        factory.teams = $resource('api/teams', {});
 
         factory.gettingTeams = function (params) {
-            return teams.query(params).$promise;
+            return factory.teams.query(params).$promise;
         }
 
         return factory;

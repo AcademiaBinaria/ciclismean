@@ -1,0 +1,68 @@
+<div class="container row">
+    <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}}: {{vm.team._id}}</div>
+    <div class="row">
+        <button class="btn btn-default" ng-click="vm.addForm()" ng-if="!vm.showForm">Añadir Equipo</button>
+    </div>
+    <table class="table table-striped" ng-if="!vm.showForm">
+        <tr>
+            <th>Nombre</th>
+            <th class="righty">Safe name</th>
+            <th class="righty">País</th>
+            <th class="righty">UCI</th>
+            <th class="righty">Status</th>
+            <th class="righty"></th>
+            <th class="righty"></th>
+        </tr>
+        <tr ng-repeat=" team in vm.teams ">
+            <th>{{team._id}}</th>
+            <th class="righty">{{team.safe_name}}</th>
+            <th class="righty">{{team.country}}</th>
+            <th class="righty">{{team.uci}}</th>
+            <th class="righty">{{team.status}}</th>
+            <th class="righty">
+                <a href="#" ng-click="vm.editForm($index)"><span class="glyphicon glyphicon-pencil"></span></a>
+            </th>
+            <th class="righty">
+                <a href="#" style="color: red"><span class="glyphicon glyphicon-remove"></span></a>
+            </th>
+        </tr>
+    </table>
+    <form name="vm.addTeamForm" novalidate>
+        <div ng-if="vm.showForm">
+            <div class=" row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm._id)}">
+                <label for="_id">Nombre de Equipo:</label>
+                <input type="text" name="_id" ng-model="vm.team._id" class="form-control" placeholder="Movistar" required>
+                <input type="text" name="_id" ng-model="vm.team.safe_name" class="form-control" placeholder="movistar" required disabled>
+                <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm._id)">
+                    <form-messages field="vm.addTeamForm._id"></form-messages>
+                </div>
+            </div>
+            <div class=" row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm.uci)}">
+                <label for="uci">Código UCI:</label>
+                <input type="text" name="uci" ng-model="vm.team.uci" class="form-control" placeholder="MOV" required>
+                <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm.uci)">
+                    <form-messages field="vm.addTeamForm.uci"></form-messages>
+                </div>
+            </div>
+            <div class=" row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm.status)}">
+                <label for="status">Status:</label>
+                <input type="text" name="status" ng-model="vm.team.status" class="form-control" placeholder="WT, PC" required>
+                <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm.status)">
+                    <form-messages field="vm.addTeamForm.status"></form-messages>
+                </div>
+            </div>
+            <div class=" row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm.country)}">
+                <label for="country">País:</label>
+                <input type="text" name="country" ng-model="vm.team.country" class="form-control" placeholder="España" required>
+                <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm.country)">
+                    <form-messages field="vm.addTeamForm.country"></form-messages>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default" ng-click="vm.saveTeam()" ng-if="vm.add">Guardar Equipo</button>
+                <button type="submit" class="btn btn-default" ng-click="vm.editRider()" ng-if="!vm.add">Editar Equipo</button>
+            </div>
+        </div>
+    </form>
+</div>
+<pre>{{vm.team | json}}</pre>
