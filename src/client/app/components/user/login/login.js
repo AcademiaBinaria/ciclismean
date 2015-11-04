@@ -23,9 +23,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/user/login/login.html',
+            templateUrl: UtilService.host + 'app/components/user/login/login.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

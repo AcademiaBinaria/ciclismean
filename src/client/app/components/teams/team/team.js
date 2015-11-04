@@ -13,9 +13,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/teams/team/team.html',
+            templateUrl: UtilService.host + 'app/components/teams/team/team.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

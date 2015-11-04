@@ -22,9 +22,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/user/dashboard/dashboard.html',
+            templateUrl: UtilService.host + 'app/components/user/dashboard/dashboard.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

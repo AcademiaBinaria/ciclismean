@@ -14,9 +14,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/competitions/competitions.html',
+            templateUrl: UtilService.host + 'app/components/competitions/competitions.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

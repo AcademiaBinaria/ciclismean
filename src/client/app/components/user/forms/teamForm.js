@@ -14,9 +14,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/user/forms/teamForm.html',
+            templateUrl: UtilService.host + 'app/components/user/forms/teamForm.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

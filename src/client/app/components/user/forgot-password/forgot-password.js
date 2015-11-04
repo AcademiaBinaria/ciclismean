@@ -13,9 +13,9 @@
             });
     }
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/user/forgot-password/forgot-password.html',
+            templateUrl: UtilService.host + 'app/components/user/forgot-password/forgot-password.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

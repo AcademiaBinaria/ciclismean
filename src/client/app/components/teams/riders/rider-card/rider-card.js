@@ -4,9 +4,9 @@
         .module('riderCard', [])
         .directive('riderCard', directive)
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/components/teams/riders/rider-card/rider-card.html',
+            templateUrl: UtilService.host + 'app/components/teams/riders/rider-card/rider-card.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true,
