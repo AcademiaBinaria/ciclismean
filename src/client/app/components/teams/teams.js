@@ -51,10 +51,10 @@
         }
     }
 
-    function teamsDataService($resource) {
+    function teamsDataService($resource, UtilService) {
         var factory = {};
 
-        factory.teams = $resource('api/teams', {});
+        factory.teams = $resource(UtilService.host + 'api/teams', {});
 
         factory.gettingTeams = function (params) {
             return factory.teams.query(params).$promise;
