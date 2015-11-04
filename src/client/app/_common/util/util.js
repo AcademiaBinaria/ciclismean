@@ -32,6 +32,8 @@
             $localStorage.xAccessToken = token;
         }
 
+        this.host = "http://localhost:3000/";
+
         this.removeSession = function () {
             delete $localStorage['xAccessToken'];
             delete $localStorage['username'];

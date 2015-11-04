@@ -4,9 +4,9 @@
         .module('footer', [])
         .directive('footerbar', directive)
 
-    function directive() {
+    function directive(UtilService) {
         return {
-            templateUrl: 'app/_common/footer/footer.html',
+            templateUrl: UtilService.host + 'app/_common/footer/footer.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
