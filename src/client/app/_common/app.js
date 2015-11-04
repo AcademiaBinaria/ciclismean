@@ -3,7 +3,7 @@
 angular
     .module('template', ['ui.router', 'ui.bootstrap', 'ngStorage', 'main', 'navbar', 'footer', 'user', 'teams', 'competitions', 'util', 'dashboard', 'riderForm', 'teamForm'])
     .constant('settings', {
-        urlBase: 'http://localhost:3030'
+        urlBase: 'http://localhost:3000/'
     })
     .config(function ($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([

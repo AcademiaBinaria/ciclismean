@@ -4,7 +4,7 @@
         .module('util', ['ui.router', 'ngStorage'])
         .service('UtilService', UtilService)
 
-    function UtilService($localStorage, $state) {
+    function UtilService($localStorage, $state, settings) {
         var roles = [{
             role: 'Sprinter',
             rol_icon: "fa fa-flash"
@@ -32,7 +32,7 @@
             $localStorage.xAccessToken = token;
         }
 
-        this.host = "http://localhost:3000/";
+        this.host = settings.urlBase;
 
         this.removeSession = function () {
             delete $localStorage['xAccessToken'];
