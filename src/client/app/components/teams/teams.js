@@ -27,7 +27,7 @@
         }
     }
 
-    function controller(teamsDataService) {
+    function controller(teamsDataService, UtilService) {
         var vm = this;
 
         function getTeams(status) {
@@ -37,6 +37,11 @@
                 q: 'status:' + status
             });
         }
+
+        vm.getMaillot = function (team) {
+            return UtilService.host + "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
+        };
+
 
         init();
 

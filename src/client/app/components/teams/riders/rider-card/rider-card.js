@@ -16,9 +16,17 @@
         }
     }
 
-    function controller(UtilService) {
+    function controller(UtilService, riderLogicService) {
         var vm = this;
         init();
+
+        vm.getRiderImage = riderLogicService.getRiderImageUrl(vm.riderId);
+
+        vm.getRiderFlag = riderLogicService.getRiderFlag(vm.riderId.country);
+
+        vm.getMaillot = function (team) {
+            return UtilService.host + "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
+        };
 
         function init() {
             vm.year = new Date().getFullYear();

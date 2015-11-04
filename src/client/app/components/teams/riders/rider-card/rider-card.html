@@ -6,9 +6,9 @@
             </div>
         </div>
         <div class="rider-flag">
-            <img itemprop="nacionality" ng-src="assets/images/flags/{{vm.riderId.country}}.png" />
+            <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
         </div>
-        <img ng-src="assets/images/riders_img/{{vm.year}}/{{vm.riderId.safe_name_team}}/{{vm.riderId.safe_name}}.jpg" ng-attr-alt="{{vm.riderId._id}}" width="240" heigth="304" />
+        <img ng-src="{{vm.getRiderImage}}" ng-attr-alt="{{vm.riderId._id}}" width="240" heigth="304" />
         <div class="team-name-wrapper text-center" itemprop="affiliation">{{vm.riderId.team}}</div>
     </a>
 </div>

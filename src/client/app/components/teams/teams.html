@@ -3,7 +3,7 @@
         <p class="text-center">Equipos World Tour</p>
         <div ng-repeat="team in vm.teams_WT" class="col-md-3">
             <a ui-sref="team({id: team._id, year: vm.year})">
-                <img ng-src="/assets/images/teams_covers/{{vm.year}}/{{team.safe_name}}.png" ng-attr-alt="{{team._id}}" />
+                <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
             </a>
             <h4 class="text-center">{{team._id}}</h3>
             <p class="text-center">{{team.country}}</p>
@@ -13,7 +13,7 @@
         <p class="text-center">Equipos Pro Continental Team</p>
         <div ng-repeat="team in vm.teams_PCT" class="col-md-3">
             <a ui-sref="team({id: team._id})">
-                <img ng-src="/assets/images/teams_covers/{{vm.year}}/{{team.safe_name}}.png" ng-attr-alt="{{team._id}}" />
+                <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
             </a>
             <h4 class="text-center">{{team._id}}</h3>
             <p class="text-center">{{team.country}}</p>
