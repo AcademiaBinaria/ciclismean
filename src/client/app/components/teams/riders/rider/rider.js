@@ -42,11 +42,11 @@
         }
     }
 
-    function riderLogicService() {
+    function riderLogicService(UtilService) {
         var factory = {};
 
         factory.getRiderFlag = function (country) {
-            return "assets/images/flags/" + country + ".png";
+            return UtilService.host + "assets/images/flags/" + country + ".png";
         }
 
         factory.getRiderAge = function (dob) {
@@ -60,7 +60,7 @@
             var year = new Date().getFullYear();
             var team = rider.safe_name_team;
             var rider = rider.safe_name;
-            return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
+            return UtilService.host + "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
         }
 
         return factory;

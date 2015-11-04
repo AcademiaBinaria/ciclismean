@@ -6,10 +6,10 @@
         .directive('login', directive)
         .factory('usersDataService', usersDataService)
 
-    function usersDataService($resource) {
+    function usersDataService($resource, UtilService) {
         var factory = {};
 
-        factory.login = $resource('api/users/session');
+        factory.login = $resource(UtilService.host + 'api/users/session');
 
 
         return factory;

@@ -52,10 +52,10 @@
 
     }
 
-    function ridersDataService($resource) {
+    function ridersDataService($resource, UtilService) {
         var factory = {};
-        factory.riders = $resource('api/riders', {});
-        factory.rider = $resource('api/riders/:id', {
+        factory.riders = $resource(UtilService.host + 'api/riders', {});
+        factory.rider = $resource(UtilService.host + 'api/riders/:id', {
             id: '@_id'
         }, {
             'update': {
