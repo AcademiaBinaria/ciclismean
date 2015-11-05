@@ -4,9 +4,9 @@
         .module('riderCard', [])
         .directive('riderCard', directive)
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/teams/riders/rider-card/rider-card.html',
+            templateUrl: 'app/components/teams/riders/rider-card/rider-card.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true,
@@ -25,7 +25,7 @@
         vm.getRiderFlag = riderLogicService.getRiderFlag(vm.riderId.country);
 
         vm.getMaillot = function (team) {
-            return UtilService.host + "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
+            return "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
         };
 
         function init() {

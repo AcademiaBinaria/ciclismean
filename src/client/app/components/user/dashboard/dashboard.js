@@ -5,15 +5,6 @@
         .config(config)
         .directive('dashboard', directive)
 
-    function usersDataService($resource) {
-        var factory = {};
-
-        factory.login = $resource('api/users/session');
-
-
-        return factory;
-    }
-
     function config($stateProvider) {
         $stateProvider
             .state('dashboard', {
@@ -22,9 +13,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/user/dashboard/dashboard.html',
+            templateUrl: 'app/components/user/dashboard/dashboard.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

@@ -6,10 +6,10 @@
         .directive('login', directive)
         .factory('usersDataService', usersDataService)
 
-    function usersDataService($resource, UtilService) {
+    function usersDataService($resource) {
         var factory = {};
 
-        factory.login = $resource(UtilService.host + 'api/users/session');
+        factory.login = $resource('api/users/session');
 
 
         return factory;
@@ -23,9 +23,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/user/login/login.html',
+            templateUrl: 'app/components/user/login/login.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true

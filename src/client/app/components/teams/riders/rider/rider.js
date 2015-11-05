@@ -14,9 +14,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/teams/riders/rider/rider.html',
+            templateUrl: 'app/components/teams/riders/rider/rider.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
@@ -42,11 +42,11 @@
         }
     }
 
-    function riderLogicService(UtilService) {
+    function riderLogicService() {
         var factory = {};
 
         factory.getRiderFlag = function (country) {
-            return UtilService.host + "assets/images/flags/" + country + ".png";
+            return "assets/images/flags/" + country + ".png";
         }
 
         factory.getRiderAge = function (dob) {
@@ -60,7 +60,7 @@
             var year = new Date().getFullYear();
             var team = rider.safe_name_team;
             var rider = rider.safe_name;
-            return UtilService.host + "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
+            return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
         }
 
         return factory;

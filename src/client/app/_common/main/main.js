@@ -4,9 +4,9 @@
         .module('main', ['ngAnimate'])
         .directive('mainContent', directive)
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/_common/main/main.html',
+            templateUrl: 'app/_common/main/main.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
