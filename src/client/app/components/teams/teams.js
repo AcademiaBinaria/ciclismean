@@ -61,6 +61,14 @@
 
         factory.teams = $resource(UtilService.host + 'api/teams', {});
 
+        factory.team = $resource(UtilService.host + 'api/teams/:id', {
+            id: '@_id'
+        }, {
+            'update': {
+                method: 'PUT'
+            }
+        });
+
         factory.gettingTeams = function (params) {
             return factory.teams.query(params).$promise;
         }

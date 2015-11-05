@@ -38,7 +38,7 @@
         vm.has_error = function (form, field) {
             if (field.$error.invalidtoken)
                 return true;
-            return (form.$submitted || field.$touched) && field.$invalid;
+            return UtilService.has_error(form, field);
         }
 
         vm.submit = function (form, field) {

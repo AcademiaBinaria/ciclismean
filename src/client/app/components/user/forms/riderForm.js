@@ -27,7 +27,7 @@
         }
     }
 
-    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams) {
+    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams, $anchorScroll, $scope, $location) {
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
@@ -144,5 +144,7 @@
                 vm.showMessage = true;
             }
         }
+
+
     }
 })();
