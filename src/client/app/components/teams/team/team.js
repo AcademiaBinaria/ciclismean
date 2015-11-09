@@ -15,7 +15,7 @@
 
     function directive() {
         return {
-            templateUrl: +'app/components/teams/team/team.html',
+            templateUrl: 'app/components/teams/team/team.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
