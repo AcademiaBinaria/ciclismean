@@ -14,9 +14,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/teams/riders/riders.html',
+            templateUrl: 'app/components/teams/riders/riders.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
@@ -52,10 +52,10 @@
 
     }
 
-    function ridersDataService($resource, UtilService) {
+    function ridersDataService($resource) {
         var factory = {};
-        factory.riders = $resource(UtilService.host + 'api/riders', {});
-        factory.rider = $resource(UtilService.host + 'api/riders/:id', {
+        factory.riders = $resource('api/riders', {});
+        factory.rider = $resource('api/riders/:id', {
             id: '@_id'
         }, {
             'update': {

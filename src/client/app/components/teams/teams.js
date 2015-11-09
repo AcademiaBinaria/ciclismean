@@ -18,9 +18,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/teams/teams.html',
+            templateUrl: 'app/components/teams/teams.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
@@ -39,7 +39,7 @@
         }
 
         vm.getMaillot = function (team) {
-            return UtilService.host + "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
+            return "assets/images/teams_covers/" + vm.year + "/" + team + ".png"
         };
 
 
@@ -56,10 +56,18 @@
         }
     }
 
-    function teamsDataService($resource, UtilService) {
+    function teamsDataService($resource) {
         var factory = {};
 
-        factory.teams = $resource(UtilService.host + 'api/teams', {});
+        factory.teams = $resource('api/teams', {});
+
+        factory.team = $resource('api/teams/:id', {
+            id: '@_id'
+        }, {
+            'update': {
+                method: 'PUT'
+            }
+        });
 
         factory.gettingTeams = function (params) {
             return factory.teams.query(params).$promise;

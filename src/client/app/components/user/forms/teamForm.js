@@ -14,9 +14,9 @@
             });
     }
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/components/user/forms/teamForm.html',
+            templateUrl: 'app/components/user/forms/teamForm.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
@@ -28,6 +28,7 @@
         var limit = 100;
         vm.has_error = UtilService.has_error;
         vm.showForm = false;
+        vm.team_id = "";
 
         init();
 
@@ -36,7 +37,6 @@
                 limit: limit
             }).then(function (data) {
                 vm.teams = data;
-                vm.team = new teamsDataService.teams();
             });
             vm.showMessage = false;
 
@@ -53,6 +53,7 @@
         });
 
         vm.addForm = function () {
+            vm.team = new teamsDataService.teams();
             if (!vm.addTeamForm.$invalid) {
                 vm.showForm = true;
                 vm.add = true;
@@ -63,15 +64,17 @@
             if (!vm.addTeamForm.$invalid) {
                 vm.showForm = true;
                 vm.add = false;
+                vm.team = new teamsDataService.team();
                 for (var propertyName in vm.teams[index]) {
                     vm.team[propertyName] = vm.teams[index][propertyName];
                 }
+
             }
         };
 
         vm.saveTeam = function () {
             if (!vm.addTeamForm.$invalid) {
-                console.log(vm.team);
+                vm.team_id = vm.team._id;
                 if (vm.add) {
                     vm.team.$save();
                     vm.teams.push(vm.team);
@@ -80,6 +83,19 @@
                 /*else{vm.message = "Editado equipo: ";
                                     vm.team
                                 }*/
+                vm.showMessage = true;
+                vm.showForm = false;
+            }
+        }
+
+        vm.editTeam = function () {
+            if (!vm.addTeamForm.$invalid) {
+                vm.team_id = vm.team._id;
+                if (!vm.add) {
+                    vm.team.$update();
+                    vm.message = "Editado equipo: ";
+                    init();
+                }
                 vm.showMessage = true;
                 vm.showForm = false;
             }

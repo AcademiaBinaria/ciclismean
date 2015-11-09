@@ -32,8 +32,6 @@
             $localStorage.xAccessToken = token;
         }
 
-        this.host = settings.urlBase;
-
         this.removeSession = function () {
             delete $localStorage['xAccessToken'];
             delete $localStorage['username'];

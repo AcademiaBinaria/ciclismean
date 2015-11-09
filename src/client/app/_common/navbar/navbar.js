@@ -4,9 +4,9 @@
         .module('navbar', ['ui.router'])
         .directive('navbar', directive)
 
-    function directive(UtilService) {
+    function directive() {
         return {
-            templateUrl: UtilService.host + 'app/_common/navbar/navbar.html',
+            templateUrl: 'app/_common/navbar/navbar.html',
             controller: controller,
             controllerAs: "vm",
             bindToController: true
