@@ -11,6 +11,10 @@ module.exports = {
     mongoUrl: "mongodb://your.server:port/example",
     /** logging level: debug | production */
     logMode: "debug",
-     /** cache mode: off | on */
-    cacheMode: "off"
+    /** cache mode: off | on */
+    cacheMode: "off",
+    /** jwt secret*/
+    secret: "ciclismean",
+    /** GCM APIkey for push notifications*/
+    APIkey: "AIzaSyB1iUfH6A3p9W3a7g52d6zm5dzXiHVWU74"
 };

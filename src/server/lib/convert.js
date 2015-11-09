@@ -1,4 +1,6 @@
 var logger = require('./logger.js');
+var gcm = require('node-gcm');
+var settings = require('./settings.js');
 
 module.exports = {
     /** promise to response */
@@ -19,6 +21,8 @@ function promise2response(prom, res, statusOk) {
                 res.status(404).json();
             } else {
                 logger.debug("result: ", JSON.stringify(result));
+                if (statusOk == 201)
+                    sendNotification(result);
                 res.status(statusOk).json(result);
             }
         })
@@ -94,4 +98,24 @@ function resError(err, res, code) {
     var status = code || 500;
     logger.debug(err);
     res.status(status).send(err);
+}
+
+function sendNotification(result) {
+    var message = new gcm.Message();
+    var sender = new gcm.Sender(settings.APIkey);
+    var regTokens = ['dXKskZZxKys:APA91bGPAC1UUQhAt440hZ-blUqdc9Cmd_mMdTQj-aXi9EvOfyMkksXlhhS9nMnizsvwkk4vjARNYza2M8NHJEFbJVttD_B_8rAUE-puU6SFo9hrzxpMQsxB3tcYtg8LGePCyAdR6uYw'];
+
+    message.addData('message', result._id + " | " + result.team);
+    message.addData('title', 'Nuevo ciclista');
+    message.timeToLive = 3000;
+    console.log(regTokens);
+    sender.send(message, {
+        registrationIds: regTokens
+    }, function (err, result) {
+        if (err)
+            console.log(err);
+        else
+            console.log(result);
+    });
+
 }
