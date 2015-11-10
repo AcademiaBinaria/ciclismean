@@ -1,27 +1,27 @@
 <div>
     <br>
     <div class="col-md-6">
-        <img ng-src="{{vm.imageUrl}}" alt="">
-        <h2>{{vm.rider._id}}</h2>
-        <p>{{vm.rider.team_rol}}</p>
-        <p>{{vm.rider.dob | date:'dd/MM/yyyy'}}</p>
-        <p>{{vm.rider.age}} años</p>
-        <p>{{vm.rider.lob}}</p>
-        <p>Nacionalidad: <img ng-src="{{vm.rider.flag}}" alt=""></p>
+        <img ng-src="{{::vm.imageUrl}}" alt="">
+        <h2>{{::vm.rider._id}}</h2>
+        <p>{{::vm.rider.team_rol}}</p>
+        <p>{{::vm.rider.dob | date:'dd/MM/yyyy'}}</p>
+        <p>{{::vm.rider.age}} años</p>
+        <p>{{::vm.rider.lob}}</p>
+        <p>Nacionalidad: <img ng-src="{{::vm.rider.flag}}" alt=""></p>
         <!--<p>{{vm.rider.rol_icon}}</p> Icono del Rol-->
         <h3>Victorias</h3>
-        <p>Totales: {{vm.rider.total_victories}}</p>
-        <p>Tour: {{vm.rider.tourTotalVictories}}</p>
-        <p>Giro: {{vm.rider.giroTotalVictories}}</p>
-        <p>Vuelta: {{vm.rider.vueltaTotalVictories}}</p>
+        <p>Totales: {{::vm.rider.total_victories}}</p>
+        <p>Tour: {{::vm.rider.tourTotalVictories}}</p>
+        <p>Giro: {{::vm.rider.giroTotalVictories}}</p>
+        <p>Vuelta: {{::vm.rider.vueltaTotalVictories}}</p>
     </div>
     <div class="col-md-6">
         <div ng-repeat="season in vm.rider.seasons">
-            <h4>Año {{season.year}} | Equipo: {{season.team}}</h4>
+            <h4>Año {{::season.year}} | Equipo: {{::season.team}}</h4>
             <div ng-repeat="competition in season.palmares">
-                <h5>{{competition.competition}}</h5>
-                <div>Posición: {{competition.position}}</div>
-                <div>Etapas ganadas: {{competition.victories}}</div>
+                <h5>{{::competition.competition}}</h5>
+                <div>Posición: {{::competition.position}}</div>
+                <div>Etapas ganadas: {{::competition.victories}}</div>
             </div>
         </div>
     </div>

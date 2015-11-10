@@ -1,7 +1,7 @@
 "use strict";
 
 angular
-    .module('template', ['ui.router', 'ui.bootstrap', 'ngStorage', 'main', 'navbar', 'footer', 'user', 'teams', 'competitions', 'util', 'dashboard', 'riderForm', 'teamForm'])
+    .module('template', ['ui.router', 'ui.bootstrap', 'ngStorage', 'main', 'navbar', 'footer', 'user', 'teams', 'competitions', 'util', 'dashboard', 'riderForm', 'teamForm', 'competitionForm'])
     .constant('settings', {
         urlBase: 'http://localhost:3000/'
     })

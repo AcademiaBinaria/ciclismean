@@ -3,7 +3,8 @@
         <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}}</div>
         <div class=" row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm._id)}">
             <label for="_id">Nombre:</label>
-            <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" required>
+            <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="!vm.editPage" required>
+            <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="vm.editPage" required disabled>
             <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm._id)">
                 <form-messages field="vm.addRiderForm._id"></form-messages>
             </div>

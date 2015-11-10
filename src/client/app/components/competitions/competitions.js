@@ -43,10 +43,17 @@
     function competitionDataService($resource) {
         var factory = {};
 
-        var competitions = $resource('api/competitions', {});
+        factory.competitions = $resource('api/competitions', {});
+        factory.competition = $resource('api/competitions/:id', {
+            id: '@_id'
+        }, {
+            'update': {
+                method: 'PUT'
+            }
+        });
 
         factory.gettingCompetitions = function (params) {
-            return competitions.query(params).$promise;
+            return factory.competitions.query(params).$promise;
         }
 
         return factory;

@@ -3,7 +3,7 @@
     <ul class="list-group">
         <a class="list-group-item" ui-sref="add-rider">Crear ciclistas</a>
         <a class="list-group-item" ui-sref="edit-team">Crear/Editar equipos</a>
-        <a class="list-group-item" href="#">Crear competiciones</a>
+        <a class="list-group-item" ui-sref="edit-competitons">Crear/Editar competiciones</a>
     </ul>
     <input type="text" class="form-control" placeholder="Buscador de ciclistas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
     <button type="submit" class="btn btn-default" ng-click="vm.findRiders()">Buscar</button>

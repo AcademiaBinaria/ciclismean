@@ -9,7 +9,7 @@
     function config($stateProvider) {
         $stateProvider
             .state('edit-team', {
-                url: '/forms/edit-team',
+                url: '/forms/teams',
                 template: '<team-form></team-form>'
             });
     }
@@ -23,7 +23,7 @@
         }
     }
 
-    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams) {
+    function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, $stateParams) {
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
