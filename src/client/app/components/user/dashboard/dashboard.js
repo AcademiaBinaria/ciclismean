@@ -40,5 +40,15 @@
                 vm.findRiders();
             }
         }
+
+        vm.removeRider = function (index) {
+            vm.rider = new ridersDataService.rider();
+            vm.rider._id = vm.riders[index]._id;
+            vm.rider.$delete().then(function () {
+                vm.message = "Borrado ciclista: ";
+                vm.showMessage = true;
+                vm.findRiders();
+            });
+        }
     }
 })();

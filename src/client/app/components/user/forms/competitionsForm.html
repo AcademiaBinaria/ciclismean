@@ -2,6 +2,7 @@
     <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.competition._id}}</div>
     <div class="row">
         <button class="btn btn-default" ng-click="vm.addForm()" ng-if="!vm.showForm">Añadir Competición</button>
+        <button type="submit" class="btn btn-default" ui-sref="dashboard">Volver al Dashboard</button>
     </div>
     <table class="table table-striped" ng-if="!vm.showForm">
         <tr>
@@ -17,7 +18,24 @@
                 <a href="#" ng-click="vm.editForm($index)"><span class="glyphicon glyphicon-pencil"></span></a>
             </th>
             <th class="righty">
-                <a href="#" style="color: red" ng-click="vm.removeCompetition($index)"><span class="glyphicon glyphicon-remove"></span></a>
+                <a href="#" data-toggle="modal" data-target="#myModal{{$index}}">
+                    <span style="color: red" class="glyphicon glyphicon-remove"></span>
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">¿Eliminar competición {{competition._id}}?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" ng-click="vm.removeCompetition($index)" data-dismiss="modal">Eliminar</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </th>
         </tr>
     </table>

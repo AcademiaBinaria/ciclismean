@@ -23,7 +23,7 @@
         }
     }
 
-    function controller(UtilService, $state, $rootScope, competitionDataService, $stateParams) {
+    function controller(UtilService, $state, $rootScope, competitionDataService, $stateParams, $scope, $uibModal) {
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
@@ -90,5 +90,6 @@
                 init();
             });
         }
+
     }
 })();

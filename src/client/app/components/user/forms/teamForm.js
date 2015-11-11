@@ -29,6 +29,7 @@
         vm.has_error = UtilService.has_error;
         vm.showForm = false;
         vm.team_id = "";
+        vm.showMessage = false;
 
         init();
 
@@ -38,7 +39,6 @@
             }).then(function (data) {
                 vm.teams = data;
             });
-            vm.showMessage = false;
 
         }
 
@@ -80,9 +80,6 @@
                     vm.teams.push(vm.team);
                     vm.message = "Añadido equipo: ";
                 }
-                /*else{vm.message = "Editado equipo: ";
-                                    vm.team
-                                }*/
                 vm.showMessage = true;
                 vm.showForm = false;
             }
@@ -100,5 +97,16 @@
                 vm.showForm = false;
             }
         }
+
+        vm.removeTeam = function (index) {
+            vm.team = new teamsDataService.team();
+            vm.team._id = vm.teams[index]._id;
+            vm.team.$delete().then(function () {
+                vm.message = "Borrado equipo: ";
+                vm.showMessage = true;
+                init();
+            });
+        }
+
     }
 })();

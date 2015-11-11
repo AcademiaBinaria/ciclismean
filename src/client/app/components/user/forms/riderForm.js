@@ -145,6 +145,15 @@
             }
         }
 
+        vm.removeRider = function (index) {
+            vm.rider = new ridersDataService.rider();
+            vm.rider._id = vm.rider[index]._id;
+            vm.rider.$delete().then(function () {
+                vm.message = "Borrado corredor: ";
+                vm.showMessage = true;
+                init();
+            });
+        }
 
     }
 })();
