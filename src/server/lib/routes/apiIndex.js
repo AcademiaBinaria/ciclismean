@@ -8,5 +8,5 @@ module.exports.apiRoutes = function (app) {
     app.use('/api/riders', require('./api/ridersApi.js'));
     app.use('/api/teams', require('./api/teamsApi.js'));
     app.use('/api/competitions', require('./api/competitionsApi.js'));
-    //app.use('/api/notifications', require('./api/notificationsApi.js'));
+    app.use('/api/notifications', require('./api/notificationsApi.js'));
 }
