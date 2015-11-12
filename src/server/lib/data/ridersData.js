@@ -15,7 +15,7 @@ exports.findingById = function (id) {
 }
 
 
-exports.findingByKeywords = function (keywords) {
+exports.findingByKeywords = function (keywords, skip, limit) { //colName, query, proj, skip, limit, sort
     var rq = {
         $regex: ".*" + keywords + ".*",
         $options: 'i'
@@ -32,5 +32,5 @@ exports.findingByKeywords = function (keywords) {
                 }, {
             team_rol: rq
                 }]
-    }, null);
+    }, null, skip, limit);
 }

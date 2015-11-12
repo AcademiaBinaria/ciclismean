@@ -30,25 +30,57 @@
         var skip = 0;
         var limit = 12;
         vm.riders = [];
+        vm.keywords;
+        vm.order = "total_victories";
+        vm.showMore = true;
+        vm.searchByKeywords = false;
 
 
         vm.init = function () {
+            vm.searchByKeywords = false;
             ridersDataService.gettingRiders({
                     limit: limit,
                     skip: skip,
-                    sort: '-_id'
+                    sort: vm.order
                 })
                 .then(function (riders) {
-                    riders.forEach(function (rider) {
-                        rider.age = vm.now - new Date(rider.dob);
-                        rider.age = Math.floor(rider.age / 31536000000);
-                        vm.riders.push(rider);
-                    });
-                    skip += limit;
+                    fillRidersArray(riders)
                 });
         };
 
         vm.init();
+
+        vm.findBykeywords = function () {
+            vm.searchByKeywords = true;
+            ridersDataService.gettingRidersBykeywords({
+                keywords: vm.keywords,
+                limit: limit,
+                skip: skip
+            }).then(function (riders) {
+                fillRidersArray(riders)
+            });
+        }
+
+        vm.isSubmit = function (keypressed) {
+            if (keypressed === 13) {
+                skip = 0;
+                vm.findBykeywords();
+                vm.riders = [];
+
+            }
+        };
+
+        function fillRidersArray(riders) {
+            if (riders.length < limit) {
+                vm.showMore = false;
+            } else {
+                vm.showMore = true;
+            }
+            riders.forEach(function (rider) {
+                vm.riders.push(rider);
+            });
+            skip += limit;
+        }
 
     }
 
