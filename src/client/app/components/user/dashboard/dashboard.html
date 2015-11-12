@@ -15,6 +15,7 @@
             <th class="righty">Nacionalidad</th>
             <th class="righty"></th>
             <th class="righty"></th>
+            <th class="righty"></th>
         </tr>
         <tr ng-repeat=" rider in vm.riders ">
             <th>{{rider._id}}</th>
@@ -22,6 +23,9 @@
             <th class="righty">{{rider.country}}</th>
             <th class="righty">
                 <a ui-sref="edit-rider({id: rider.safe_name})"><span class="glyphicon glyphicon-pencil"></span></a>
+            </th>
+            <th class="righty">
+                <a ui-sref="edit-rider-season({safe_name: rider.safe_name})"><span  style="color: darkorange" class="glyphicon glyphicon-flag"></span></a>
             </th>
             <th class="righty">
                 <a href="#" data-toggle="modal" data-target="#myModal{{$index}}">

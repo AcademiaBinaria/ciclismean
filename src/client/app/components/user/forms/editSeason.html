@@ -1,0 +1,86 @@
+<div class="row">
+    <label>Temporada {{vm.currentSeason.year}}</label>
+    <form name="vm.editSeasonForm">
+        <div ng-repeat="competition in vm.currentSeason.palmares">
+            <label>Posición en {{competition.competition.toUpperCase()}}:</label>
+            <input class="form-control" type="text" ng-model="competition.position" placeholder="1º" required>
+            <label>Victorias de etapa:</label>
+            <input class="form-control" type="text" ng-model="competition.victories" required>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-danger" ui-sref="dashboard">Volver al Dashboard</button>
+    <button type="button" class="btn btn-success" ng-click="vm.editRider()">Actualizar</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#bestResults">Editar mejor resultado de competición</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addSeassonModal">Añadir competición a la temporada</button>
+    <!-- Modal addCompetition-->
+    <div class="modal fade" id="addSeassonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Añadir competición a la temporada</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="vm.addCompetitionForm">
+                        <select class="form-control" ng-options="competition._id as competition._id for competition in vm.competitions" ng-model="vm.competition" required></select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" ng-click="vm.addCompetition()" data-dismiss="modal">Añadir Competición</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal bestResults-->
+    <div class="modal fade" id="bestResults" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Mejores Resultados</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="vm.bestResultsForm">
+                        <p>GIRO</p>
+                        <label>Mejor resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.giroBestResult" required>
+                        <label>Año del mejor Resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.giroYearBestResult" required>
+                        <label>Victorias de etapa</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.giroTotalVictories" required>
+                        <p>TOUR</p>
+                        <label>Mejor resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.tourBestResult" required>
+                        <label>Año del mejor Resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.tourYearBestResult" required>
+                        <label>Victorias de etapa</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.tourTotalVictories" required>
+                        <p>VUELTA</p>
+                        <label>Mejor resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.vueltaBestResult" required>
+                        <label>Año del mejor Resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.vueltaYearBestResult" required>
+                        <label>Victorias de etapa</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.vueltaTotalVictories" required>
+                        <p>MUNDIAL</p>
+                        <label>Mejor resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.wcBestResult" required>
+                        <label>Año del mejor Resultado</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.wcYearBestResult" required>
+                        <p>CLÁSICAS</p>
+                        <label>Victorias</label>
+                        <input class="form-control" type="text" ng-model="vm.rider.classicsTotalVictories" required>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

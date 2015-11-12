@@ -2,7 +2,7 @@
     <div class="row">
         <p class="text-center">Equipos World Tour</p>
         <div ng-repeat="team in vm.teams_WT" class="col-md-3">
-            <a ui-sref="team({id: team._id, year: vm.year})">
+            <a ui-sref="team({id: team.safe_name, year: vm.year})">
                 <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
             </a>
             <h4 class="text-center">{{team._id}}</h3>

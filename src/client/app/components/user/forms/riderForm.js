@@ -31,6 +31,8 @@
         var vm = this;
         var limit = 100;
         vm.has_error = UtilService.has_error;
+        if (!UtilService.isLogged())
+            $state.go('login');
 
         init();
 

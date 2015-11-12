@@ -31,7 +31,7 @@
         function init() {
             ridersDataService.gettingRiders({
                 limit: 50,
-                q: 'team:' + vm.team_id
+                q: 'safe_name_team:' + vm.team_id
             }).then(function (riders) {
                 vm.riders = riders;
             });

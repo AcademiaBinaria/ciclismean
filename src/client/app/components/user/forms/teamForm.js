@@ -30,6 +30,8 @@
         vm.showForm = false;
         vm.team_id = "";
         vm.showMessage = false;
+        if (!UtilService.isLogged())
+            $state.go('login');
 
         init();
 
