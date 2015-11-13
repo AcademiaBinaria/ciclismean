@@ -35,7 +35,7 @@ var schema = {
 
 router.get('/keywords/:keywords', function (req, res) {
         console.log(req.params);
-        ridersData.findingByKeywords(req.params.keywords).then(function (data) {
+        ridersData.findingByKeywords(req.params.keywords, parseInt(req.query.skip), parseInt(req.query.limit)).then(function (data) {
             res.send(data);
         }).fail(function (err) {
             convert.resError(err, res);
@@ -44,7 +44,6 @@ router.get('/keywords/:keywords', function (req, res) {
     .put('/:rider', function (req, res) {
         var tokenDecoded = jwt.decode(req.headers['x-access-token']);
         jwt.verify(req, res);
-        console.log("PUT");
         ridersData.findingById(req.params.rider).then(function (data) {
             res.send(data);
             if (data)

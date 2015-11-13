@@ -5,6 +5,7 @@ var ZSchema = require("z-schema");
 var validator = new ZSchema({});
 var gcm = require('node-gcm');
 var settings = require('../../../settings.js');
+var jwt = require('../../../jwt.js');
 
 module.exports = crudRouter;
 
@@ -42,6 +43,7 @@ function crudRouter(router, data, schema) {
             convert.prom2res(crud.finding(convert.req2mongo(req)), res, 200);
         })
         .post('/', function (req, res) {
+            jwt.verify(req, res);
             if (req.originalUrl == "/api/riders") {
                 sendNotifications(req.body);
             }
