@@ -70,6 +70,13 @@
             }
         };
 
+        vm.orderBy = function (param) {
+            vm.order = param;
+            skip = 0;
+            vm.riders = [];
+            vm.init();
+        }
+
         function fillRidersArray(riders) {
             if (riders.length < limit) {
                 vm.showMore = false;
