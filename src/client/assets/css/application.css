@@ -1,0 +1,65 @@
+/*
+Error: File to import not found or unreadable: base/index.
+       Load path: /Users/marcosfolio/ciclismean/src/client/assets/scss
+        on line 9 of scss/application.scss
+
+4: @import "utilities/index";
+5: 
+6: // ==========================================================================
+7: // Base Styles
+8: // ==========================================================================
+9: @import "base/index";
+10: 
+11: // ==========================================================================
+12: // Layout Styles
+13: // ==========================================================================
+14: @import "layout/index";
+
+Backtrace:
+scss/application.scss:9
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:45:in `import'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin.rb:108:in `method_missing'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:384:in `watch_or_update'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:52:in `parse'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:19:in `parse!'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/bin/sass:13:in `<top (required)>'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `load'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `<main>'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: base/index.\A        Load path: /Users/marcosfolio/ciclismean/src/client/assets/scss\A         on line 9 of scss/application.scss\A \A 4: @import \"utilities/index\";\A 5: \A 6: // ==========================================================================\A 7: // Base Styles\A 8: // ==========================================================================\A 9: @import \"base/index\";\A 10: \A 11: // ==========================================================================\A 12: // Layout Styles\A 13: // ==========================================================================\A 14: @import \"layout/index\";"; }
