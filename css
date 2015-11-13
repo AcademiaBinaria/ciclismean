@@ -1,0 +1,25 @@
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - scss
+
+Backtrace:
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:482:in `read'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:482:in `update_stylesheet'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin.rb:108:in `method_missing'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:384:in `watch_or_update'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:52:in `parse'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:19:in `parse!'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/bin/sass:13:in `<top (required)>'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `load'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `<main>'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - scss"; }

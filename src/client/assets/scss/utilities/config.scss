@@ -1,0 +1,53 @@
+// ==========================================================================
+// Global Config
+// ==========================================================================
+
+// Font Stacks
+
+$font--url--google : 'http://fonts.googleapis.com/css?family=Oswald';
+$font--url--google : 'https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300';
+
+$font-family--primary : 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family--secondary : Georgia, Serif;
+$font-family--titles : 'Oswald',"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Font Weights
+
+$font-weight--light : 300;
+$font-weight--medium : 400;
+$font-weight--semi-bold : 600;
+$font-weight--bold : 700;
+$font-weight--ultra-bold : 800;
+
+// General Colors
+
+$white : #ffffff;
+$light-white : rgba(255, 255, 255, 0.8);
+$black : rgba(0, 0, 0, 0.95);
+$white-hover-active : rgba(115, 115, 115, 0.95);
+$bg-color : #cbccb7;
+$white-lilac : #eaecf6;
+
+// Card  Colors
+
+$bg-card : #e5e6d6;
+$yellow-gold : #A0961A;
+$pink-giro : #e8a0b2;
+$yellow-tour : #e4d49e;
+$red-vuelta : #c96466;
+$white-wc : #eeeeee;
+
+// UCI  Colors
+
+$red-uci : #d92933;
+$green-uci : #39a640;
+$yellow-uci : #ffec00;
+$blue-uci : #007abe;
+$black-uci : #000000;
+
+// Text
+
+$base__font-size: 13px;
+$base__font-weight: 400;
+
+
