@@ -77,6 +77,13 @@
                     <form-messages field="vm.addTeamForm.country"></form-messages>
                 </div>
             </div>
+            <div class="row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm.retired)}">
+                <label for="retired">Equipo retirado:</label>
+                <input type="retired" name="country" ng-model="vm.team.retired" class="form-control" placeholder="España">
+                <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm.retired)">
+                    <form-messages field="vm.addTeamForm.retired"></form-messages>
+                </div>
+            </div>
             <div class="row">
                 <button type="submit" class="btn btn-default" ng-click="vm.showForm = false">Volver</button>
                 <button type="submit" class="btn btn-default" ng-click="vm.saveTeam()" ng-if="vm.add">Guardar Equipo</button>

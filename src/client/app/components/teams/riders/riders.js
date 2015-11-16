@@ -38,6 +38,7 @@
 
         vm.init = function () {
             vm.searchByKeywords = false;
+            console.log(vm.order);
             ridersDataService.gettingRiders({
                     limit: limit,
                     skip: skip,
@@ -66,7 +67,6 @@
                 skip = 0;
                 vm.findBykeywords();
                 vm.riders = [];
-
             }
         };
 
