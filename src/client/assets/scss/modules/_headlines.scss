@@ -1,0 +1,20 @@
+// ==========================================================================
+// Headlines
+// ==========================================================================
+.headline{
+    &-primary{
+        @extend %hdln-prim;
+        padding: em(20px) 0 em(30px);
+        &:after{
+            display: block;
+            margin: 10px auto;
+            content: "";
+            width: 140px;
+            border-bottom: 1px solid #666;
+        }
+    }
+    &-secondary{
+        margin: em(10px) 0 0;
+        @extend %hdln-sec;
+    }
+}

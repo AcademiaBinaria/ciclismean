@@ -1,0 +1,14 @@
+// ==========================================================================
+// Nav
+// ==========================================================================
+.navbar-default {
+    background-color: $black;
+    color: $light-white;
+    text-transform: uppercase;
+    letter-spacing: em(1px);
+    font-weight: $font-weight--semi-bold;
+    border-color: 0;
+}
+.navbar-default .navbar-nav>li>a {
+    color: $light-white;
+}

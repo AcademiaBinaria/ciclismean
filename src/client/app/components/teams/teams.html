@@ -1,22 +1,30 @@
 <div class="container">
-    <div class="row">
-        <p class="text-center">Equipos World Tour</p>
-        <div ng-repeat="team in vm.teams_WT" class="col-md-3" ng-if="!team.retired">
-            <a ui-sref="team({id: team.safe_name, year: vm.year})">
-                <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
-            </a>
-            <h4 class="text-center">{{team._id}}</h4>
-            <p class="text-center">{{team.country}}</p>
+    <div class="container_teams">
+            <h2 class="text-center headline-primary">Equipos ciclistas WorldTour</h2>
+        <div class="row">
+            <div itemtype="http://schema.org/SportsTeam" ng-repeat="team in vm.teams_WT" class="col-sm-3 text-center" ng-if="!team.retired">
+                <a ui-sref="team({id: team.safe_name, year: vm.year})">
+                    <img class="team-img" ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
+                </a>
+                <div class="feature-description text-center">
+                    <h3 class="headline-secondary" itemprop="name">{{team._id}}</h3>
+                    <small class="show text-muted" itemprop="location">{{team.country}}</small>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <p class="text-center">Equipos Pro Continental Team</p>
-        <div ng-repeat="team in vm.teams_PCT" class="col-md-3" ng-if="!team.retired">
-            <a ui-sref="team({id: team.safe_name, year: vm.year})">
-                <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
-            </a>
-            <h4 class="text-center">{{team._id}}</h4>
-            <p class="text-center">{{team.country}}</p>
+        <h2 class="text-center headline-primary">Equipos ciclistas ProContinental</h2>
+        <div class="row">
+            <div itemtype="http://schema.org/SportsTeam" ng-repeat="team in vm.teams_PCT" class="col-md-3 text-center" ng-if="!team.retired">
+                <a itemprop="url" ui-sref="team({id: team.safe_name, year: vm.year})">
+                    <img class="team-img" ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
+                </a>
+                <div class="feature-description text-center">
+                    <h3 class="headline-secondary" itemprop="name">{{team._id}}</h3>
+                    <small class="show text-muted" itemprop="location">{{team.country}}</small>
+                </div>
+            </div>
         </div>
     </div>
 </div>
