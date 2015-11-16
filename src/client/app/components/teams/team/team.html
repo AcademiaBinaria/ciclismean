@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-center">Ciclistas del {{vm.team_id}}</h1>
+    <h1 class="text-center">Ciclistas del {{vm.team[0]._id}}</h1>
     <div ng-repeat="rider in vm.riders" class="row col-md-3">
         <rider-card rider-id="rider"></rider-card>
     </div>

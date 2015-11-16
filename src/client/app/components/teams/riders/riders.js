@@ -41,7 +41,8 @@
             ridersDataService.gettingRiders({
                     limit: limit,
                     skip: skip,
-                    sort: vm.order
+                    sort: vm.order,
+                    q: 'retired:false'
                 })
                 .then(function (riders) {
                     fillRidersArray(riders)
@@ -55,7 +56,8 @@
             ridersDataService.gettingRidersBykeywords({
                 keywords: vm.keywords,
                 limit: limit,
-                skip: skip
+                skip: skip,
+                q: 'retired: false'
             }).then(function (riders) {
                 fillRidersArray(riders)
             });
@@ -66,7 +68,6 @@
                 skip = 0;
                 vm.findBykeywords();
                 vm.riders = [];
-
             }
         };
 

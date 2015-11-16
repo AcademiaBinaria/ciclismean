@@ -22,9 +22,12 @@
         }
     }
 
-    function controller(ridersDataService, $stateParams) {
+    function controller(ridersDataService, teamsDataService, $stateParams) {
         var vm = this;
         vm.team_id = $stateParams.id;
+        vm.team = new teamsDataService.team.query({
+            q: 'safe_name:' + $stateParams.id
+        });
 
         init();
 
