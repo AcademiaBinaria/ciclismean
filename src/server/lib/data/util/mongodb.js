@@ -43,9 +43,20 @@ function finding(colName, query, proj, skip, limit, sort) {
     logger.debug(colName + " find : " + JSON.stringify(query));
     var _skip = skip || 0;
     var _limit = limit || 1000;
-    logger.debug(sort);
+    if (query) {
+        if (query.retired == "false" || query.retired == false) {
+            query = {
+                retired: {
+                    $ne: true
+                }
+            };
+        } else if (query.retired == "true") {
+            query = {
+                retired: true
+            };
+        }
+    }
     if (sort) { //Fix for old order
-        console.log(sort)
         if (sort["-dob"] == -1) {
             sort = {
                 dob: 1

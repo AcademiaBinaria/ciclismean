@@ -79,7 +79,7 @@
             </div>
             <div class="row ng-class:{'has-error': vm.has_error(vm.addTeamForm, vm.addTeamForm.retired)}">
                 <label for="retired">Equipo retirado:</label>
-                <input type="retired" name="country" ng-model="vm.team.retired" class="form-control" placeholder="España">
+                <input type="checkbox" name="retired" ng-model="vm.team.retired" class="form-control" placeholder="España">
                 <div class="help-block has-error" ng-if="vm.has_error(vm.addTeamForm, vm.addTeamForm.retired)">
                     <form-messages field="vm.addTeamForm.retired"></form-messages>
                 </div>

@@ -12,7 +12,7 @@
     <div class="row">
         <p class="text-center">Equipos Pro Continental Team</p>
         <div ng-repeat="team in vm.teams_PCT" class="col-md-3" ng-if="!team.retired">
-            <a ui-sref="team({id: team._id})">
+            <a ui-sref="team({id: team.safe_name, year: vm.year})">
                 <img ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
             </a>
             <h4 class="text-center">{{team._id}}</h4>

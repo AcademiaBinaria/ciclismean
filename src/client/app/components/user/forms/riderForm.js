@@ -70,6 +70,8 @@
                     vm.rider[propertyName] = rider[0][propertyName];
                 }
                 vm.rider.dob = new Date(Date.parse(vm.rider.dob));
+                if (!vm.rider.retired)
+                    vm.rider.retired = false
                 vm.teams.forEach(function (team) {
                     if (team._id == vm.rider.team)
                         vm.riderTeam = team;
@@ -129,6 +131,8 @@
 
         vm.saveRider = function () {
             if (!vm.addRiderForm.$invalid) {
+                if (!vm.ride.retired)
+                    vm.rider.retired = false
                 vm.rider.$save();
                 vm.showMessage = true;
             }
