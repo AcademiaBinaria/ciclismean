@@ -3,7 +3,8 @@
 angular
     .module('template', ['ui.router', 'ui.bootstrap', 'ngStorage', 'main', 'navbar', 'footer', 'user', 'teams', 'competitions', 'util', 'dashboard', 'riderForm', 'teamForm', 'competitionForm', 'riderSeason'])
     .constant('settings', {
-        urlBase: 'http://localhost:3000/'
+        urlBase: 'http://localhost:3000/',
+        currentSeason: 2015
     })
     .config(function ($httpProvider, settings, $sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([

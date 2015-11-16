@@ -27,7 +27,7 @@
         }
     }
 
-    function controller(teamsDataService, UtilService) {
+    function controller(teamsDataService, UtilService, settings) {
         var vm = this;
 
         function getTeams(status) {
@@ -46,7 +46,7 @@
         init();
 
         function init() {
-            vm.year = new Date().getFullYear();
+            vm.year = settings.currentSeason;
             getTeams('WT').then(function (teams) {
                 vm.teams_WT = teams;
             });

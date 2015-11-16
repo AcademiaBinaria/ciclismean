@@ -131,7 +131,7 @@
 
         vm.saveRider = function () {
             if (!vm.addRiderForm.$invalid) {
-                if (!vm.ride.retired)
+                if (!vm.rider.retired)
                     vm.rider.retired = false
                 vm.rider.$save();
                 vm.showMessage = true;

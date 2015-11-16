@@ -53,7 +53,7 @@
         </div>
         <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)}">
             <label for="total_victories">Victorias totales:</label>
-            <input class="form-control" name="total_victories" type="number" ng-model="vm.rider.total_victories" required>
+            <input class="form-control" name="total_victories" type="number" ng-model="vm.rider.total_victories" min="0" required>
             <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)">
                 <form-messages field="vm.addRiderForm.total_victories"></form-messages>
             </div>

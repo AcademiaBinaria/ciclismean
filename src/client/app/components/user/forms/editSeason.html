@@ -7,6 +7,8 @@
             <label>Victorias de etapa:</label>
             <input class="form-control" type="text" ng-model="competition.victories" required>
         </div>
+        <label for="">Victorias Totales</label>
+        <input type="number" ng-model="vm.rider.total_victories">
     </form>
     <button type="submit" class="btn btn-danger" ui-sref="dashboard">Volver al Dashboard</button>
     <button type="button" class="btn btn-success" ng-click="vm.editRider()">Actualizar</button>

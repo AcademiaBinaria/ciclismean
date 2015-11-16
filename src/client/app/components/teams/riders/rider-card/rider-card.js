@@ -16,7 +16,7 @@
         }
     }
 
-    function controller(UtilService, riderLogicService) {
+    function controller(UtilService, riderLogicService, settings) {
         var vm = this;
         init();
 
@@ -29,7 +29,7 @@
         };
 
         function init() {
-            vm.year = new Date().getFullYear();
+            vm.year = settings.currentSeason;
             vm.riderId.age = UtilService.calculateAge(vm.riderId.dob);
             vm.riderId.dob = new Date(vm.riderId.dob);
         }
