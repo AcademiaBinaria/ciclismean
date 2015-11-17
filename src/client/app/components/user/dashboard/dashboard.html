@@ -4,8 +4,9 @@
         <a class="list-group-item" ui-sref="add-rider">Crear ciclistas</a>
         <a class="list-group-item" ui-sref="edit-team">Crear/Editar equipos</a>
         <a class="list-group-item" ui-sref="edit-competitons">Crear/Editar competiciones</a>
+        <a class="list-group-item" ui-sref="add-season">Añadir Temporada (a corredores y competiciones)</a>
     </ul>
-    <input type="text" class="form-control" placeholder="Buscador de ciclistas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
+    <input type="text" class="form-control" placeholder="Buscador de ciclicstas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
     <button type="submit" class="btn btn-default" ng-click="vm.findRiders()">Buscar</button>
     <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}} | {{vm.rider.team}}</div>
     <table class="table table-striped">
