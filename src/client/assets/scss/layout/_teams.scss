@@ -1,0 +1,16 @@
+// ==========================================================================
+// Teams
+// ==========================================================================
+.team-img{
+    width: 150px;
+    -webkit-filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+}
+.feature-description{
+    margin-bottom: 25px;
+}
+.text-muted, .text-muted a {
+    color: $light-grey;
+    letter-spacing: em(1px);
+    font-weight: $font-weight--medium;
+    line-height: 1;
+}

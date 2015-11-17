@@ -34,3 +34,15 @@ exports.findingByKeywords = function (keywords, skip, limit) { //colName, query,
                 }]
     }, null, skip, limit);
 }
+
+exports.findingAllRiders = function () { //colName, query, proj, skip, limit, sort
+    return mongodb.finding(colName, {});
+}
+
+exports.updatingRider = function (rider) { //colName, query, proj, skip, limit, sort
+    var id = rider._id;
+    delete rider._id;
+    return mongodb.updating(colName, {
+        _id: id
+    }, rider);
+}

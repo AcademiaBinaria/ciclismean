@@ -27,7 +27,7 @@
         if (!UtilService.isLogged())
             $state.go('login');
 
-        vm.findRiders = function () { //Más bonito pls
+        vm.findRiders = function () {
             ridersDataService.gettingRidersBykeywords({
                 keywords: vm.keywords
             }).then(function (riders) {
@@ -48,6 +48,15 @@
                 vm.message = "Borrado ciclista: ";
                 vm.showMessage = true;
                 vm.findRiders();
+            });
+        }
+
+        vm.addSeason = function () {
+            vm.season = new ridersDataService.addSeason();
+            vm.season.$save({
+                newSeasonYear: vm.newSeasonYear
+            }).then(function (data) {
+                console.log(data);
             });
         }
     }

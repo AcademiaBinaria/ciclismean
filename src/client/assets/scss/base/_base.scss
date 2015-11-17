@@ -1,0 +1,14 @@
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+    font-family: $font-family--primary;
+    font-size: $base__font-size;
+    line-height: ($base__line-height/$base__font-size);
+    background: $bg-color;
+}

@@ -1,65 +1,241 @@
-/*
-Error: File to import not found or unreadable: base/index.
-       Load path: /Users/marcosfolio/ciclismean/src/client/assets/scss
-        on line 9 of scss/application.scss
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-4: @import "utilities/index";
-5: 
-6: // ==========================================================================
-7: // Base Styles
-8: // ==========================================================================
-9: @import "base/index";
-10: 
-11: // ==========================================================================
-12: // Layout Styles
-13: // ==========================================================================
-14: @import "layout/index";
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.38462;
+  background: #cbccb7; }
 
-Backtrace:
-scss/application.scss:9
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:45:in `import'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:28:in `imported_file'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/import_node.rb:37:in `css_import?'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/engine.rb:295:in `render_with_sourcemap'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:293:in `watch'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/plugin.rb:108:in `method_missing'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:384:in `watch_or_update'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:52:in `parse'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/lib/sass/exec/base.rb:19:in `parse!'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/gems/sass-3.4.18/bin/sass:13:in `<top (required)>'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `load'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/sass:23:in `<main>'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
-/Users/marcosfolio/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: base/index.\A        Load path: /Users/marcosfolio/ciclismean/src/client/assets/scss\A         on line 9 of scss/application.scss\A \A 4: @import \"utilities/index\";\A 5: \A 6: // ==========================================================================\A 7: // Base Styles\A 8: // ==========================================================================\A 9: @import \"base/index\";\A 10: \A 11: // ==========================================================================\A 12: // Layout Styles\A 13: // ==========================================================================\A 14: @import \"layout/index\";"; }
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden],
+template {
+  display: none; }
+
+a {
+  background: transparent; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 85%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+
+*
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0; }
+
+.headline-primary {
+  font-size: 14px;
+  font-style: italic;
+  font-family: Georgia, Serif;
+  line-height: 1.1;
+  color: #333333;
+  letter-spacing: 0.07692em; }
+
+.headline-secondary {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #454545;
+  letter-spacing: 0.07692em; }
+
+.headline-primary {
+  padding: 1.53846em 0 2.30769em; }
+  .headline-primary:after {
+    display: block;
+    margin: 10px auto;
+    content: "";
+    width: 140px;
+    border-bottom: 1px solid #666; }
+.headline-secondary {
+  margin: 0.76923em 0 0; }
+
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.95);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.07692em;
+  font-weight: 600;
+  border-color: 0; }
+
+.navbar-default .navbar-nav > li > a {
+  color: rgba(255, 255, 255, 0.8); }
+
+.team-img {
+  width: 150px;
+  -webkit-filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5)); }
+
+.feature-description {
+  margin-bottom: 25px; }
+
+.text-muted, .text-muted a {
+  color: #8C8C8C;
+  letter-spacing: 0.07692em;
+  font-weight: 400;
+  line-height: 1; }
+
+/*# sourceMappingURL=application.css.map */

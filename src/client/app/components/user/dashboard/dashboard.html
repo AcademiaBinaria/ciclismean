@@ -4,8 +4,27 @@
         <a class="list-group-item" ui-sref="add-rider">Crear ciclistas</a>
         <a class="list-group-item" ui-sref="edit-team">Crear/Editar equipos</a>
         <a class="list-group-item" ui-sref="edit-competitons">Crear/Editar competiciones</a>
-        <a class="list-group-item" ui-sref="add-season">Añadir Temporada (a corredores y competiciones)</a>
+        <a class="list-group-item" href="" data-toggle="modal" data-target="#addSeasonModal">Añadir Temporada (a corredores y competiciones)</a>
     </ul>
+    <!-- Modal addSeason -->
+    <div class="modal fade" id="addSeasonModal" tabindex="-1" role="dialog" aria-labelledby="addSeason">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Añadir temporada</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="">Año:</label>
+                    <input type="number" ng-model="vm.newSeasonYear" class="form-control" min="1950" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="vm.addSeason()" data-dismiss="modal">Añadir</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <input type="text" class="form-control" placeholder="Buscador de ciclicstas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
     <button type="submit" class="btn btn-default" ng-click="vm.findRiders()">Buscar</button>
     <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}} | {{vm.rider.team}}</div>

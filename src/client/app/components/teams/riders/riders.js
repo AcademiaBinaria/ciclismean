@@ -94,6 +94,7 @@
 
     function ridersDataService($resource) {
         var factory = {};
+        factory.addSeason = $resource('api/riders/add-season/:newSeasonYear', {});
         factory.riders = $resource('api/riders', {});
         factory.rider = $resource('api/riders/:id', {
             id: '@_id'

@@ -1,0 +1,19 @@
+// ==========================================================================
+// Extends
+// ==========================================================================
+//Headlines
+%hdln-prim {
+    font-size:$section-title__font-size;
+    font-style:italic;
+    font-family: $font-family--secondary ;
+    line-height: 1.1;
+    color: $dark-grey;
+    letter-spacing: em(1px);
+}
+%hdln-sec {
+    font-size:$medium__font-size;
+    font-weight: $font-weight--medium;
+    line-height: 1.1;
+    color: $grey;
+    letter-spacing: em(1px);
+}

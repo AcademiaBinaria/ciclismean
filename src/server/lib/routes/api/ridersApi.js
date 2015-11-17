@@ -1,6 +1,7 @@
 var express = require('express');
 var crudApi = require('./util/crudApi.js');
 var ridersData = require('../../data/ridersData.js');
+var competitionsData = require('../../data/competitionsData.js');
 var jwt = require('../../jwt.js');
 var convert = require('../../convert.js');
 
@@ -34,11 +35,52 @@ var schema = {
 
 
 router.get('/keywords/:keywords', function (req, res) {
-        console.log(req.params);
         ridersData.findingByKeywords(req.params.keywords, parseInt(req.query.skip), parseInt(req.query.limit)).then(function (data) {
             res.send(data);
         }).fail(function (err) {
             convert.resError(err, res);
+        });
+    })
+    .post('/add-season/:year', function (req, res) {
+        console.log(req.params.year);
+        ridersData.findingAllRiders().then(function (data) {
+            data.forEach(function (rider) {
+                var lastTeam = rider.team;
+                if (rider.seasons.length > 0) {
+                    lastTeam = rider.seasons[rider.seasons.length - 1].team;
+                }
+                if (rider.retired == true) {
+                    rider.seasons.push({
+                        year: req.params.year,
+                        team: lastTeam,
+                        palmares: []
+                    });
+                    ridersData.updatingRider(rider).fail(function (err) {
+                        console.log(err);
+                    });
+                }
+            });
+            competitionsData.findingAllCompetitions().then(function (competitions) {
+                competitions.forEach(function (competition) {
+                    if (!competition.seasons) {
+                        competition.seasons = [];
+                    }
+                    competition.seasons.push({
+                        year: req.params.year,
+                        numberStages: 0,
+                        stages: [],
+                        winner: "",
+                        mountain: "",
+                        regularity: ""
+                    });
+                    competitionsData.updatingCompetition(competition).fail(function (err) {
+                        console.log(err);
+                    });
+                });
+                res.send("data");
+            }).fail(function (err) {
+                convert.resError(err, res);
+            });
         });
     })
     .put('/:rider', function (req, res) {
