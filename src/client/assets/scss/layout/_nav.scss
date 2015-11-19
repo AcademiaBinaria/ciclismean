@@ -11,4 +11,12 @@
 }
 .navbar-default .navbar-nav>li>a {
     color: $light-white;
+    &:hover{
+        color: $dark-grey;
+        background-color: $paper;
+    }
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: $dark-grey;
+    background-color: $paper;
 }

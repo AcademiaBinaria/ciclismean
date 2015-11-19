@@ -224,10 +224,19 @@ th {
 
 .navbar-default .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.8); }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: #333333;
+    background-color: #bbbbbb; }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color: #333333;
+  background-color: #bbbbbb; }
 
 .team-img {
   width: 150px;
-  -webkit-filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5)); }
+  -webkit-filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+  display: block;
+  margin: 0 auto; }
 
 .feature-description {
   margin-bottom: 25px; }
@@ -237,5 +246,116 @@ th {
   letter-spacing: 0.07692em;
   font-weight: 400;
   line-height: 1; }
+
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px; }
+
+.shrink {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  box-shadow: 0 0 1px transparent; }
+
+.shrink:hover, .shrink:focus, .shrink:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95); }
+
+.search {
+  padding: 1.53846em !important;
+  font-size: 21px;
+  font-weight: bold;
+  width: 87% !important;
+  margin: 1.53846em auto 0.76923em; }
+
+.mini-filters-wrapper {
+  width: 87% !important;
+  margin: 0 auto; }
+
+textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus, [type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus, [contenteditable].form-control:focus {
+  box-shadow: inset 0 -2px 0 #eaecf6; }
+
+.btn-grey {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #333333;
+  border-color: #333333;
+  -webkit-transition: 0.25s linear;
+  -moz-transition: 0.25s linear;
+  -o-transition: 0.25s linear;
+  transition: 0.25s linear; }
+
+.btn-grey:hover, .btn-grey:active, .btn-grey:focus {
+  color: #ffffff;
+  background-color: #454545;
+  outline: 0; }
+
+.cards-wrapper {
+  margin: 20px 0; }
+
+.rider-card-wrapper {
+  border: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 25px;
+  background-color: #e5e6d6;
+  margin: 10px;
+  width: 240px !important;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: 1px 2px 8px #999; }
+
+.avatar {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  background-color: #2e353d;
+  border-radius: 8px; }
+
+.rider-card-img {
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+  opacity: 1;
+  border-radius: 4px 4px 0 0;
+  filter: alpha(opacity=100);
+  width: 240px; }
+
+.rider-flag {
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  top: 8px;
+  right: 8px; }
+
+.team-name-wrapper {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  float: left;
+  width: 100%;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 4px 0;
+  position: absolute;
+  bottom: 0; }
+
+.member-meta {
+  padding: 10px 0;
+  font-size: 13px; }
+
+.yellow {
+  color: #A0961A; }
+
+.card-name {
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=application.css.map */
