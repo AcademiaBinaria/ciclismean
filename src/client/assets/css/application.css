@@ -224,6 +224,13 @@ th {
 
 .navbar-default .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.8); }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: #333333;
+    background-color: #bbbbbb; }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color: #333333;
+  background-color: #bbbbbb; }
 
 .team-img {
   width: 150px;
@@ -237,5 +244,9 @@ th {
   letter-spacing: 0.07692em;
   font-weight: 400;
   line-height: 1; }
+
+.search {
+  margin: 1.53846em 0 0.76923em;
+  padding: 1.53846em !important; }
 
 /*# sourceMappingURL=application.css.map */
