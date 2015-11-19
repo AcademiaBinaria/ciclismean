@@ -42,7 +42,7 @@ function setConnection(db) {
 function finding(colName, query, proj, skip, limit, sort) {
     logger.debug(colName + " find : " + JSON.stringify(query));
     var _skip = skip || 0;
-    var _limit = limit || 1000;
+    var _limit = limit || 2000;
     if (query) {
         if (query.retired == "false" || query.retired == false) {
             query = {
