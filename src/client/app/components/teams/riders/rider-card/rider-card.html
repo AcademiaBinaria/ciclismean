@@ -8,21 +8,23 @@
         <div class="rider-flag">
             <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
         </div>
-        <img ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
+        <img class="rider-card-img" ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
         <div class="team-name-wrapper text-center" itemprop="affiliation">{{::vm.riderId.team}}</div>
     </a>
 </div>
 <div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
-    <div itemprop="name" class="name">
+    <div itemprop="name" class="card-name">
         <b>{{::vm.riderId._id}}</b>
     </div>
     <small itempropclass="title">{{::vm.riderId.lob}}</small>
     <small>-</small>
     <small id="age">{{::vm.riderId.age}}</small>
     <small>años</small>
-    <small id="date" class="due-date" name="dateBirth" itemprop="birthDate">{{::vm.riderId.dob | date:'dd/MM/yyyy'}}</small>
+    <div>
+        <small id="date" class="due-date" name="dateBirth" itemprop="birthDate">{{::vm.riderId.dob | date:'dd/MM/yyyy'}}</small>
+    </div>
     <small class="rider-type yellow">
         <span class="{{vm.riderId.rol_icon}}"></span>
-        <small itemprop="roleName" class="title">{{::vm.riderId.team_rol}}</small>
+        <span itemprop="roleName" class="title">{{::vm.riderId.team_rol}}</span>
     </small>
 </div>

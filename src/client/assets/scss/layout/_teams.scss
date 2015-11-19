@@ -4,6 +4,8 @@
 .team-img{
     width: 150px;
     -webkit-filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+    display: block;
+    margin:0 auto;
 }
 .feature-description{
     margin-bottom: 25px;
@@ -13,4 +15,26 @@
     letter-spacing: em(1px);
     font-weight: $font-weight--medium;
     line-height: 1;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.shrink {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.shrink:hover, .shrink:focus, .shrink:active {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
 }

@@ -9,8 +9,8 @@
             <!--<button type="button" class="btn-lg " ng-click="vm.orderBy('current')" disabled>Más Victorias 2015</button>-->
         </div>
     </div>
-    <div ng-repeat="rider in vm.riders" class="row col-md-3">
-        <rider-card rider-id="rider"></rider-card>
+    <div class="cards-wrapper row row-centered">
+        <rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders" class="col-md-4" rider-id="rider"></rider-card>
     </div>
     <div class="btn-more-wrapper">
         <button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" ng-if="!vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>

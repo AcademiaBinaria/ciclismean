@@ -1,0 +1,65 @@
+// ==========================================================================
+// Cards
+// ==========================================================================
+.cards-wrapper{
+    margin: 20px 0;
+}
+.rider-card-wrapper{
+    border: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 25px;
+    background-color: #e5e6d6;
+    margin: 10px;
+    width: 240px!important;
+    border-radius: 8px;
+    color: #333;
+    box-shadow: 1px 2px 8px #999;
+}
+.avatar{
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #2e353d;
+    border-radius: 8px;
+}
+.rider-card-img{
+    -webkit-transition: opacity 300ms;
+    -moz-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+    opacity: 1;
+    border-radius: 4px 4px 0 0;
+    filter: alpha(opacity=100);
+    width: 240px;
+}
+.rider-flag {
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    top: 8px;
+    right: 8px;
+}
+.team-name-wrapper {
+    color: #fff;
+    background-color: rgba(0,0,0,0.8);
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 4px 0;
+    position: absolute;
+    bottom: 0;
+}
+.member-meta {
+    padding: 10px 0;
+    font-size: 13px;
+}
+.yellow {
+    color: #A0961A;
+}
+.card-name{
+    text-transform: uppercase;
+}
