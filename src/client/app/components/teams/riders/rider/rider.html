@@ -1,21 +1,54 @@
 <div>
     <br>
-    <div class="col-md-6">
-        <img ng-src="{{::vm.imageUrl}}" alt="">
-        <h2>{{::vm.rider._id}}</h2>
-        <p>{{::vm.rider.team_rol}}</p>
-        <p>{{::vm.rider.dob | date:'dd/MM/yyyy'}}</p>
-        <p>{{::vm.rider.age}} años</p>
-        <p>{{::vm.rider.lob}}</p>
-        <p>Nacionalidad: <img ng-src="{{::vm.rider.flag}}" alt=""></p>
-        <!--<p>{{vm.rider.rol_icon}}</p> Icono del Rol-->
-        <h3>Victorias</h3>
-        <p>Totales: {{::vm.rider.total_victories}}</p>
-        <p>Tour: {{::vm.rider.tourTotalVictories}}</p>
-        <p>Giro: {{::vm.rider.giroTotalVictories}}</p>
-        <p>Vuelta: {{::vm.rider.vueltaTotalVictories}}</p>
+    <div class="col-md-4">
+        <section class="panel no-b main-rider-card">
+            <div class="panel-body">
+                <div class="card-frame">
+                    <img ng-src="{{::vm.imageUrl}}" alt="">
+                </div>
+                <h2 class="text-center">{{::vm.rider._id}}</h2>
+                <div class="rider-type yellow big-card text-center">
+                    <span style="vertical-align: middle;" class="{{::vm.rider.rol_icon}}"></span> <small itemprop="roleName" class="title ng-binding">{{::vm.rider.team_rol}}</small>
+                </div>
+                <p class="show age-card text-center">- {{::vm.rider.age}} años -</p>
+                <p class="show text-center">Nacido en {{::vm.rider.lob}}<br/>el {{::vm.rider.dob | date:'dd/MM/yyyy'}}</p>
+                <p class="show text-center">Nacionalidad: <img class="big-card-flag" itemprop="nationality" ng-src="{{::vm.rider.flag}}" alt=""></p>
+                <div>
+                    <div class="victories-title text-center">Victorias como profesional:</div>
+                    <div class="victories-wrapper-card card">
+                        <div class="fa fa-trophy"></div>
+                        <small class="title ng-binding">{{::vm.rider.total_victories}}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer no-p no-b">
+                <div class="row no-m">
+                    <div class="col-xs-4 bg-primary p10 text-center brbl best-position-card giro">
+                        <div>Victorias Giro</div>
+                        <div class="victories-wrapper card">
+                            <div class="fa fa-trophy"></div>
+                            <small class="title ng-binding">{{::vm.rider.giroTotalVictories}}</small>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 bg-info p10 text-center best-position-card tour">
+                        <div>Victorias Tour</div>
+                        <div class="victories-wrapper card">
+                            <div class="fa fa-trophy"></div>
+                            <small class="title ng-binding">{{::vm.rider.tourTotalVictories}}</small>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 bg-primary p10 text-center brbr best-position-card vuelta">
+                        <div>Victorias Vuelta</div>
+                        <div class="victories-wrapper card">
+                            <div class="fa fa-trophy"></div>
+                            <small class="title ng-binding">{{::vm.rider.vueltaTotalVictories}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div ng-repeat="season in vm.rider.seasons">
             <h4>Año {{::season.year}} | Equipo: {{::season.team}}</h4>
             <div ng-repeat="competition in season.palmares">

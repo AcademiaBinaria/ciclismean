@@ -12,3 +12,6 @@ body{
     line-height: ($base__line-height/$base__font-size);
     background: $bg-color;
 }
+a:focus, a:hover {
+    text-decoration: none!important;
+}

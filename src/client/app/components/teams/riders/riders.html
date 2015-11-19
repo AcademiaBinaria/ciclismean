@@ -1,6 +1,6 @@
 <div class="container">
     <div class="control-group">
-        <input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
+        <input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
         <div class="mini-filters-wrapper">
             <span>Ordernar por:</span>
             <button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('-dob')">+ Viejo</button>

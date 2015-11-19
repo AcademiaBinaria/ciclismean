@@ -4,12 +4,14 @@
 
 // Font Stacks
 
-$font--url--google : 'http://fonts.googleapis.com/css?family=Oswald';
-$font--url--google : 'https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300';
+$font--url : 'http://fonts.googleapis.com/css?family=Oswald';
+$font--url : 'https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300';
+$font--url : '../fonts/fontawesome-webfont.eot';
 
 $font-family--primary : 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-family--secondary : Georgia, Serif;
 $font-family--titles : 'Oswald',"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 
 // Font Weights
 

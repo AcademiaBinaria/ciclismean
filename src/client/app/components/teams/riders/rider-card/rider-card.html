@@ -1,30 +1,78 @@
-<div class="avatar">
-    <a ui-sref="rider({teamId: vm.riderId.safe_name_team, year: vm.year, riderId: vm.riderId.safe_name})">
-        <div class="victories">
-            <div class="fa fa-trophy">
+<a ui-sref="rider({teamId: vm.riderId.safe_name_team, year: vm.year, riderId: vm.riderId.safe_name})">
+    <div class="avatar">
+            <div class="victories">
+                <div class="fa fa-trophy">
 
+                </div>
+                <div class="trophy_title">{{vm.riderId.total_victories}}</div>
+            </div>
+            <div class="rider-flag">
+                <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
+            </div>
+            <img class="rider-card-img" ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
+            <div class="team-name-wrapper text-center" itemprop="affiliation">{{::vm.riderId.team}}</div>
+    </div>
+    <div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
+        <div itemprop="name" class="card-name">
+            <b>{{::vm.riderId._id}}</b>
+        </div>
+        <small itempropclass="title">{{::vm.riderId.lob}}</small>
+        <small>-</small>
+        <small id="age">{{::vm.riderId.age}}</small>
+        <small>años</small>
+        <div>
+            <small id="date" class="due-date" name="dateBirth" itemprop="birthDate">{{::vm.riderId.dob | date:'dd/MM/yyyy'}}</small>
+        </div>
+        <small class="rider-type yellow">
+            <span class="{{vm.riderId.rol_icon}}"></span>
+            <span itemprop="roleName" class="title">{{::vm.riderId.team_rol}}</span>
+        </small>
+        <div class="best-positions">
+            <div class="best-position giro pull-left">
+                <div>
+                    <b class="ng-binding">{{::vm.riderId.giroBestResult}}</b><br>
+                    <small class="title ng-binding">{{::vm.riderId.giroYearBestResult}}</small>
+                </div>
+                <div class="victories-wrapper">
+                    <div class="fa fa-trophy"></div>
+                    <small class="title ng-binding">{{::vm.riderId.giroTotalVictories}}</small>
+                </div>
+            </div>
+            <div class="best-position tour pull-left">
+                <div>
+                    <b class="ng-binding">{{::vm.riderId.tourBestResult}}</b><br>
+                    <small class="title ng-binding">{{::vm.riderId.tourYearBestResult}}</small>
+                </div>
+                <div class="victories-wrapper">
+                    <div class="fa fa-trophy"></div>
+                    <small class="title ng-binding">{{::vm.riderId.tourTotalVictories}}</small>
+                </div>
+            </div>
+            <div class="best-position vuelta pull-left">
+                <div>
+                    <b class="ng-binding">{{::vm.riderId.vueltaBestResult}}</b><br>
+                    <small class="title ng-binding">{{::vm.riderId.vueltaYearBestResult}}</small>
+                </div>
+                <div class="victories-wrapper">
+                    <div class="fa fa-trophy"></div>
+                    <small class="title ng-binding">{{::vm.riderId.vueltaTotalVictories}}</small>
+                </div>
+            </div>
+            <div class="best-position worldcup pull-left">
+                <div class="uci-flag">
+                    <div class="inner-flag">
+                        <div class="black-stripe"></div>
+                    </div>
+                </div>
+                <div>
+                    <b class="ng-binding">{{::vm.riderId.wcBestResult}}</b><br>
+                    <small class="title ng-binding">{{::vm.riderId.wcYearBestResult}}</small>
+                </div>
+                <div class="victories-wrapper wc">
+                    <div class="fa fa-bank"></div>
+                    <small class="title ng-binding">{{::vm.riderId.classicsTotalVictories}}</small>
+                </div>
             </div>
         </div>
-        <div class="rider-flag">
-            <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
-        </div>
-        <img class="rider-card-img" ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
-        <div class="team-name-wrapper text-center" itemprop="affiliation">{{::vm.riderId.team}}</div>
-    </a>
-</div>
-<div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
-    <div itemprop="name" class="card-name">
-        <b>{{::vm.riderId._id}}</b>
     </div>
-    <small itempropclass="title">{{::vm.riderId.lob}}</small>
-    <small>-</small>
-    <small id="age">{{::vm.riderId.age}}</small>
-    <small>años</small>
-    <div>
-        <small id="date" class="due-date" name="dateBirth" itemprop="birthDate">{{::vm.riderId.dob | date:'dd/MM/yyyy'}}</small>
-    </div>
-    <small class="rider-type yellow">
-        <span class="{{vm.riderId.rol_icon}}"></span>
-        <span itemprop="roleName" class="title">{{::vm.riderId.team_rol}}</span>
-    </small>
-</div>
+</a>

@@ -8,8 +8,8 @@
 
 // Import if Embed Fonts URL is defined
 
-@if variable-exists(font-url--google){
-    @import url($font-url--google);
+@if variable-exists(font-url){
+    @import url($font-url);
 }
 
 // Functions to convert em to px

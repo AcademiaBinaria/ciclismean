@@ -24,6 +24,27 @@
     background-color: #2e353d;
     border-radius: 8px;
 }
+.victories {
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    background: rgba(0,0,0,0.4);
+    width: 45px;
+    height: 45px;
+    border-radius: 33px;
+    padding: 5px 0 0 0;
+}
+.victories .fa-trophy {
+    font-size: 22px;
+    color: #e4d49e;
+}
+.trophy_title {
+    float: left;
+    width: 100%;
+    margin: 0px 0 0 0;
+    color: #e4d49e;
+    font-size: 12px;
+}
 .rider-card-img{
     -webkit-transition: opacity 300ms;
     -moz-transition: opacity 300ms;
@@ -39,7 +60,10 @@
     height: 28px;
     width: 28px;
     top: 8px;
-    right: 8px;
+    right: 12px;
+}
+.help-arrow-streamline-target {
+    font-size: 15px;
 }
 .team-name-wrapper {
     color: #fff;
@@ -57,9 +81,184 @@
     padding: 10px 0;
     font-size: 13px;
 }
+.member-meta{
+    text-decoration: none;
+    color: #333;
+}
+.member-meta small{
+    text-decoration: none!important;
+}
 .yellow {
     color: #A0961A;
 }
 .card-name{
     text-transform: uppercase;
+    text-decoration: none;
+    color: #333;
 }
+.btn-more-wrapper {
+    width: 87%!important;
+    margin: 0 auto;
+}
+.btn-color.btn-outline:focus,.btn-color.btn-outline {
+    background-color: transparent;
+    color: #000000;
+        font-size: 11px;
+    border-color: #000000;
+        padding: 16.5px 16px;
+    outline: 0;
+        -webkit-box-shadow: none;
+    box-shadow:none;
+}
+.btn-color.btn-outline:hover, .btn-color.btn-outline:active, .btn-color.btn-outline.active {
+    background-color: #000000;
+    color: #e6e6e6;
+}
+.best-positions {
+    margin: 15px 0 0 0;
+}
+.best-position {
+    width: 25%;
+    padding: 15px 10px;
+}
+.best-position.giro {
+    background-color: #e8a0b2;
+    border-radius: 0 0 0 4px;
+    color: #333;
+}
+.victories-wrapper {
+    padding: 10px 0 0 0;
+    margin: 5px 0 0 0;
+    background-color: rgba(255,255,255,0.4);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.victories-wrapper .fa-trophy {
+    color: #000;
+}
+.best-position.tour {
+    background-color: #e4d49e;
+    color: #333;
+}
+.best-position.vuelta {
+    background-color: #c96466;
+    color: #000000;
+}
+.best-position.worldcup {
+    background-color: #eee;
+    border-radius: 0 0 4px 0;
+    padding: 0 0 15px;
+    color: #333;
+}
+.uci-flag {
+    border-top: 2px solid #007abe;
+    border-bottom: 2px solid #39a640;
+    margin-bottom: 5px;
+}
+.inner-flag {
+    border-top: 2px solid #d92933;
+    border-bottom: 2px solid #ffec00;
+}
+.black-stripe {
+    border-bottom: 2px solid #000;
+}
+.victories-wrapper.wc {
+    margin: 5px 0 0 10px;
+}
+
+//INDIVIDUAL CARD
+.panel {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.no-b {
+  border: 0;
+}
+.no-m {
+  margin: 0;
+}
+.no-p{
+    padding: 0!important;
+}
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #eaecf6;
+}
+.panel-default > .panel-heading a {
+  color: #59595a;
+}
+.panel-default > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #eaecf6;
+}
+.panel-primary {
+  border-color: #1582dc;
+}
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #1582dc;
+  border-color: #1582dc;
+}
+.panel-primary > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #1582dc;
+}
+.main-rider-card{
+    background-color: #e5e6d6;
+    box-shadow: 1px 2px 8px #999;
+    border-radius:4px;
+}
+.main-rider-card img{
+    margin: 0 auto;
+    width: 250px;
+}
+.rider-type.big-card{
+    font-size:18px;
+}
+.card-frame{
+    border: 7px solid #CBCCB7;
+  max-width: 250px;
+  margin: 15px auto;
+  max-height: 250px;
+  overflow: hidden;
+  border-radius: 185px;
+}
+img.big-card-flag{
+    width:18px;
+    height: 18px;
+    margin: -3px 0 0 0;
+}
+.victories-title{
+  margin: 40px 0 0;
+  font-weight: bold;
+  font-size: 15px;
+}
+.victories-wrapper-card {
+  padding: 20px 0 0 8px;
+  margin: 5px 0 0 0;
+  background-color: rgba(255,255,255,0.4);
+  width: 70px;
+  height: 70px;
+  border-radius: 52px;
+  font-size: 19px;
+  margin: 20px auto;
+}
+.best-position-card.giro {
+    background-color: #e8a0b2;
+    border-radius: 0 0 0 4px;
+    color: #333;
+}
+.best-position-card.tour {
+    background-color: #e4d49e;
+    color: #333;
+}
+.best-position-card.vuelta {
+    background-color: #c96466;
+    color: #000000;
+    border-radius: 0 0 4px 0;
+}
+.p10 {
+  padding: 10px;
+}
+
