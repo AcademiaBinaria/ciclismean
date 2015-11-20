@@ -53,6 +53,11 @@
 				});
 			});
 		}
+
+		vm.getMaillot = function (team, year) {
+			return "assets/images/teams_covers/" + year + "/" + team + ".png"
+		};
+
 	}
 
 	function riderLogicService() {
