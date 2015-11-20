@@ -23,7 +23,7 @@
 		}
 	}
 
-	function controller($stateParams, ridersDataService, riderLogicService) {
+	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService) {
 		var vm = this;
 		vm.riderId = $stateParams.riderId;
 
@@ -48,8 +48,19 @@
 				vm.imageUrl = riderLogicService.getRiderImageUrl(vm.rider);
 				vm.rider.age = riderLogicService.getRiderAge(vm.rider.dob);
 				vm.rider.flag = riderLogicService.getRiderFlag(vm.rider.country);
-				vm.rider.seasons.forEach(function (season) {
-					setSeasonTotalVictories(season);
+				competitionDataService.gettingCompetitions({
+					limit: 200
+				}).then(function (data) {
+					vm.rider.seasons.forEach(function (season) {
+						setSeasonTotalVictories(season);
+						season.palmares.forEach(function (competition) {
+							data.forEach(function (race) {
+								if (competition.competition == race._id) {
+									competition.category = race.category;
+								}
+							});
+						});
+					});
 				});
 			});
 		}
