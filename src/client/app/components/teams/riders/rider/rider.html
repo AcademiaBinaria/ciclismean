@@ -56,6 +56,7 @@
 					<div class="overflow-hidden pull-left">
 						<a href="javascript:;" class="h4 show no-m mr10 pt15">{{::season.year}}</a>
 					</div>
+                    
 					<div class="card-total-victories pull-left yellow-tour">
 						<div class="fa fa-trophy"></div>
 						<span>{{::season.totalVictories}}</span>
@@ -66,7 +67,7 @@
 					<span class="pull-right mt15 mr15"><small>{{::season.team}}</small></span>
 				</header>
 
-				<div ng-repeat="competition in season.palmares" class="list-group">
+				<div class="list-group">
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -78,42 +79,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr ng-repeat="competition in season.palmares">
 								<th scope="row">
 									<div class="fa fa-trophy"></div>
 								</th>
-								<td>1º</td>
-								<td>Lieja Bastogne Lieja</td>
-								<td>-</td>
-								<td>1.WT</td>
-							</tr>
-							<tr>
-								<th scope="row">
-									<div class="fa fa-trophy"></div>
-								</th>
-								<td>4º</td>
-								<td>Vuelta a Logroño</td>
-								<td>2</td>
-								<td>2.1</td>
-							</tr>
-							<tr>
-								<th scope="row">
-									<div class="fa fa-trophy"></div>
-								</th>
-								<td>1º</td>
-								<td>Etapa 3 Vuelta a España: Burgos - Valladolid</td>
-								<td>-</td>
-								<td>2.WT</td>
+								<td>{{::competition.position}}</td>
+								<td>{{::competition.competition}}</td>
+								<td>{{::competition.victories}}</td>
+								<td>{{::competition.category}}</td>
 							</tr>
 						</tbody>
 					</table>
-					<div class="list-group-item">
-						<div class="fa fa-trophy yellow-tour results-icon"></div>
-						<i class="mr10 text-muted"></i>
-						<h5>{{::competition.competition}}</h5>
-						<div>Posición: {{::competition.position}}</div>
-						<div>Etapas ganadas: {{::competition.victories}}</div>
-					</div>
 				</div>
 			</div>
 		</section>
