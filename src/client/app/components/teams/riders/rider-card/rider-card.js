@@ -36,8 +36,11 @@
 						if (competition.victories != "-") {
 							victories += parseInt(competition.victories);
 						}
+						if (competition.position == "1º") {
+							victories += 1;
+						}
 					});
-					vm.riderId.currentVictories;
+					vm.riderId.currentVictories = victories;
 				}
 			});
 		}
