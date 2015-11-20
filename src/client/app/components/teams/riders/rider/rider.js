@@ -35,6 +35,9 @@
 				if (competition.victories != "-") {
 					totalVictories += parseInt(competition.victories);
 				}
+				if (competition.position == "1º" || competition.position == "1") {
+					totalVictories += 1;
+				}
 			});
 			season.totalVictories = totalVictories;
 		}
