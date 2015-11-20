@@ -50,17 +50,17 @@
     </div>
     <div class="col-md-8">
         <section class="panel panel-black no-b">
-            <div ng-repeat="season in vm.rider.seasons">
+            <div ng-repeat="season in vm.rider.seasons | orderBy: '-year'">
                 <header class="panel-heading clearfix brtl brtr">
                    <div class="overflow-hidden pull-left">
                         <a href="javascript:;" class="h4 show no-m mr10 pt15">{{::season.year}}</a>
                     </div>
                    <div class="card-total-victories pull-left yellow-tour">
-                       <span>{{::season.year.victories}}</span>
                        <div class="fa fa-trophy"></div>
+                       <span>{{::season.totalVictories}}</span>
                    </div>
                     <a href="javascript:;" class="pull-right">
-                       <img itemprop="image" img ng-src="{{vm.getMaillot(team.safe_name)}}" class="little-jersey">
+                       <img itemprop="image" img ng-src="{{vm.getMaillot(team.safe_name, season.year)}}" class="little-jersey">
                     </a>
                     <span class="pull-right mt15 mr15"><small>{{::season.team}}</small></span>
                 </header>
