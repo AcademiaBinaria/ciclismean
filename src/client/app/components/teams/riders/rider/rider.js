@@ -1,70 +1,83 @@
 "use strict";
 (function () {
-    angular
-        .module('rider', ['ui.router'])
-        .config(config)
-        .directive('rider', directive)
-        .factory('riderLogicService', riderLogicService);
+	angular
+		.module('rider', ['ui.router'])
+		.config(config)
+		.directive('rider', directive)
+		.factory('riderLogicService', riderLogicService);
 
-    function config($stateProvider) {
-        $stateProvider
-            .state('rider', {
-                url: '/equipos/:teamId/:year/:riderId',
-                template: '<rider></rider>'
-            });
-    }
+	function config($stateProvider) {
+		$stateProvider
+			.state('rider', {
+				url: '/equipos/:teamId/:year/:riderId',
+				template: '<rider></rider>'
+			});
+	}
 
-    function directive() {
-        return {
-            templateUrl: 'app/components/teams/riders/rider/rider.html',
-            controller: controller,
-            controllerAs: "vm",
-            bindToController: true
-        }
-    }
+	function directive() {
+		return {
+			templateUrl: 'app/components/teams/riders/rider/rider.html',
+			controller: controller,
+			controllerAs: "vm",
+			bindToController: true
+		}
+	}
 
-    function controller($stateParams, ridersDataService, riderLogicService) {
-        var vm = this;
-        vm.riderId = $stateParams.riderId;
+	function controller($stateParams, ridersDataService, riderLogicService) {
+		var vm = this;
+		vm.riderId = $stateParams.riderId;
 
-        init();
+		init();
 
-        function init() {
-            ridersDataService.gettingRiders({
-                limit: 1,
-                q: 'safe_name:' + vm.riderId
-            }).then(function (riders) {
-                vm.rider = riders[0];
-                vm.imageUrl = riderLogicService.getRiderImageUrl(vm.rider);
-                vm.rider.age = riderLogicService.getRiderAge(vm.rider.dob);
-                vm.rider.flag = riderLogicService.getRiderFlag(vm.rider.country);
-            });
-        }
-    }
+		function setSeasonTotalVictories(season) {
+			var totalVictories = 0;
+			season.palmares.forEach(function (competition) {
+				if (competition.victories != "-") {
+					totalVictories += parseInt(competition.victories);
+				}
+			});
+			season.totalVictories = totalVictories;
+		}
 
-    function riderLogicService() {
-        var factory = {};
+		function init() {
+			ridersDataService.gettingRiders({
+				limit: 1,
+				q: 'safe_name:' + vm.riderId
+			}).then(function (riders) {
+				vm.rider = riders[0];
+				vm.imageUrl = riderLogicService.getRiderImageUrl(vm.rider);
+				vm.rider.age = riderLogicService.getRiderAge(vm.rider.dob);
+				vm.rider.flag = riderLogicService.getRiderFlag(vm.rider.country);
+				vm.rider.seasons.forEach(function (season) {
+					setSeasonTotalVictories(season);
+				});
+			});
+		}
+	}
 
-        factory.getRiderFlag = function (country) {
-            return "assets/images/flags/" + country + ".png";
-        }
+	function riderLogicService() {
+		var factory = {};
 
-        factory.getRiderAge = function (dob) {
-            var dateOfBirth = new Date(dob);
-            var ageDifMs = Date.now() - dateOfBirth.getTime();
-            var ageDate = new Date(ageDifMs);
-            return (ageDate.getUTCFullYear() - 1970);
-        }
+		factory.getRiderFlag = function (country) {
+			return "assets/images/flags/" + country + ".png";
+		}
 
-        factory.getRiderImageUrl = function (rider) {
-            var year = new Date().getFullYear();
-            var team = rider.safe_name_team;
-            var rider = rider.safe_name;
-            return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
-        }
+		factory.getRiderAge = function (dob) {
+			var dateOfBirth = new Date(dob);
+			var ageDifMs = Date.now() - dateOfBirth.getTime();
+			var ageDate = new Date(ageDifMs);
+			return (ageDate.getUTCFullYear() - 1970);
+		}
 
-        return factory;
-    }
+		factory.getRiderImageUrl = function (rider) {
+			var year = new Date().getFullYear();
+			var team = rider.safe_name_team;
+			var rider = rider.safe_name;
+			return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
+		}
+
+		return factory;
+	}
 
 
 })();

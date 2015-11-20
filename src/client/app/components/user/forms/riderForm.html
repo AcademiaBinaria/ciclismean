@@ -1,193 +1,194 @@
 <div class="container row">
-    <form name="vm.addRiderForm">
-        <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}}</div>
-        <div class=" row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm._id)}">
-            <label for="_id">Nombre:</label>
-            <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="!vm.editPage" required>
-            <input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="vm.editPage" required disabled>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm._id)">
-                <form-messages field="vm.addRiderForm._id"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.team)}">
-            <label for="team">Equipo actual:</label>
-            <select class="form-control" name="team" ng-options="team as team._id for team in vm.teams" ng-model="vm.riderTeam" required></select>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.team)">
-                <form-messages field="vm.addRiderForm.team"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.team_rol)}">
-            <label for="team_rol">Rol de equipo:</label>
-            <select class="form-control" name="team_rol" ng-options="roles as roles.role for roles in vm.roles" ng-model="vm.team_rol" required></select>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.team_rol)">
-                <form-messages field="vm.addRiderForm.team_rol"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dob)}">
-            <label for="dob">Fecha de nacimiento:</label>
-            <input class="form-control" name="dob" type="date" ng-model="vm.rider.dob" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.dob)">
-                <form-messages field="vm.addRiderForm.dob"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.lob)}">
-            <label for="lob">Lugar de nacimiento:</label>
-            <input class="form-control" name="lob" type="text" ng-model="vm.rider.lob" placeholder="Palencia, España" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.lob)">
-                <form-messages field="vm.addRiderForm.lob"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.country)}">
-            <label for="country">Nacionalidad:</label>
-            <input class="form-control" name="country" type="text" ng-model="vm.rider.country" placeholder="es, bg, it...  " required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.country)">
-                <form-messages field="vm.addRiderForm.country"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)}">
-            <label for="dorsal_actual">Dorsal:</label>
-            <input class="form-control" name="dorsal_actual" type="number" ng-model="vm.rider.dorsal_actual">
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)">
-                <form-messages field="vm.addRiderForm.dorsal_actual"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)}">
-            <label for="total_victories">Victorias totales:</label>
-            <input class="form-control" name="total_victories" type="number" ng-model="vm.rider.total_victories" min="0" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)">
-                <form-messages field="vm.addRiderForm.total_victories"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <label>Temporadas</label>
-            <div ng-repeat="season in vm.rider.seasons">
-                <label>Año:</label>
-                <input class="form-control" type="text" ng-model="season.year">
-                <label>Equipo:</label>
-                <select class="form-control" ng-options="team._id as team._id for team in vm.teams" ng-model="season.team" required></select>
-                <div ng-repeat="competition in season.palmares">
-                    <label>Nombre de la competición:</label>
-                    <select class="form-control" ng-options="competition._id as competition._id for competition in vm.competitions" ng-model="competition.competition" required></select>
-                    <label>Posición:</label>
-                    <input class="form-control" type="text" ng-model="competition.position" placeholder="1º">
-                    <label>Victorias de etapa:</label>
-                    <input class="form-control" type="text" ng-model="competition.victories">
-                </div>
-                <button type="button" class="btn btn-default" ng-click="vm.addCompetition(season.palmares)">Añadir competición a la temporada</button>
-            </div>
-            <button type="button" class="btn btn-default" ng-click="vm.addYear()">Añadir Temporada</button>
-        </div>
-        <div class="row">
-            <h4>Giro</h4>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroBestResult)}">
-            <label for="giroBestResult">Mejor resultado:</label>
-            <input class="form-control" name="giroBestResult" type="text" ng-model="vm.rider.giroBestResult" placeholder="1º" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroBestResult)">
-                <form-messages field="vm.addRiderForm.giroBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroYearBestResult)}">
-            <label for="giroYearBestResult">Año con mejor resultado:</label>
-            <input class="form-control" name="giroYearBestResult" type="text" ng-model="vm.rider.giroYearBestResult" placeholder="2015" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroYearBestResult)">
-                <form-messages field="vm.addRiderForm.giroYearBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroTotalVictories)}">
-            <label for="giroTotalVictories">Victorias de etapa</label>
-            <input class="form-control" name="giroTotalVictories" type="text" ng-model="vm.rider.giroTotalVictories" placeholder="5" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroTotalVictories)">
-                <form-messages field="vm.addRiderForm.giroTotalVictories"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <h4>Tour</h4>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourBestResult)}">
-            <label for="tourBestResult">Mejor resultado:</label>
-            <input class="form-control" name="tourBestResult" type="text" ng-model="vm.rider.tourBestResult" placeholder="1º" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourBestResult)">
-                <form-messages field="vm.addRiderForm.tourBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourYearBestResult)}">
-            <label for="tourYearBestResult">Año con mejor resultado:</label>
-            <input class="form-control" name="tourYearBestResult" type="text" ng-model="vm.rider.tourYearBestResult" placeholder="2015" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourYearBestResult)">
-                <form-messages field="vm.addRiderForm.tourYearBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourTotalVictories)}">
-            <label for="tourTotalVictories">Victorias de etapa</label>
-            <input class="form-control" name="tourTotalVictories" type="text" ng-model="vm.rider.tourTotalVictories" placeholder="5" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourTotalVictories)">
-                <form-messages field="vm.addRiderForm.tourTotalVictories"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <h4>Vuelta</h4>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaBestResult)}">
-            <label for="vueltaBestResult">Mejor resultado:</label>
-            <input class="form-control" name="vueltaBestResult" type="text" ng-model="vm.rider.vueltaBestResult" placeholder="1º" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaBestResult)">
-                <form-messages field="vm.addRiderForm.vueltaBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaYearBestResult)}">
-            <label for="vueltaYearBestResult">Año con mejor resultado:</label>
-            <input class="form-control" name="vueltaYearBestResult" type="text" ng-model="vm.rider.vueltaYearBestResult" placeholder="2015" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaYearBestResult)">
-                <form-messages field="vm.addRiderForm.vueltaYearBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaTotalVictories)}">
-            <label for="vueltaTotalVictories">Victorias de etapa</label>
-            <input class="form-control" name="vueltaTotalVictories" type="text" ng-model="vm.rider.vueltaTotalVictories" placeholder="5" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaTotalVictories)">
-                <form-messages field="vm.addRiderForm.vueltaTotalVictories"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <h4>Mundial</h4>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.wcBestResult)}">
-            <label for="wcBestResult">Mejor resultado:</label>
-            <input class="form-control" name="wcBestResult" type="text" ng-model="vm.rider.wcBestResult" placeholder="1º" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.wcBestResult)">
-                <form-messages field="vm.addRiderForm.wcBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.wcYearBestResult)}">
-            <label for="wcYearBestResult">Año con mejor resultado:</label>
-            <input class="form-control" name="wcYearBestResult" type="text" ng-model="vm.rider.wcYearBestResult" placeholder="2015" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.wcYearBestResult)">
-                <form-messages field="vm.addRiderForm.wcYearBestResult"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <h4>Clásicas</h4>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.classicsTotalVictories)}">
-            <label for="classicsTotalVictories">Victorias:</label>
-            <input class="form-control" name="classicsTotalVictories" type="text" ng-model="vm.rider.classicsTotalVictories" placeholder="5" required>
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.classicsTotalVictories)">
-                <form-messages field="vm.addRiderForm.classicsTotalVictories"></form-messages>
-            </div>
-        </div>
-        <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)}">
-            <label for="retired">¿Ciclista ya retirado?:</label>
-            <input class="form-control" name="retired" type="checkbox" ng-model="vm.rider.retired">
-            <div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)">
-                <form-messages field="vm.addRiderForm.retired"></form-messages>
-            </div>
-        </div>
-        <div class="row">
-            <button type="submit" class="btn btn-default" ng-click="vm.saveRider()" ng-if="!vm.editPage">Guardar Corredor</button>
-            <button type="submit" class="btn btn-default" ng-click="vm.editRider()" ng-if="vm.editPage">Editar Corredor</button>
-            <button type="submit" class="btn btn-default" ui-sref="dashboard">Volver al Dashboard</button>
-        </div>
-    </form>
+	<form name="vm.addRiderForm">
+		<div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}}</div>
+		<div class=" row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm._id)}">
+			<label for="_id">Nombre:</label>
+			<input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="!vm.editPage" required>
+			<input type="text" name="_id" ng-model="vm.rider._id" class="form-control" placeholder="Jose Luís Rubio" ng-if="vm.editPage" required disabled>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm._id)">
+				<form-messages field="vm.addRiderForm._id"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.team)}">
+			<label for="team">Equipo actual:</label>
+			<select class="form-control" name="team" ng-options="team as team._id for team in vm.teams" ng-model="vm.riderTeam" required></select>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.team)">
+				<form-messages field="vm.addRiderForm.team"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.team_rol)}">
+			<label for="team_rol">Rol de equipo:</label>
+			<select class="form-control" name="team_rol" ng-options="roles as roles.role for roles in vm.roles" ng-model="vm.team_rol" required></select>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.team_rol)">
+				<form-messages field="vm.addRiderForm.team_rol"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dob)}">
+			<label for="dob">Fecha de nacimiento:</label>
+			<input class="form-control" name="dob" type="date" ng-model="vm.rider.dob" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.dob)">
+				<form-messages field="vm.addRiderForm.dob"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.lob)}">
+			<label for="lob">Lugar de nacimiento:</label>
+			<input class="form-control" name="lob" type="text" ng-model="vm.rider.lob" placeholder="Palencia, España" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.lob)">
+				<form-messages field="vm.addRiderForm.lob"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.country)}">
+			<label for="country">Nacionalidad:</label>
+			<input class="form-control" name="country" type="text" ng-model="vm.rider.country" placeholder="es, bg, it...  " required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.country)">
+				<form-messages field="vm.addRiderForm.country"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)}">
+			<label for="dorsal_actual">Dorsal:</label>
+			<input class="form-control" name="dorsal_actual" type="number" ng-model="vm.rider.dorsal_actual">
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)">
+				<form-messages field="vm.addRiderForm.dorsal_actual"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)}">
+			<label for="total_victories">Victorias totales:</label>
+			<input class="form-control" name="total_victories" type="number" ng-model="vm.rider.total_victories" min="0" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)">
+				<form-messages field="vm.addRiderForm.total_victories"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<label>Temporadas</label>
+			<div ng-repeat="season in vm.rider.seasons">
+				<label>Año:</label>
+				<input class="form-control" type="number" ng-model="season.year">
+				<input class="form-control" type="text" ng-model="season.year" disabled>
+				<label>Equipo:</label>
+				<select class="form-control" ng-options="team._id as team._id for team in vm.teams" ng-model="season.team" required></select>
+				<div ng-repeat="competition in season.palmares">
+					<label>Nombre de la competición:</label>
+					<select class="form-control" ng-options="competition._id as competition._id for competition in vm.competitions" ng-model="competition.competition" required></select>
+					<label>Posición:</label>
+					<input class="form-control" type="text" ng-model="competition.position" placeholder="1º">
+					<label>Victorias de etapa:</label>
+					<input class="form-control" type="text" ng-model="competition.victories">
+				</div>
+				<button type="button" class="btn btn-default" ng-click="vm.addCompetition(season.palmares)">Añadir competición a la temporada</button>
+			</div>
+			<button type="button" class="btn btn-default" ng-click="vm.addYear()">Añadir Temporada</button>
+		</div>
+		<div class="row">
+			<h4>Giro</h4>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroBestResult)}">
+			<label for="giroBestResult">Mejor resultado:</label>
+			<input class="form-control" name="giroBestResult" type="text" ng-model="vm.rider.giroBestResult" placeholder="1º" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroBestResult)">
+				<form-messages field="vm.addRiderForm.giroBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroYearBestResult)}">
+			<label for="giroYearBestResult">Año con mejor resultado:</label>
+			<input class="form-control" name="giroYearBestResult" type="text" ng-model="vm.rider.giroYearBestResult" placeholder="2015" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroYearBestResult)">
+				<form-messages field="vm.addRiderForm.giroYearBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroTotalVictories)}">
+			<label for="giroTotalVictories">Victorias de etapa</label>
+			<input class="form-control" name="giroTotalVictories" type="text" ng-model="vm.rider.giroTotalVictories" placeholder="5" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.giroTotalVictories)">
+				<form-messages field="vm.addRiderForm.giroTotalVictories"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Tour</h4>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourBestResult)}">
+			<label for="tourBestResult">Mejor resultado:</label>
+			<input class="form-control" name="tourBestResult" type="text" ng-model="vm.rider.tourBestResult" placeholder="1º" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourBestResult)">
+				<form-messages field="vm.addRiderForm.tourBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourYearBestResult)}">
+			<label for="tourYearBestResult">Año con mejor resultado:</label>
+			<input class="form-control" name="tourYearBestResult" type="text" ng-model="vm.rider.tourYearBestResult" placeholder="2015" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourYearBestResult)">
+				<form-messages field="vm.addRiderForm.tourYearBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourTotalVictories)}">
+			<label for="tourTotalVictories">Victorias de etapa</label>
+			<input class="form-control" name="tourTotalVictories" type="text" ng-model="vm.rider.tourTotalVictories" placeholder="5" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.tourTotalVictories)">
+				<form-messages field="vm.addRiderForm.tourTotalVictories"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Vuelta</h4>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaBestResult)}">
+			<label for="vueltaBestResult">Mejor resultado:</label>
+			<input class="form-control" name="vueltaBestResult" type="text" ng-model="vm.rider.vueltaBestResult" placeholder="1º" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaBestResult)">
+				<form-messages field="vm.addRiderForm.vueltaBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaYearBestResult)}">
+			<label for="vueltaYearBestResult">Año con mejor resultado:</label>
+			<input class="form-control" name="vueltaYearBestResult" type="text" ng-model="vm.rider.vueltaYearBestResult" placeholder="2015" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaYearBestResult)">
+				<form-messages field="vm.addRiderForm.vueltaYearBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaTotalVictories)}">
+			<label for="vueltaTotalVictories">Victorias de etapa</label>
+			<input class="form-control" name="vueltaTotalVictories" type="text" ng-model="vm.rider.vueltaTotalVictories" placeholder="5" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaTotalVictories)">
+				<form-messages field="vm.addRiderForm.vueltaTotalVictories"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Mundial</h4>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.wcBestResult)}">
+			<label for="wcBestResult">Mejor resultado:</label>
+			<input class="form-control" name="wcBestResult" type="text" ng-model="vm.rider.wcBestResult" placeholder="1º" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.wcBestResult)">
+				<form-messages field="vm.addRiderForm.wcBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.wcYearBestResult)}">
+			<label for="wcYearBestResult">Año con mejor resultado:</label>
+			<input class="form-control" name="wcYearBestResult" type="text" ng-model="vm.rider.wcYearBestResult" placeholder="2015" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.wcYearBestResult)">
+				<form-messages field="vm.addRiderForm.wcYearBestResult"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Clásicas</h4>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.classicsTotalVictories)}">
+			<label for="classicsTotalVictories">Victorias:</label>
+			<input class="form-control" name="classicsTotalVictories" type="text" ng-model="vm.rider.classicsTotalVictories" placeholder="5" required>
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.classicsTotalVictories)">
+				<form-messages field="vm.addRiderForm.classicsTotalVictories"></form-messages>
+			</div>
+		</div>
+		<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)}">
+			<label for="retired">¿Ciclista ya retirado?:</label>
+			<input class="form-control" name="retired" type="checkbox" ng-model="vm.rider.retired">
+			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)">
+				<form-messages field="vm.addRiderForm.retired"></form-messages>
+			</div>
+		</div>
+		<div class="row">
+			<button type="submit" class="btn btn-default" ng-click="vm.saveRider()" ng-if="!vm.editPage">Guardar Corredor</button>
+			<button type="submit" class="btn btn-default" ng-click="vm.editRider()" ng-if="vm.editPage">Editar Corredor</button>
+			<button type="submit" class="btn btn-default" ui-sref="dashboard">Volver al Dashboard</button>
+		</div>
+	</form>
 </div>
 <pre>{{vm.rider | json}}</pre>
