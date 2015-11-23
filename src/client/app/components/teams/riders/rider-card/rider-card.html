@@ -1,10 +1,11 @@
 <a ui-sref="rider({teamId: vm.riderId.safe_name_team, year: vm.year, riderId: vm.riderId.safe_name})">
-    <div class="avatar">
+    <div class="rider-image">
             <div class="victories">
-                <div class="fa fa-trophy">
-
+                <div class="fa fa-trophy"></div>
+                <div>
+                    <small>{{vm.riderId.total_victories}}</small>
+                    <!--<small>{{vm.riderId.currentVictories}}</small>--> <!-- VICTORIAS AÑO EN CURSO -->
                 </div>
-                <div class="trophy_title">{{vm.riderId.total_victories}}</div>
             </div>
             <div class="rider-flag">
                 <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
