@@ -51,42 +51,33 @@
 	</div>
 	<div class="col-md-8">
 		<section class="panel panel-black no-b">
-			<div ng-repeat="season in vm.rider.seasons | orderBy: '-year'">
+			<div class="palmacard" ng-repeat="season in vm.rider.seasons | orderBy: '-year'">
 				<header class="panel-heading clearfix brtl brtr">
-					<div class="overflow-hidden pull-left">
-						<a href="javascript:;" class="h4 show no-m mr10 pt15">{{::season.year}}</a>
+					<div class="season-year yellow pull-left">
+						{{::season.year}}
 					</div>
                     
-					<div class="card-total-victories pull-left yellow-tour">
+					<div class="card-total-victories yellow pull-left">
 						<div class="fa fa-trophy"></div>
 						<span>{{::season.totalVictories}}</span>
 					</div>
-					<a href="javascript:;" class="pull-right">
+					<span class="pull-right">
 						<img itemprop="image" img ng-src="{{vm.getMaillot(vm.rider.safe_name_team, season.year)}}" class="little-jersey">
-					</a>
-					<span class="pull-right mt15 mr15"><small>{{::season.team}}</small></span>
+					</span>
+					<span class="pull-right yellow team-season">{{::season.team}}</span>
 				</header>
 
-				<div class="list-group">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Posición</th>
-								<th>Carrera</th>
-								<th>Etapas</th>
-								<th>Categoría</th>
-							</tr>
-						</thead>
+				<div>
+					<table class="table table-hover palmares-table">
 						<tbody>
 							<tr ng-repeat="competition in season.palmares">
-								<th scope="row">
+								<td class="cup" scope="row">
 									<div class="fa fa-trophy"></div>
-								</th>
-								<td>{{::competition.position}}</td>
+								</td>
+								<td class="position">{{::competition.position}}</td>
 								<td>{{::competition.competition}}</td>
-								<td>{{::competition.victories}}</td>
-								<td>{{::competition.category}}</td>
+								<td class="stages">Etapas: {{::competition.victories}}</td>
+								<td class="position">{{::competition.category}}</td>
 							</tr>
 						</tbody>
 					</table>

@@ -2,66 +2,48 @@
 // Cards
 // ==========================================================================
 .cards-wrapper{
-    margin: 20px 0;
+    margin: em(20px) 0;
 }
 .rider-card-wrapper{
-    border: 0;
+    display: inline-block;
+    background-color: $bg-card;
+    margin: em(10px);
+    width: em(240px) !important;
+    border-radius: em(8px);
+    box-shadow: em(1px) em(2px) em(8px) $shadow;
+}
+.rider-image{
     position: relative;
     display: inline-block;
-    vertical-align: top;
-    margin-bottom: 25px;
-    background-color: #e5e6d6;
-    margin: 10px;
-    width: 240px!important;
-    border-radius: 8px;
-    color: #333;
-    box-shadow: 1px 2px 8px #999;
+    img{
+        @include transition(opacity 300ms);
+        opacity: 1;
+        border-radius: 4px 4px 0 0;
+        filter: alpha(opacity=100);
+    }
+    .victories {
+        position: absolute;
+        top: em(8px);
+        left: em(4px);
+        background: $overlay-black;
+        width: em(45px);
+        height: em(45px);
+        border-radius: em(33px);
+        padding: em(6px) 0 0 0;
+        color: $yellow-tour;
+        .fa-trophy{
+            font-size: $biggest__font-size;
+        }
+    }
+    .rider-flag {
+        position: absolute;
+        height: em(28px);
+        width: em(28px);
+        top: em(8px);
+        right: em(12px);
+    }
 }
-.avatar{
-    position: relative;
-    display: inline-block;
-    margin: 0 auto;
-    background-color: #2e353d;
-    border-radius: 8px;
-}
-.victories {
-    position: absolute;
-    top: 8px;
-    left: 4px;
-    background: rgba(0,0,0,0.4);
-    width: 45px;
-    height: 45px;
-    border-radius: 33px;
-    padding: 5px 0 0 0;
-}
-.victories .fa-trophy {
-    font-size: 22px;
-    color: #e4d49e;
-}
-.trophy_title {
-    float: left;
-    width: 100%;
-    margin: 0px 0 0 0;
-    color: #e4d49e;
-    font-size: 12px;
-}
-.rider-card-img{
-    -webkit-transition: opacity 300ms;
-    -moz-transition: opacity 300ms;
-    -o-transition: opacity 300ms;
-    transition: opacity 300ms;
-    opacity: 1;
-    border-radius: 4px 4px 0 0;
-    filter: alpha(opacity=100);
-    width: 240px;
-}
-.rider-flag {
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    top: 8px;
-    right: 12px;
-}
+
 .help-arrow-streamline-target {
     font-size: 15px;
 }
@@ -264,25 +246,65 @@ img.big-card-flag{
 .panel-black {
   border-color: #eee;
   background-color: #eee;
+  border-radius: 6px!important;
 }
 .little-jersey{
     width: 40px;
     height: 50px;
 }
-.panel-heading {
-  border-color: #d8dcee;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+.palmacard .panel-heading {
+    border-color: #333;
+        background-color: #e5e6d6;
+    border-top-left-radius: 0!important;
+    border-top-right-radius: 0!important;
+}
+.palmacard:first-child .panel-heading {
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
 }
 .card-total-victories{
-  font-size: 15px;
-  background-color: #333;
-  width: 50px;
-  height: 50px;
-  padding: 10px 0 0 0px;
-  border-radius: 30px;
-  text-align: center;
+      font-size: 15px;
+    border: 1px solid #A0961A;
+    width: 50px;
+    height: 50px;
+    padding: 12px 0 0 0px;
+    border-radius: 30px;
+    text-align: center;
 }
 .yellow-tour{
     color: #E0E006;
+}
+.season-year{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 11px 10px 0 0;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-bottom: 1px solid #ddd;
+    border-top: 0;
+}
+.palmares-table {
+    margin-bottom: 0;
+}
+.team-season{
+    margin: 11px 10px 0 0;
+}
+.table > thead > tr > th {
+    font-weight: 600;
+    font-size:12px;
+    border-bottom: 1px solid #E5E6D6;
+}
+th.cup, td.cup{
+    width:10px;
+    padding-top: 11px!important;
+}
+td{
+    font-size:13px;
+}
+td.position{
+    text-align:right;
+    width:20px;
+}
+td.stages{
+    text-align:left;
 }
