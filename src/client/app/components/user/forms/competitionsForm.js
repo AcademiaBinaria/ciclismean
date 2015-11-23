@@ -61,8 +61,10 @@
 									}
 									if (add) {
 										vm.rider.seasons[yearPos].palmares[racePos].victories += 1;
+										vm.rider.total_victories += 1;
 									} else {
 										vm.rider.seasons[yearPos].palmares[racePos].victories -= 1;
+										vm.rider.total_victories -= 1;
 
 									}
 								}
@@ -77,6 +79,7 @@
 									position: null,
 									victories: 1
 								});
+								vm.rider.total_victories += 1;
 							}
 						}
 					});
@@ -93,7 +96,8 @@
 								position: "-",
 								victories: 1
 							}]
-						})
+						});
+						vm.rider.total_victories += 1;
 					}
 					vm.rider.$update({
 						_id: vm.riderId
