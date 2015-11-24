@@ -19,3 +19,15 @@
           background-color: darken($baseColor, 5%);
     }
 }
+@mixin lightenBgColor($baseColor){
+    background-color: $baseColor;
+    &:hover,&:focus{
+          background-color: lighten($baseColor, 30%);
+    }
+}
+@mixin lightenColor($baseColor){
+    color: $baseColor;
+    &:hover,&:focus{
+          color: lighten($baseColor, 70%);
+    }
+}

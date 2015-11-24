@@ -224,16 +224,27 @@ th {
   letter-spacing: 0.07692em;
   font-weight: 600;
   border-color: 0; }
+  .navbar-default .navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.95); }
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      background-color: rgba(77, 77, 77, 0.95); }
 
-.navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.8); }
-  .navbar-default .navbar-nav > li > a:hover {
-    color: #333333;
-    background-color: #bbbbbb; }
-
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-  color: #333333;
-  background-color: #bbbbbb; }
+.icon-logo {
+  float: left; }
+  .icon-logo span {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 16px 10px 0 3px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    letter-spacing: 0; }
+  .icon-logo svg {
+    float: left;
+    width: 3.84615em;
+    margin: 0.46154em 0 0 0; }
+    .icon-logo svg path {
+      fill: rgba(255, 255, 255, 0.8); }
 
 .team-img {
   width: 150px;
