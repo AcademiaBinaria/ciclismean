@@ -417,7 +417,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 
 .victories-wrapper {
   padding: 10px 0 0 0;
-  margin: 5px 0 0 0;
+  margin: 5px auto;
   background-color: rgba(255, 255, 255, 0.4);
   width: 40px;
   height: 40px;
