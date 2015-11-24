@@ -56,13 +56,13 @@
 					<div class="season-year yellow pull-left">
 						{{::season.year}}
 					</div>
-                    
+
 					<div class="card-total-victories yellow pull-left">
 						<div class="fa fa-trophy"></div>
 						<span>{{::season.totalVictories}}</span>
 					</div>
 					<span class="pull-right">
-						<img itemprop="image" img ng-src="{{vm.getMaillot(vm.rider.safe_name_team, season.year)}}" class="little-jersey">
+						<img itemprop="image" img ng-src="{{vm.getMaillot(vm.getSafeNameTeam(season.team), season.year)}}" class="little-jersey">
 					</span>
 					<span class="pull-right yellow team-season">{{::season.team}}</span>
 				</header>

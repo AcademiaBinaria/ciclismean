@@ -23,7 +23,7 @@
 		}
 	}
 
-	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService) {
+	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService) {
 		var vm = this;
 		vm.riderId = $stateParams.riderId;
 
@@ -70,6 +70,15 @@
 
 		vm.getMaillot = function (team, year) {
 			return "assets/images/teams_covers/" + year + "/" + team + ".png"
+		};
+
+		vm.getSafeNameTeam = function (team) {
+			var teamFound = new teamsDataService.team();
+			teamFound._id = team;
+			console.log(teamFound);
+			teamFound.$get().then(function (data) {
+				return data.safe_name;
+			});
 		};
 
 	}
