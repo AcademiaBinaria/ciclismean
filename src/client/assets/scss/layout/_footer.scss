@@ -1,58 +1,32 @@
 // ==========================================================================
 // Footer
 // ==========================================================================
-.btn-social-icon.btn-sm {
-    height: 29px;
-    width: 29px;
-    padding-left: 0;
-    padding-right: 0;
-}
-a.btn-facebook {
-    color: #ffffff;
-}
-.btn-facebook {
-    color: #ffffff;
-    background-color: #3b5998;
-    border-color: #3b5998;
-}
-.btn-rounded {
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
+footer{
+    padding:em(30px) 0;
+    ul{
+        padding:0;
+        margin:0 0 em(15px);
+        li{
+            list-style:none;
+            display: inline;
+            margin: 0 em(5px);
+        }
+    }
 }
 .btn-social-icon {
-    position: relative;
-    padding-left: 51px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 38px;
-    width: 38px;
-    padding: 0;
-}
-.btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active, .btn-facebook.active, .open .dropdown-toggle.btn-facebook {
-    color: #ffffff;
-    background-color: #344e86;
-    border-color: #344e86;
-}
-.btn-social-icon.btn-sm :first-child {
-    line-height: 27px;
-    width: 27px;
-    font-size: 1.4em;
-}
-.btn-social-icon :first-child {
-    border: none;
-    text-align: center;
-    width: 100%!important;
-}
-.btn-twitter {
-    color: #ffffff;
-    background-color: #55acee;
-    border-color: #55acee;
-}
-.btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active, .btn-twitter.active, .open .dropdown-toggle.btn-twitter {
-    color: #ffffff;
-    background-color: #3ea1ec;
-    border-color: #3ea1ec;
+    height: em(25px);
+    width: em(25px);
+    font-size: $big__font-size;
+    padding: em(6px) 0 0 em(1px);
+    @include border-radius(20px,20px,20px,20px);
+    color: $white!important;
+    &.facebook{
+        @include darkenBgColor($facebook-color);
+    }
+    &.twitter{
+        @include darkenBgColor($twitter-color);
+    }
+    &.instagram{
+        @include darkenBgColor($instagram-color);
+    }
 }
