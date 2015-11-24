@@ -95,10 +95,11 @@ router.get('/keywords/:keywords', function (req, res) {
 		var tokenDecoded = jwt.decode(req.headers['x-access-token']);
 		jwt.verify(req, res);
 		ridersData.findingById(req.params.rider).then(function (data) {
-			res.send(data);
-			if (data)
+			//res.send(data);
+			if (data) {
+				delete req.body._id;
 				convert.prom2res(ridersData.crud.updating(req.params.rider, req.body), res, 200);
-			else {
+			} else {
 				ridersData.crud.removing(req.params.rider);
 				convert.prom2res(ridersData.crud.inserting(req.body), res, 200);
 			}

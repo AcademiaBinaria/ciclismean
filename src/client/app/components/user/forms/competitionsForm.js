@@ -43,26 +43,33 @@
 			});
 		}
 
-		function addVictory(winner, season, competition) {
+		function addVictory(winner, season, competition, add) {
 			season = parseInt(season);
 			vm.riders.forEach(function (rider) {
 				if (rider._id == winner) {
 					var seasonFound = false;
 					var competitionFound = false;
 					rider.seasons.forEach(function (year, yearPos) {
-						if (year.year == season) {
-							var seasonFound = true;
+						if (parseInt(year.year) == season) {
+							seasonFound = true;
 							year.palmares.forEach(function (race, racePos) {
 								if (race.competition == competition) {
-									var competitionFound = true;
+									competitionFound = true;
 									vm.rider = new ridersDataService.rider();
 									for (var propertyName in rider) {
 										vm.rider[propertyName] = rider[propertyName];
 									}
-									vm.rider.seasons[yearPos].palmares[racePos].victories += 1;
+									if (add) {
+										vm.rider.seasons[yearPos].palmares[racePos].victories += 1;
+										vm.rider.total_victories += 1;
+									} else {
+										vm.rider.seasons[yearPos].palmares[racePos].victories -= 1;
+										vm.rider.total_victories -= 1;
+
+									}
 								}
 							});
-							if (!competitionFound) {
+							if (!competitionFound && add) {
 								vm.rider = new ridersDataService.rider();
 								for (var propertyName in rider) {
 									vm.rider[propertyName] = rider[propertyName];
@@ -72,10 +79,11 @@
 									position: null,
 									victories: 1
 								});
+								vm.rider.total_victories += 1;
 							}
 						}
 					});
-					if (!seasonFound) {
+					if (!seasonFound && add) {
 						vm.rider = new ridersDataService.rider();
 						for (var propertyName in rider) {
 							vm.rider[propertyName] = rider[propertyName];
@@ -85,12 +93,15 @@
 							team: rider.team,
 							palmares: [{
 								competition: competition,
-								position: null,
+								position: "-",
 								victories: 1
 							}]
-						})
+						});
+						vm.rider.total_victories += 1;
 					}
-					console.log(vm.rider);
+					vm.rider.$update({
+						_id: vm.riderId
+					});
 				}
 			});
 		}
@@ -101,10 +112,10 @@
 					if (stage.winner != "-") {
 						if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != stage.winner) {
 							console.log("Añadimos victoria: " + stage.winner);
-							//vm.rider = new ridersDataService.rider();
-							addVictory(stage.winner, season.year, vm.competition._id);
+							addVictory(stage.winner, season.year, vm.competition._id, true);
 							if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != "-") {
-								console.log("Quitamos victoria: " + vm.competitionNoEdited[seasonIndex].stages[stageIndex].winner);
+								console.log("Quitamos victoria: " + vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner);
+								addVictory(vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false);
 							}
 						}
 					}
@@ -158,7 +169,7 @@
 			if (!vm.addCompetitionForm.$invalid) {
 				findWinnersChange();
 				if (!vm.add) {
-					//vm.competition.$update();
+					vm.competition.$update().then(function (data) {});
 					vm.message = "Editada competición: ";
 					init();
 				}
