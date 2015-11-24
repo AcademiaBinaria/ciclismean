@@ -1,6 +1,5 @@
 <div class="container">
-    <h1>Dashboard</h1>
-    <ul class="list-group">
+    <ul class="list-group creation-panel">
         <a class="list-group-item" ui-sref="add-rider">Crear ciclistas</a>
         <a class="list-group-item" ui-sref="edit-team">Crear/Editar equipos</a>
         <a class="list-group-item" ui-sref="edit-competitons">Crear/Editar competiciones</a>
@@ -25,10 +24,16 @@
             </div>
         </div>
     </div>
-    <input type="text" class="form-control" placeholder="Buscador de ciclicstas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
-    <button type="submit" class="btn btn-default" ng-click="vm.findRiders()">Buscar</button>
-    <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}} | {{vm.rider.team}}</div>
-    <table class="table table-striped">
+    
+    <div class="input-group">
+        <input type="text" class="form-control riders-searcher" placeholder="Buscar ciclistas" ng-model="vm.keywords" ng-Keydown="vm.isSubmit($event.keyCode)">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default search-btn" ng-click="vm.findRiders()">Buscar</button>
+        </span>
+        <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}} | {{vm.rider.team}}</div>
+    </div>
+    
+    <table class="table table-results">
         <tr>
             <th>Nombre</th>
             <th>Equipo</th>
@@ -38,16 +43,16 @@
             <th class="righty"></th>
         </tr>
         <tr ng-repeat=" rider in vm.riders ">
-            <th>{{rider._id}}</th>
-            <th>{{rider.team}}</th>
-            <th class="righty">{{rider.country}}</th>
-            <th class="righty">
+            <td>{{rider._id}}</td>
+            <td>{{rider.team}}</td>
+            <td class="righty">{{rider.country}}</td>
+            <td class="righty">
                 <a ui-sref="edit-rider({id: rider.safe_name})"><span class="glyphicon glyphicon-pencil"></span></a>
-            </th>
-            <th class="righty">
+            </td>
+            <td class="righty">
                 <a ui-sref="edit-rider-season({safe_name: rider.safe_name})"><span  style="color: darkorange" class="glyphicon glyphicon-flag"></span></a>
-            </th>
-            <th class="righty">
+            </td>
+            <td class="righty">
                 <a href="#" data-toggle="modal" data-target="#myModal{{$index}}">
                     <span style="color: red" class="glyphicon glyphicon-remove"></span>
                 </a>
@@ -66,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-            </th>
+            </td>
         </tr>
     </table>
 </div>

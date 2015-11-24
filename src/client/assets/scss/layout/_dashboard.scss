@@ -1,0 +1,36 @@
+// ==========================================================================
+// Dashboard
+// ==========================================================================
+.creation-panel{
+    margin: em(40px) 0;
+    a{
+        @include darkenBgColor($yellow-tour);
+        border: 1px solid $dark-grey;
+        text-align: center;
+        text-transform: uppercase;
+        color:$dark-grey;
+    }
+}
+.table-results{
+   margin: em(20px) 0; 
+   th{
+    background-color: $dark-grey;
+    color:$light-white;
+   }
+    td{
+        background-color: $light-white;
+        color:$dark-grey;
+    }
+}
+.riders-searcher{
+    background-color: $light-white;
+    height: em(30px);
+}
+.search-btn{
+    @include lightenBgColor($dark-grey);
+    height: 53px;
+    color: $light-white!important;
+    border:none;
+    box-shadow:0;
+    font-weight:bold;
+}
