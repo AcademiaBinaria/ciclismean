@@ -1771,6 +1771,67 @@ td.stages {
   .search-btn:hover, .search-btn:focus {
     background-color: gray; }
 
+.btn-return {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: #333333;
+  box-shadow: 0 !important;
+  margin: 20px 0; }
+  .btn-return:hover, .btn-return:focus {
+    background-color: gray; }
+
+.btn-add {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: #39a640;
+  box-shadow: 0 !important;
+  margin: 20px 0; }
+  .btn-add:hover, .btn-add:focus {
+    background-color: #9bdd9f; }
+
+.med-input {
+  width: 60px !important; }
+
+.small-input {
+  width: 40px !important; }
+
+.edit-row {
+  margin: 1.53846em 0; }
+  .edit-row input, .edit-row select {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 15px !important;
+    padding: 0 20px; }
+
+input.checkbox-retired {
+  background-color: #CBCCB7 !important;
+  border: 0 !important;
+  outline: none; }
+
+input[type="checkbox"]:after, .checkbox input[type="checkbox"]:after, .checkbox-inline input[type="checkbox"]:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  margin: 1px 0 0 -18px;
+  margin-right: 5px;
+  border: 2px solid #666666;
+  border-radius: 2px;
+  -webkit-transition: 240ms;
+  -o-transition: 240ms;
+  transition: 240ms;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  outline: none; }
+
+.competition-first {
+  margin: 20px 0; }
+
+.team-retired:after {
+  margin: 0 !important;
+  outline: none; }
+
+input {
+  outline: none !important; }
+
 footer {
   padding: 2.30769em 0; }
   footer ul {
