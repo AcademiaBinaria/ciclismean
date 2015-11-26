@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "Ciclismania",
   "version": "1.0.0",
-  "description": "mean_template dependencies",
+  "description": "Ciclismania dependencies",
   "author": "Agora Binaria",
   "license": "ISC",
   "dependencies": {
