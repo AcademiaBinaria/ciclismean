@@ -2,8 +2,9 @@
     <div class="row">
         <button type="submit" class="btn btn-return" ui-sref="dashboard"><i class="fa fa-arrow-left"></i> Volver al Dashboard</button>
     </div>
+    <div class="row">
 	<form name="vm.addRiderForm" class="form-inline">
-        <div class="row edit-row">
+        <div class="edit-row">
             <div class="col-md-4">
                 <div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.rider._id}}</div>
                 <div class="form-group row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm._id)}">
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="row edit-row">
+        <div class="edit-row">
             <div class="col-md-4">
                 <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dob)}">
                     <label for="dob">Nacido el:</label>
@@ -72,7 +73,7 @@
                 </div>
             </div>
         </div> 
-        <div class="row edit-row">
+        <div class="edit-row">
             <div class="col-md-12">
                 <div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.total_victories)}">
                     <label for="total_victories">Victorias totales:</label>
@@ -116,7 +117,7 @@
 			<button type="button" class="btn btn-add" ng-click="vm.addYear()">Añadir Temporada</button>
         
 		<h3>Giro</h3>
-        <div class="row edit-row">       
+        <div class="edit-row">       
             <div class="col-md-4 ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.giroBestResult)}">
                 <label for="giroBestResult">Mejor resultado:</label>
                 <input class="form-control" name="giroBestResult" type="text" ng-model="vm.rider.giroBestResult" placeholder="1º" required>
@@ -140,7 +141,7 @@
             </div>
         </div>
 		<h3>Tour</h3>
-        <div class="row edit-row">
+        <div class="edit-row">
             
 		<div class="col-md-4 ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.tourBestResult)}">
 			<label for="tourBestResult">Mejor resultado:</label>
@@ -165,7 +166,7 @@
 		</div>
         </div>
 		<h3>Vuelta</h3>
-        <div class="row edit-row">
+        <div class="edit-row">
 		<div class="col-md-4 ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.vueltaBestResult)}">
 			<label for="vueltaBestResult">Mejor resultado:</label>
 			<input class="form-control" name="vueltaBestResult" type="text" ng-model="vm.rider.vueltaBestResult" placeholder="1º" required>
@@ -189,7 +190,7 @@
 		</div>
         </div>
 		<h3>Mundial</h3>
-        <div class="row edit-row">
+        <div class="edit-row">
 		<div class="col-md-6  ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.wcBestResult)}">
 			<label for="wcBestResult">Mejor resultado:</label>
 			<input class="form-control" name="wcBestResult" type="text" ng-model="vm.rider.wcBestResult" placeholder="1º" required>
@@ -206,7 +207,7 @@
 		</div>
         </div>
 		<h3>Clásicas</h3>
-        <div class="row edit-row">
+        <div class="edit-row">
 		<div class="col-md-12 ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.classicsTotalVictories)}">
 			<label for="classicsTotalVictories">Victorias:</label>
 			<input class="form-control" name="classicsTotalVictories" type="text" ng-model="vm.rider.classicsTotalVictories" placeholder="5" required>
@@ -215,18 +216,19 @@
 			</div>
 		</div>
         </div>
-		<div class="row edit-row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)}">
+		<div class="edit-row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)}">
 			<label for="retired">¿Ciclista ya retirado?:</label>
 			<input class="form-control checkbox-retired" name="retired" type="checkbox" ng-model="vm.rider.retired">
 			<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.retired)">
 				<form-messages field="vm.addRiderForm.retired"></form-messages>
 			</div>
 		</div>
-		<div class="row">
+		<div>
 			<button type="submit" class="btn btn-add" ng-click="vm.saveRider()" ng-if="!vm.editPage">Guardar Corredor</button>
 			<button type="submit" class="btn btn-add" ng-click="vm.editRider()" ng-if="vm.editPage">Editar Corredor</button>
 			<button type="submit" class="btn btn-return" ui-sref="dashboard"><i class="fa fa-arrow-left"></i> Volver al Dashboard</button>
 		</div>
 	</form>
+    </div>
 </div>
 <pre>{{vm.rider | json}}</pre>

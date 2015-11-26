@@ -53,7 +53,9 @@
     width: 40px!important;
 }
 .edit-row{
-    margin: em(20px) 0;
+    margin: em(20px) 0!important;
+    float:left;
+    width:100%;
     input, select{
         background-color: $light-white!important;
         font-size:15px!important;
