@@ -1,0 +1,32 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+footer{
+    padding:em(30px) 0;
+    ul{
+        padding:0;
+        margin:0 0 em(15px);
+        li{
+            list-style:none;
+            display: inline;
+            margin: 0 em(5px);
+        }
+    }
+}
+.btn-social-icon {
+    height: em(25px);
+    width: em(25px);
+    font-size: $big__font-size;
+    padding: em(6px) 0 0 em(1px);
+    @include border-radius(20px,20px,20px,20px);
+    color: $white!important;
+    &.facebook{
+        @include darkenBgColor($facebook-color);
+    }
+    &.twitter{
+        @include darkenBgColor($twitter-color);
+    }
+    &.instagram{
+        @include darkenBgColor($instagram-color);
+    }
+}

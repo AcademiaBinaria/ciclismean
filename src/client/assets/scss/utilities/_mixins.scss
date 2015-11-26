@@ -8,3 +8,26 @@
     -webkit-transition: $transition;
     transition:         $transition;
 }
+@mixin border-radius($top-left,$top-right,$bottom-right,$bottom-left) {
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+    -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+@mixin darkenBgColor($baseColor){
+    background-color: $baseColor;
+    &:hover{
+          background-color: darken($baseColor, 5%);
+    }
+}
+@mixin lightenBgColor($baseColor){
+    background-color: $baseColor;
+    &:hover,&:focus{
+          background-color: lighten($baseColor, 30%);
+    }
+}
+@mixin lightenColor($baseColor){
+    color: $baseColor;
+    &:hover,&:focus{
+          color: lighten($baseColor, 70%);
+    }
+}

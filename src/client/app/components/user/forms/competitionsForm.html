@@ -1,10 +1,11 @@
-<div id="top" class="container row">
+<div id="top" class="container">
 	<div class="alert alert-success" role="alert" ng-if="vm.showMessage">{{vm.message}} {{vm.competition._id}}</div>
 	<div class="row">
-		<button class="btn btn-default" ng-click="vm.addForm()" ng-if="!vm.showForm">Añadir Competición</button>
-		<button type="submit" class="btn btn-default" ui-sref="dashboard" ng-if="!vm.showForm">Volver al Dashboard</button>
+		<button class="btn btn-add" ng-click="vm.addForm()" ng-if="!vm.showForm">Añadir Competición</button>
+		<button type="submit" class="btn btn-return" ui-sref="dashboard" ng-if="!vm.showForm"><i class="fa fa-arrow-left"></i> Volver al Dashboard</button>
 	</div>
-	<table class="table table-striped" ng-if="!vm.showForm">
+    <div class="row">
+	<table class="table table-results" ng-if="!vm.showForm">
 		<tr>
 			<th>Nombre de la competición</th>
 			<th>Categoria</th>
@@ -39,26 +40,28 @@
 			</td>
 		</tr>
 	</table>
+    </div>
+    <div class="row">
 	<form name="vm.addCompetitionForm" novalidate>
 		<div ng-if="vm.showForm">
-			<div class=" row ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)}">
+			<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)}">
 				<label for="_id">Nombre de competición:</label>
-				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control" placeholder="Mundial contrarreloj" ng-if="vm.add" required>
-				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control" placeholder="Mundial contrarreloj" ng-if="!vm.add" required disabled>
+				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="vm.add" required>
+				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="!vm.add" required disabled>
 				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)">
 					<form-messages field="vm.addCompetitionForm._id"></form-messages>
 				</div>
 			</div>
-			<div class=" row ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)}">
+			<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)}">
 				<label for="category">Categoría:</label>
-				<input type="text" name="category" ng-model="vm.competition.category" class="form-control" placeholder="WC, 2.UWT ..." required>
+				<input type="text" name="category" ng-model="vm.competition.category" class="riders-searcher form-control" placeholder="WC, 2.UWT ..." required>
 				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)">
 					<form-messages field="vm.addCompetitionForm.category"></form-messages>
 				</div>
 			</div>
-			<div ng-if="vm.add" class=" row ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)}">
+			<div ng-if="vm.add" class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)}">
 				<label for="numberStages">Número de etapas:</label>
-				<input type="number" min="1" name="numberStages" ng-model="vm.competition.numberStages" class="form-control" placeholder="1" required>
+				<input type="number" min="1" name="numberStages" ng-model="vm.competition.numberStages" class="form-control riders-searcher" placeholder="1" required>
 				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)">
 					<form-messages field="vm.addCompetitionForm.numberStages"></form-messages>
 				</div>
@@ -103,12 +106,15 @@
 					<td class="righty">{{season.regularity}}</td>
 				</tr>
 			</table>
-			<div class="row">
-				<button type="submit" class="btn btn-default" ng-click="vm.showForm = false">Atrás</button>
-				<button type="submit" class="btn btn-default" ng-click="vm.saveCompetition()" ng-if="vm.add">Guardar Competición</button>
-				<button type="submit" class="btn btn-default" ng-click="vm.editCompetition()" ng-if="!vm.add">Editar Competición</button>
+			<div>
+				<button type="submit" class="btn btn-return" ng-click="vm.showForm = false"><i class="fa fa-arrow-left"></i> Atrás</button>
+				<button type="submit" class="btn btn-add" ng-click="vm.saveCompetition()" ng-if="vm.add">Guardar Competición</button>
+				<button type="submit" class="btn btn-add" ng-click="vm.editCompetition()" ng-if="!vm.add">Editar Competición</button>
 			</div>
 		</div>
 	</form>
+    </div>
+    <div class="row">
+        <pre>{{vm.competition | json}}</pre>
+    </div>
 </div>
-<pre>{{vm.competition | json}}</pre>

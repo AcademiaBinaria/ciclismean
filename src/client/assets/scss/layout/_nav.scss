@@ -8,15 +8,28 @@
     letter-spacing: em(1px);
     font-weight: $font-weight--semi-bold;
     border-color: 0;
-}
-.navbar-default .navbar-nav>li>a {
-    color: $light-white;
-    &:hover{
-        color: $dark-grey;
-        background-color: $paper;
+    .navbar-nav>li>a{
+        color: $light-white!important;
+        @include lightenBgColor($black);
     }
 }
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
-    color: $dark-grey;
-    background-color: $paper;
+.icon-logo {
+    float: left;
+    span{
+        color: $light-white;
+        margin: 16px 10px 0 3px;
+        display: block;
+        float: left;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+    svg{
+        float: left;
+        width: em(50px);
+        margin: em(6px) 0 0 0;
+        path{
+            fill: $light-white;
+        }
+    }
 }
+

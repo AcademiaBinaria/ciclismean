@@ -224,16 +224,27 @@ th {
   letter-spacing: 0.07692em;
   font-weight: 600;
   border-color: 0; }
+  .navbar-default .navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: rgba(0, 0, 0, 0.95); }
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      background-color: rgba(77, 77, 77, 0.95); }
 
-.navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.8); }
-  .navbar-default .navbar-nav > li > a:hover {
-    color: #333333;
-    background-color: #bbbbbb; }
-
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-  color: #333333;
-  background-color: #bbbbbb; }
+.icon-logo {
+  float: left; }
+  .icon-logo span {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 16px 10px 0 3px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    letter-spacing: 0; }
+  .icon-logo svg {
+    float: left;
+    width: 3.84615em;
+    margin: 0.46154em 0 0 0; }
+    .icon-logo svg path {
+      fill: rgba(255, 255, 255, 0.8); }
 
 .team-img {
   width: 150px;
@@ -1725,5 +1736,134 @@ td.stages {
 
 .help-arrow-streamline-target:before {
   content: "d"; }
+
+.creation-panel {
+  margin: 3.07692em 0; }
+  .creation-panel a {
+    background-color: #e4d49e;
+    border: 1px solid #333333;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333333; }
+    .creation-panel a:hover {
+      background-color: #decb8a; }
+
+.table-results {
+  margin: 1.53846em 0; }
+  .table-results th {
+    background-color: #333333;
+    color: rgba(255, 255, 255, 0.8); }
+  .table-results td {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333333; }
+
+.riders-searcher {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 2.30769em; }
+
+.search-btn {
+  background-color: #333333;
+  height: 53px;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: none;
+  box-shadow: 0;
+  font-weight: bold; }
+  .search-btn:hover, .search-btn:focus {
+    background-color: gray; }
+
+.btn-return {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: #333333;
+  box-shadow: 0 !important;
+  margin: 20px 0; }
+  .btn-return:hover, .btn-return:focus {
+    background-color: gray; }
+
+.btn-add {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background-color: #39a640;
+  box-shadow: 0 !important;
+  margin: 20px 0; }
+  .btn-add:hover, .btn-add:focus {
+    background-color: #9bdd9f; }
+
+.med-input {
+  width: 60px !important; }
+
+.small-input {
+  width: 40px !important; }
+
+.edit-row {
+  margin: 1.53846em 0 !important;
+  float: left;
+  width: 100%; }
+  .edit-row input, .edit-row select {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 15px !important;
+    padding: 0 20px; }
+
+input.checkbox-retired {
+  background-color: #CBCCB7 !important;
+  border: 0 !important;
+  outline: none; }
+
+input[type="checkbox"]:after, .checkbox input[type="checkbox"]:after, .checkbox-inline input[type="checkbox"]:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  margin: 1px 0 0 -18px;
+  margin-right: 5px;
+  border: 2px solid #666666;
+  border-radius: 2px;
+  -webkit-transition: 240ms;
+  -o-transition: 240ms;
+  transition: 240ms;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  outline: none; }
+
+.competition-first {
+  margin: 20px 0; }
+
+.team-retired:after {
+  margin: 0 !important;
+  outline: none; }
+
+input {
+  outline: none !important; }
+
+footer {
+  padding: 2.30769em 0; }
+  footer ul {
+    padding: 0;
+    margin: 0 0 1.15385em; }
+    footer ul li {
+      list-style: none;
+      display: inline;
+      margin: 0 0.38462em; }
+
+.btn-social-icon {
+  height: 1.92308em;
+  width: 1.92308em;
+  font-size: 18px;
+  padding: 0.46154em 0 0 0.07692em;
+  border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  color: #ffffff !important; }
+  .btn-social-icon.facebook {
+    background-color: #3b5998; }
+    .btn-social-icon.facebook:hover {
+      background-color: #344e86; }
+  .btn-social-icon.twitter {
+    background-color: #55acee; }
+    .btn-social-icon.twitter:hover {
+      background-color: #3ea1ec; }
+  .btn-social-icon.instagram {
+    background-color: #517fa4; }
+    .btn-social-icon.instagram:hover {
+      background-color: #497293; }
 
 /*# sourceMappingURL=application.css.map */

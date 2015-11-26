@@ -1,0 +1,94 @@
+// ==========================================================================
+// Dashboard
+// ==========================================================================
+.creation-panel{
+    margin: em(40px) 0;
+    a{
+        @include darkenBgColor($yellow-tour);
+        border: 1px solid $dark-grey;
+        text-align: center;
+        text-transform: uppercase;
+        color:$dark-grey;
+    }
+}
+.table-results{
+   margin: em(20px) 0; 
+    th{
+        background-color: $dark-grey;
+        color:$light-white;
+    }
+    td{
+        background-color: $light-white;
+        color:$dark-grey;
+    }
+}
+.riders-searcher{
+    background-color: $light-white;
+    height: em(30px);
+}
+.search-btn{
+    @include lightenBgColor($dark-grey);
+    height: 53px;
+    color: $light-white!important;
+    border:none;
+    box-shadow:0;
+    font-weight:bold;
+}
+.btn-return{
+    color: $light-white!important;
+    @include lightenBgColor($dark-grey);
+    box-shadow:0!important;
+    margin: 20px 0;
+}
+.btn-add{
+    color: $light-white!important;
+    @include lightenBgColor($green-uci);
+    box-shadow:0!important;
+    margin: 20px 0;
+}
+.med-input{
+    width: 60px!important;
+}
+.small-input{
+    width: 40px!important;
+}
+.edit-row{
+    margin: em(20px) 0!important;
+    float:left;
+    width:100%;
+    input, select{
+        background-color: $light-white!important;
+        font-size:15px!important;
+        padding: 0 20px;
+    }
+}
+input.checkbox-retired{
+        background-color: #CBCCB7!important;
+        border: 0!important;
+    outline: none;
+}
+input[type="checkbox"]:after, .checkbox input[type="checkbox"]:after, .checkbox-inline input[type="checkbox"]:after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+    margin: 1px 0 0 -18px;
+    margin-right: 5px;
+    border: 2px solid #666666;
+    border-radius: 2px;
+    -webkit-transition: 240ms;
+    -o-transition: 240ms;
+    transition: 240ms;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+    outline: none;
+}
+.competition-first{
+    margin:20px 0;
+}
+.team-retired:after{
+    margin:0!important;
+    outline: none;
+}
+input{outline: none!important;}

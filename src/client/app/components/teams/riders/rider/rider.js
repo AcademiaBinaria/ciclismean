@@ -72,14 +72,14 @@
 			return "assets/images/teams_covers/" + year + "/" + team + ".png"
 		};
 
-		vm.getSafeNameTeam = function (team) {
+		/*vm.getSafeNameTeam = function (team) {
 			var teamFound = new teamsDataService.team();
 			teamFound._id = team;
 			console.log(teamFound);
 			teamFound.$get().then(function (data) {
 				return data.safe_name;
 			});
-		};
+		};*/
 
 	}
 
