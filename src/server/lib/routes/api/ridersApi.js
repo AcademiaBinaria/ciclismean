@@ -4,6 +4,7 @@ var ridersData = require('../../data/ridersData.js');
 var competitionsData = require('../../data/competitionsData.js');
 var jwt = require('../../jwt.js');
 var convert = require('../../convert.js');
+var logger = require("./../../logger.js");
 
 var router = express.Router({
 	mergeParams: true
@@ -42,21 +43,21 @@ router.get('/keywords/:keywords', function (req, res) {
 		});
 	})
 	.post('/add-season/:year', function (req, res) {
-		console.log(req.params.year);
+		logger.info(req.params.year);
 		ridersData.findingAllRiders().then(function (data) {
 			data.forEach(function (rider) {
 				var lastTeam = rider.team;
 				if (rider.seasons.length > 0) {
 					lastTeam = rider.seasons[rider.seasons.length - 1].team;
 				}
-				if (rider.retired == true) {
+				if (rider.retired != true) {
 					rider.seasons.push({
 						year: parseInt(req.params.year),
 						team: lastTeam,
 						palmares: []
 					});
 					ridersData.updatingRider(rider).fail(function (err) {
-						console.log(err);
+						logger.error(err);
 					});
 				}
 			});
@@ -66,9 +67,9 @@ router.get('/keywords/:keywords', function (req, res) {
 						competition.seasons = [];
 					}
 					var stagesList = [];
-					console.log(competition.numberStages);
+					//logger.debug(competition.numberStages);
 					for (var pos = 0; pos < competition.numberStages; pos++) {
-						console.log(pos);
+						//console.log(pos);
 						stagesList.push({
 							description: "Etapa " + pos,
 							winner: "-"
@@ -82,7 +83,7 @@ router.get('/keywords/:keywords', function (req, res) {
 						regularity: ""
 					});
 					competitionsData.updatingCompetition(competition).fail(function (err) {
-						console.log(err);
+						logger.error(err);
 					});
 				});
 				res.send();
@@ -95,7 +96,6 @@ router.get('/keywords/:keywords', function (req, res) {
 		var tokenDecoded = jwt.decode(req.headers['x-access-token']);
 		jwt.verify(req, res);
 		ridersData.findingById(req.params.rider).then(function (data) {
-			//res.send(data);
 			if (data) {
 				delete req.body._id;
 				convert.prom2res(ridersData.crud.updating(req.params.rider, req.body), res, 200);
