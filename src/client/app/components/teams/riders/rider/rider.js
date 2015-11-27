@@ -56,6 +56,7 @@
 					limit: 200
 				}).then(function (data) {
 					vm.rider.seasons.forEach(function (season, index) {
+						season.year = parseInt(season.year);
 						setSeasonTotalVictories(season);
 						getSafeNameTeam(season.team, index, season.year);
 						season.palmares.forEach(function (competition) {
@@ -91,7 +92,7 @@
 		vm.getRiderTeam = function (year) {
 			var safe_name = "default-jersey";
 			vm.teamSafeNames.forEach(function (data) {
-				if (data.year == year) {
+				if (parseInt(data.year) == year) {
 					safe_name = data.team;
 				}
 			});
