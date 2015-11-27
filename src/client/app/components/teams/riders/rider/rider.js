@@ -26,6 +26,7 @@
 	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService) {
 		var vm = this;
 		vm.riderId = $stateParams.riderId;
+		vm.teamSafeNames = [];
 
 		init();
 
@@ -54,8 +55,9 @@
 				competitionDataService.gettingCompetitions({
 					limit: 200
 				}).then(function (data) {
-					vm.rider.seasons.forEach(function (season) {
+					vm.rider.seasons.forEach(function (season, index) {
 						setSeasonTotalVictories(season);
+						getSafeNameTeam(season.team, index);
 						season.palmares.forEach(function (competition) {
 							data.forEach(function (race) {
 								if (competition.competition == race._id) {
@@ -72,14 +74,22 @@
 			return "assets/images/teams_covers/" + year + "/" + team + ".png"
 		};
 
-		/*vm.getSafeNameTeam = function (team) {
-			var teamFound = new teamsDataService.team();
-			teamFound._id = team;
-			console.log(teamFound);
-			teamFound.$get().then(function (data) {
-				return data.safe_name;
-			});
-		};*/
+		function getSafeNameTeam(team, index) {
+			if (team != "no defined") {
+				teamsDataService.team.query({
+					id: team
+				}).$promise.then(function (data) {
+					vm.teamSafeNames[index] = data[0].safe_name;
+				});
+			} else {
+				vm.teamSafeNames[index] = "no-defined";
+			}
+		}
+
+		vm.getSafeNameTeam = function (team) { //(vm.getSafeNameTeam(season.team), season.year)
+
+			return "lol";
+		};
 
 	}
 
