@@ -57,7 +57,7 @@
 				}).then(function (data) {
 					vm.rider.seasons.forEach(function (season, index) {
 						setSeasonTotalVictories(season);
-						getSafeNameTeam(season.team, index);
+						getSafeNameTeam(season.team, index, season.year);
 						season.palmares.forEach(function (competition) {
 							data.forEach(function (race) {
 								if (competition.competition == race._id) {
@@ -74,26 +74,34 @@
 			return "assets/images/teams_covers/" + year + "/" + team + ".png"
 		};
 
-		function getSafeNameTeam(team, index) {
+		function getSafeNameTeam(team, index, year) {
 			if (team != "no defined") {
 				teamsDataService.team.query({
 					id: team
 				}).$promise.then(function (data) {
-					vm.teamSafeNames[index] = data[0].safe_name;
+					vm.teamSafeNames[index] = {
+						year: year,
+						team: data[0].safe_name
+					}
+					console.log(vm.teamSafeNames);
 				});
-			} else {
-				vm.teamSafeNames[index] = "no-defined";
 			}
 		}
 
-		vm.getSafeNameTeam = function (team) { //(vm.getSafeNameTeam(season.team), season.year)
-
-			return "lol";
+		vm.getRiderTeam = function (year) {
+			vm.teamSafeNames.forEach(function (data) {
+				if (data.year == year) {
+					console.log(year + "==" + data.year);
+					console.log(data.team);
+					return data.team;
+				}
+			});
 		};
+
 
 	}
 
-	function riderLogicService() {
+	function riderLogicService(settings) {
 		var factory = {};
 
 		factory.getRiderFlag = function (country) {
@@ -108,7 +116,7 @@
 		}
 
 		factory.getRiderImageUrl = function (rider) {
-			var year = new Date().getFullYear();
+			var year = settings.currentSeason;
 			var team = rider.safe_name_team;
 			var rider = rider.safe_name;
 			return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";
