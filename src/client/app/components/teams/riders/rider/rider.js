@@ -82,20 +82,20 @@
 					vm.teamSafeNames[index] = {
 						year: year,
 						team: data[0].safe_name
-					}
-					console.log(vm.teamSafeNames);
+					};
+					//console.log(vm.teamSafeNames);
 				});
 			}
 		}
 
 		vm.getRiderTeam = function (year) {
+			var safe_name = "default-jersey";
 			vm.teamSafeNames.forEach(function (data) {
 				if (data.year == year) {
-					console.log(year + "==" + data.year);
-					console.log(data.team);
-					return data.team;
+					safe_name = data.team;
 				}
 			});
+			return safe_name;
 		};
 
 
