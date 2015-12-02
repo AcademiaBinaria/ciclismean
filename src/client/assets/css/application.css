@@ -419,7 +419,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 
 .best-position {
   width: 25%;
-  padding: 15px 10px; }
+  padding: 15px 10px 10px 10px; }
 
 .best-position.giro {
   background-color: #e8a0b2;
