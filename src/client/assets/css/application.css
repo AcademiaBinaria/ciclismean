@@ -624,6 +624,33 @@ td.position {
 td.stages {
   text-align: left; }
 
+.tour {
+  background-color: #e4d49e; }
+  .tour:hover, .tour:focus {
+    background-color: white; }
+  .tour:hover {
+    background-color: #e4d49e; }
+    .tour:hover:hover, .tour:hover:focus {
+      background-color: #efe6c6 !important; }
+
+.giro {
+  background-color: #e8a0b2; }
+  .giro:hover, .giro:focus {
+    background-color: white; }
+  .giro:hover {
+    background-color: #e8a0b2; }
+    .giro:hover:hover, .giro:hover:focus {
+      background-color: #f2c9d3 !important; }
+
+.vuelta {
+  background-color: #c96466; }
+  .vuelta:hover, .vuelta:focus {
+    background-color: #f1d5d6; }
+  .vuelta:hover {
+    background-color: #c96466; }
+    .vuelta:hover:hover, .vuelta:hover:focus {
+      background-color: #d68a8b !important; }
+
 @font-face {
   font-family: 'themify';
   src: url("../fonts/themify.eot?-fvbane");

@@ -25,6 +25,12 @@
           background-color: lighten($baseColor, 30%);
     }
 }
+@mixin ultraLightenBgColor($baseColor){
+    background-color: $baseColor;
+    &:hover,&:focus{
+          background-color: lighten($baseColor, 10%)!important;
+    }
+}
 @mixin lightenColor($baseColor){
     color: $baseColor;
     &:hover,&:focus{

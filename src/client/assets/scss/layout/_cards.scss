@@ -308,3 +308,24 @@ td.position{
 td.stages{
     text-align:left;
 }
+
+.tour{
+    @include lightenBgColor($yellow-tour);
+    &:hover{
+        @include ultraLightenBgColor($yellow-tour);
+    }
+}
+
+.giro{
+	@include lightenBgColor($pink-giro);
+    &:hover{
+        @include ultraLightenBgColor($pink-giro);
+    }
+}
+
+.vuelta{
+	@include lightenBgColor($red-vuelta);
+    &:hover{
+        @include ultraLightenBgColor($red-vuelta);
+    }
+}
