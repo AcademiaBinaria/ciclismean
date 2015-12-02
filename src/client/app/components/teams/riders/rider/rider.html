@@ -65,12 +65,12 @@
 						<img itemprop="image" img="" ng-src="{{vm.getMaillot(vm.getRiderTeam(season.year), season.year)}}" class="little-jersey">
                         <!--<img itemprop="image" img="" ng-src="assets/images/teams_covers/2015/sky.png" class="little-jersey" src="assets/images/teams_covers/2015/sky.png" data-pin-nopin="true">-->
 					</span>
-					<span class="pull-right yellow team-season">{{::season.team}}</span>
+					<span class="pull-right yellow team-season" ng-hide="(season.team == 'no defined') || (season.team == 'undefined')">{{::season.team}}</span>
 				</header>
 				<div>
 					<table class="table table-hover palmares-table">
 						<tbody>
-							<tr ng-repeat="competition in season.palmares">
+							<tr ng-repeat="competition in season.palmares" ng-class="{orange: (competition.competition == 'Tour'), blue: (competition.competition == 'Giro'), 'green': (competition.competition == 'Vuelta')}">
 								<td class="cup" scope="row">
 									<div class="fa fa-trophy"></div>
 								</td>

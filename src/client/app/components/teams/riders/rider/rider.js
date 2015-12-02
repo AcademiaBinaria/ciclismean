@@ -72,7 +72,10 @@
 		}
 
 		vm.getMaillot = function (team, year) {
-			return "assets/images/teams_covers/" + year + "/" + team + ".png"
+			if (team != "default-jersey" && team != "undefined") {
+				return "assets/images/teams_covers/" + year + "/" + team + ".png"
+			}
+			return "assets/images/teams_covers/" + team + ".png"
 		};
 
 		function getSafeNameTeam(team, index, year) {
