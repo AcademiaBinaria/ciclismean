@@ -97,6 +97,7 @@
 						<label>Equipo:</label>
 						<select class="form-control" ng-options="team._id as team._id for team in vm.teams" ng-model="season.team" required></select>
 					</div>
+					<a class="btn glyphicon glyphicon-minus" style="color:red" ng-click="vm.removeSeason($index)">Eliminar temporada</a>
 				</div>
 				<div ng-repeat="competition in season.palmares" class="row edit-row">
 					<div class="col-md-8">
@@ -110,7 +111,7 @@
 					<div class="col-md-2 text-right">
 						<label>Victorias:</label>
 						<input class="form-control small-input" type="text" ng-model="competition.victories">
-					</div>
+					</div><a class="btn glyphicon glyphicon-minus" style="color:red" ng-click="vm.removeCompetition($parent.$index,$index)">Eliminar competición</a>
 				</div>
 				<button type="button" class="btn btn-return" ng-click="vm.addCompetition(season.palmares)">Añadir competición a la temporada</button>
 			</div>

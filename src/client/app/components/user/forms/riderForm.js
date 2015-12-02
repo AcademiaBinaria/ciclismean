@@ -27,7 +27,7 @@
 		}
 	}
 
-	function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams, $anchorScroll, $scope, $location) {
+	function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams, $location, settings) {
 		var vm = this;
 		var limit = 100;
 		vm.has_error = UtilService.has_error;
@@ -86,6 +86,14 @@
 			vm.editPage = ($state.current.name == "edit-rider");
 		}
 
+		vm.removeSeason = function (index) {
+			vm.rider.seasons.splice(index, 1)
+		}
+
+		vm.removeCompetition = function (season, competition) {
+			vm.rider.seasons[season].palmares.splice(competition, 1);
+		}
+
 		$rootScope.$watch(function () {
 			return vm.team_rol
 		}, function (newValue, oldValue) {
@@ -116,7 +124,7 @@
 			if (!vm.rider.seasons)
 				vm.rider.seasons = [];
 			vm.rider.seasons.push({
-				"year": 2015,
+				"year": settings.currentSeason,
 				"team": "",
 				"palmares": []
 			})
