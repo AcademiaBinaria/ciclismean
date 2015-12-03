@@ -29,7 +29,7 @@
 
 	function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams, $location, settings) {
 		var vm = this;
-		var limit = 100;
+		var limit = 10000;
 		vm.has_error = UtilService.has_error;
 		if (!UtilService.isLogged())
 			$state.go('login');

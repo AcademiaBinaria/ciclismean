@@ -30,7 +30,7 @@
 
         function init() {
             competitionDataService.gettingCompetitions({
-                    limit: 100,
+                    limit: 10000,
                     sort: 'status'
                 })
                 .then(function (competitions) {

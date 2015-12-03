@@ -53,7 +53,7 @@
 				vm.rider.age = riderLogicService.getRiderAge(vm.rider.dob);
 				vm.rider.flag = riderLogicService.getRiderFlag(vm.rider.country);
 				competitionDataService.gettingCompetitions({
-					limit: 200
+					limit: 10000
 				}).then(function (data) {
 					vm.rider.seasons.forEach(function (season, index) {
 						season.year = parseInt(season.year);

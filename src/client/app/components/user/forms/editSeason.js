@@ -25,7 +25,7 @@
 
     function controller(UtilService, teamsDataService, ridersDataService, $state, $rootScope, competitionDataService, $stateParams) {
         var vm = this;
-        var limit = 100;
+        var limit = 10000;
         vm.has_error = UtilService.has_error;
         var year = new Date().getFullYear();
 

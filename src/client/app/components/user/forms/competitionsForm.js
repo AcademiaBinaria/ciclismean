@@ -25,7 +25,7 @@
 
 	function controller(UtilService, $state, competitionDataService, $scope, ridersDataService) {
 		var vm = this;
-		var limit = 100;
+		var limit = 10000;
 		vm.has_error = UtilService.has_error;
 		vm.showForm = false;
 		vm.team_id = "";
