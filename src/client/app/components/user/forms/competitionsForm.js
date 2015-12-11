@@ -43,7 +43,7 @@
 			});
 		}
 
-		function addVictory(winner, season, competition, add) {
+		function addVictory(winner, season, competition, add, type) {
 			season = parseInt(season);
 			vm.riders.forEach(function (rider) {
 				if (rider._id == winner) {
@@ -59,13 +59,26 @@
 									for (var propertyName in rider) {
 										vm.rider[propertyName] = rider[propertyName];
 									}
-									if (add) {
-										vm.rider.seasons[yearPos].palmares[racePos].victories += 1;
-										vm.rider.total_victories += 1;
-									} else {
-										vm.rider.seasons[yearPos].palmares[racePos].victories -= 1;
-										vm.rider.total_victories -= 1;
+									if (type) { //indica si es una victoria con tipo es decir si es montaña final o regularidad
+										console.log(type);
+										if (add) {
+											console.log(add);
+											vm.rider.seasons[yearPos].palmares[racePos][type] = true;
+											console.log(vm.rider.seasons[yearPos].palmares[racePos]);
+											vm.rider.total_victories += 1;
+										} else {
+											vm.rider.seasons[yearPos].palmares[racePos][type] = false;
+											vm.rider.total_victories -= 1;
+										}
 
+									} else {
+										if (add) {
+											vm.rider.seasons[yearPos].palmares[racePos].victories += 1;
+											vm.rider.total_victories += 1;
+										} else {
+											vm.rider.seasons[yearPos].palmares[racePos].victories -= 1;
+											vm.rider.total_victories -= 1;
+										}
 									}
 								}
 							});
@@ -74,11 +87,17 @@
 								for (var propertyName in rider) {
 									vm.rider[propertyName] = rider[propertyName];
 								}
-								vm.rider.seasons[yearPos].palmares.push({
+								var palmares = {
 									competition: competition,
 									position: null,
 									victories: 1
-								});
+								};
+								if (type) {
+									console.log("entra en type");
+									palmares[type] = true;
+									console.log(palmares);
+								}
+								vm.rider.seasons[yearPos].palmares.push(palmares);
 								vm.rider.total_victories += 1;
 							}
 						}
@@ -88,14 +107,20 @@
 						for (var propertyName in rider) {
 							vm.rider[propertyName] = rider[propertyName];
 						}
+						var palmares = {
+							competition: competition,
+							position: "-",
+							victories: 1
+						};
+						if (type) {
+							console.log("entra en type");
+							palmares[type] = true;
+							console.log(palmares);
+						}
 						vm.rider.seasons.push({
 							year: season,
 							team: rider.team,
-							palmares: [{
-								competition: competition,
-								position: "-",
-								victories: 1
-							}]
+							palmares: [palmares]
 						});
 						vm.rider.total_victories += 1;
 					}
@@ -122,6 +147,22 @@
 						}
 					}
 				});
+				if (vm.competitionNoEdited.seasons[seasonIndex].winner != season.winner) {
+					addVictory(season.winner, season.year, vm.competition._id, true, "winner");
+					if (vm.competitionNoEdited.seasons[seasonIndex].winner != "") {
+						addVictory(vm.competitionNoEdited.seasons[seasonIndex].winner, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false, "winner");
+					}
+				} else if (vm.competitionNoEdited.seasons[seasonIndex].mountain != season.mountain) {
+					addVictory(season.mountain, season.year, vm.competition._id, true, "mountain");
+					if (vm.competitionNoEdited.seasons[seasonIndex].mountain != "") {
+						addVictory(vm.competitionNoEdited.seasons[seasonIndex].mountain, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false, "mountain");
+					}
+				} else if (vm.competitionNoEdited.seasons[seasonIndex].regularity != season.regularity) {
+					addVictory(season.regularity, season.year, vm.competition._id, true, "regularity");
+					if (vm.competitionNoEdited.seasons[seasonIndex].regularity != "") {
+						addVictory(vm.competitionNoEdited.seasons[seasonIndex].regularity, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false, "regularity");
+					}
+				}
 			});
 		}
 
@@ -171,9 +212,10 @@
 			if (!vm.addCompetitionForm.$invalid) {
 				findWinnersChange();
 				if (!vm.add) {
-					vm.competition.$update().then(function (data) {});
-					vm.message = "Editada competición: ";
-					init();
+					vm.competition.$update().then(function (data) {
+						vm.message = "Editada competición: ";
+						init();
+					});
 				}
 				vm.showMessage = true;
 				vm.showForm = false;
