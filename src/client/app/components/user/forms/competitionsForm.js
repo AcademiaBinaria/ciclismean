@@ -60,15 +60,10 @@
 										vm.rider[propertyName] = rider[propertyName];
 									}
 									if (type) { //indica si es una victoria con tipo es decir si es montaña final o regularidad
-										console.log(type);
 										if (add) {
-											console.log(add);
 											vm.rider.seasons[yearPos].palmares[racePos][type] = true;
-											console.log(vm.rider.seasons[yearPos].palmares[racePos]);
-											vm.rider.total_victories += 1;
 										} else {
 											vm.rider.seasons[yearPos].palmares[racePos][type] = false;
-											vm.rider.total_victories -= 1;
 										}
 
 									} else {
@@ -89,13 +84,12 @@
 								}
 								var palmares = {
 									competition: competition,
-									position: null,
+									position: "-",
 									victories: 1
 								};
 								if (type) {
-									console.log("entra en type");
 									palmares[type] = true;
-									console.log(palmares);
+									palmares.victories = 0;
 								}
 								vm.rider.seasons[yearPos].palmares.push(palmares);
 								vm.rider.total_victories += 1;
@@ -113,9 +107,8 @@
 							victories: 1
 						};
 						if (type) {
-							console.log("entra en type");
 							palmares[type] = true;
-							console.log(palmares);
+							palmares.victories = 0;
 						}
 						vm.rider.seasons.push({
 							year: season,
@@ -147,6 +140,7 @@
 						}
 					}
 				});
+				console.log(vm.competitionNoEdited.seasons[seasonIndex]);
 				if (vm.competitionNoEdited.seasons[seasonIndex].winner != season.winner) {
 					addVictory(season.winner, season.year, vm.competition._id, true, "winner");
 					if (vm.competitionNoEdited.seasons[seasonIndex].winner != "") {
@@ -243,6 +237,15 @@
 			if (!vm.competition.seasons)
 				vm.competition.seasons = [];
 			vm.competition.seasons.push({
+				year: vm.newSeasonYear,
+				stages: stages,
+				winner: "",
+				mountain: "",
+				regularity: ""
+			});
+			if (!vm.competitionNoEdited.seasons)
+				vm.competitionNoEdited.seasons = [];
+			vm.competitionNoEdited.seasons.push({
 				year: vm.newSeasonYear,
 				stages: stages,
 				winner: "",
