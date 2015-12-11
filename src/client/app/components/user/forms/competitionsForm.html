@@ -4,117 +4,137 @@
 		<button class="btn btn-add" ng-click="vm.addForm()" ng-if="!vm.showForm">Añadir Competición</button>
 		<button type="submit" class="btn btn-return" ui-sref="dashboard" ng-if="!vm.showForm"><i class="fa fa-arrow-left"></i> Volver al Dashboard</button>
 	</div>
-    <div class="row">
-	<table class="table table-results" ng-if="!vm.showForm">
-		<tr>
-			<th>Nombre de la competición</th>
-			<th>Categoria</th>
-			<th class="righty"></th>
-			<th class="righty"></th>
-		</tr>
-		<tr ng-repeat="competition in vm.competitions">
-			<td>{{competition._id}}</td>
-			<td>{{competition.category}}</td>
-			<td class="righty">
-				<a href="#" ng-click="vm.editForm($index)"><span class="glyphicon glyphicon-pencil"></span></a>
-			</td>
-			<td class="righty">
-				<a href="#" data-toggle="modal" data-target="#myModal{{$index}}">
-					<span style="color: red" class="glyphicon glyphicon-remove"></span>
-				</a>
-				<!-- Modal -->
-				<div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">¿Eliminar competición {{competition._id}}?</h4>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" ng-click="vm.removeCompetition($index)" data-dismiss="modal">Eliminar</button>
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+	<div class="row">
+		<table class="table table-results" ng-if="!vm.showForm">
+			<tr>
+				<th>Nombre de la competición</th>
+				<th>Categoria</th>
+				<th class="righty"></th>
+				<th class="righty"></th>
+			</tr>
+			<tr ng-repeat="competition in vm.competitions">
+				<td>{{competition._id}}</td>
+				<td>{{competition.category}}</td>
+				<td class="righty">
+					<a href="#" ng-click="vm.editForm($index)"><span class="glyphicon glyphicon-pencil"></span></a>
+				</td>
+				<td class="righty">
+					<a href="#" data-toggle="modal" data-target="#myModal{{$index}}">
+						<span style="color: red" class="glyphicon glyphicon-remove"></span>
+					</a>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">¿Eliminar competición {{competition._id}}?</h4>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" ng-click="vm.removeCompetition($index)" data-dismiss="modal">Eliminar</button>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+								</div>
 							</div>
 						</div>
 					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<form name="vm.addCompetitionForm" novalidate>
+			<div ng-if="vm.showForm">
+				<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)}">
+					<label for="_id">Nombre de competición:</label>
+					<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="vm.add" required>
+					<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="!vm.add" required disabled>
+					<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)">
+						<form-messages field="vm.addCompetitionForm._id"></form-messages>
+					</div>
 				</div>
-			</td>
-		</tr>
-	</table>
-    </div>
-    <div class="row">
-	<form name="vm.addCompetitionForm" novalidate>
-		<div ng-if="vm.showForm">
-			<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)}">
-				<label for="_id">Nombre de competición:</label>
-				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="vm.add" required>
-				<input type="text" name="_id" ng-model="vm.competition._id" class="form-control riders-searcher" placeholder="Vuelta a Burgos" ng-if="!vm.add" required disabled>
-				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm._id)">
-					<form-messages field="vm.addCompetitionForm._id"></form-messages>
+				<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)}">
+					<label for="category">Categoría:</label>
+					<input type="text" name="category" ng-model="vm.competition.category" class="riders-searcher form-control" placeholder="WC, 2.UWT ..." required>
+					<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)">
+						<form-messages field="vm.addCompetitionForm.category"></form-messages>
+					</div>
 				</div>
-			</div>
-			<div class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)}">
-				<label for="category">Categoría:</label>
-				<input type="text" name="category" ng-model="vm.competition.category" class="riders-searcher form-control" placeholder="WC, 2.UWT ..." required>
-				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.category)">
-					<form-messages field="vm.addCompetitionForm.category"></form-messages>
+				<div ng-if="vm.add" class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)}">
+					<label for="numberStages">Número de etapas:</label>
+					<input type="number" min="1" name="numberStages" ng-model="vm.competition.numberStages" class="form-control riders-searcher" placeholder="1" required>
+					<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)">
+						<form-messages field="vm.addCompetitionForm.numberStages"></form-messages>
+					</div>
 				</div>
-			</div>
-			<div ng-if="vm.add" class="competition-first ng-class:{'has-error': vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)}">
-				<label for="numberStages">Número de etapas:</label>
-				<input type="number" min="1" name="numberStages" ng-model="vm.competition.numberStages" class="form-control riders-searcher" placeholder="1" required>
-				<div class="help-block has-error" ng-if="vm.has_error(vm.addCompetitionForm, vm.addCompetitionForm.numberStages)">
-					<form-messages field="vm.addCompetitionForm.numberStages"></form-messages>
-				</div>
-			</div>
-			<table class="table table-striped" ng-if="!vm.add">
-				<tr>
-					<th>Temporada</th>
-					<th>Edición de etapas</th>
-					<th class="righty">Ganador de la edición</th>
-					<th class="righty">Campeón de montaña</th>
-					<th class="righty">Campeón de regularidad</th>
-				</tr>
-				<tr ng-repeat="season in vm.competition.seasons">
-					<td>{{season.year}}</td>
-					<td>
-						<div class="btn-group-vertical" ng-repeat="stage in season.stages" data-toggle="modal" data-target="#editStage{{season.year}}-{{$index}}">
-							<button class="btn btn-default">{{stage.description}} | {{stage.winner}}</button>
-							<!-- Modal editSeason -->
-							<div class="modal fade" id="editStage{{season.year}}-{{$index}}" tabindex="-1" role="dialog">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											<h4 class="modal-title" id="myModalLabel">Editar {{stage.description}}</h4>
-										</div>
-										<div class="modal-body">
-											<label for="">Descripción de la etapa</label>
-											<input type="text" ng-model="season.stages[$index].description" class="form-control" required>
-											<label for="">Ganador de etapa</label>
-											<select class="form-control" ng-options="rider._id as rider._id for rider in vm.riders" ng-model="season.stages[$index].winner" ng-change="vm.changeStageWinner()" required></select>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Añadir</button>
+				<table class="table table-striped" ng-if="!vm.add">
+					<tr>
+						<th>Temporada</th>
+						<th>Edición de etapas</th>
+						<th class="righty">Ganador de la edición</th>
+						<th class="righty">Campeón de montaña</th>
+						<th class="righty">Campeón de regularidad</th>
+					</tr>
+					<tr ng-repeat="season in vm.competition.seasons">
+						<td>{{season.year}}</td>
+						<td>
+							<div class="btn-group-vertical" ng-repeat="stage in season.stages" data-toggle="modal" data-target="#editStage{{season.year}}-{{$index}}">
+								<button class="btn btn-default">{{stage.description}} | {{stage.winner}}</button>
+								<!-- Modal editSeason -->
+								<div class="modal fade" id="editStage{{season.year}}-{{$index}}" tabindex="-1" role="dialog">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="modal-title" id="myModalLabel">Editar {{stage.description}}</h4>
+											</div>
+											<div class="modal-body">
+												<label for="">Descripción de la etapa</label>
+												<input type="text" ng-model="season.stages[$index].description" class="form-control" required>
+												<label for="">Ganador de etapa</label>
+												<select class="form-control" ng-options="rider._id as rider._id for rider in vm.riders" ng-model="season.stages[$index].winner" ng-change="vm.changeStageWinner()" required></select>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Añadir</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+						</td>
+						<td class="righty">{{season.winner}}</td>
+						<td class="righty">{{season.mountain}}</td>
+						<td class="righty">{{season.regularity}}</td>
+					</tr>
+				</table>
+				<div>
+					<button type="submit" class="btn btn-return" ng-click="vm.showForm = false"><i class="fa fa-arrow-left"></i> Atrás</button>
+					<button type="submit" class="btn btn-add" ng-click="vm.saveCompetition()" ng-if="vm.add">Guardar Competición</button>
+					<button type="submit" class="btn btn-add" ng-click="vm.editCompetition()" ng-if="!vm.add">Editar Competición</button>
+					<button type="submit" class="btn btn-add" data-toggle="modal" data-target="#addSeason" ng-if="!vm.add">Añadir temporada</button>
+					<!-- Modal -->
+					<div class="modal fade" id="addSeason" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Añadir temporada</h4>
+								</div>
+								<div class="modal-body">
+									<label for="">Año</label>
+									<input type="number" ng-model="vm.newSeasonYear" class="form-control" required>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" ng-click="vm.addSeason()" data-dismiss="modal">Aceptar</button>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+								</div>
+							</div>
 						</div>
-					</td>
-					<td class="righty">{{season.winner}}</td>
-					<td class="righty">{{season.mountain}}</td>
-					<td class="righty">{{season.regularity}}</td>
-				</tr>
-			</table>
-			<div>
-				<button type="submit" class="btn btn-return" ng-click="vm.showForm = false"><i class="fa fa-arrow-left"></i> Atrás</button>
-				<button type="submit" class="btn btn-add" ng-click="vm.saveCompetition()" ng-if="vm.add">Guardar Competición</button>
-				<button type="submit" class="btn btn-add" ng-click="vm.editCompetition()" ng-if="!vm.add">Editar Competición</button>
+					</div>
+				</div>
 			</div>
-		</div>
-	</form>
-    </div>
-    <div class="row">
-        <pre>{{vm.competition | json}}</pre>
-    </div>
+		</form>
+	</div>
+	<div class="row">
+		<pre>{{vm.competition | json}}</pre>
+	</div>
 </div>

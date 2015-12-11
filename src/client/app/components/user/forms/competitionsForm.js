@@ -110,12 +110,14 @@
 			vm.competition.seasons.forEach(function (season, seasonIndex) {
 				season.stages.forEach(function (stage, stageIndex) {
 					if (stage.winner != "-") {
-						if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != stage.winner) {
-							console.log("Añadimos victoria: " + stage.winner);
-							addVictory(stage.winner, season.year, vm.competition._id, true);
-							if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != "-") {
-								console.log("Quitamos victoria: " + vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner);
-								addVictory(vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false);
+						if (vm.competitionNoEdited.seasons) { //para competiciones antiguas que no tenian valor en seasons
+							if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != stage.winner) {
+								console.log("Añadimos victoria: " + stage.winner);
+								addVictory(stage.winner, season.year, vm.competition._id, true);
+								if (vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner != "-") {
+									console.log("Quitamos victoria: " + vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner);
+									addVictory(vm.competitionNoEdited.seasons[seasonIndex].stages[stageIndex].winner, vm.competitionNoEdited.seasons[seasonIndex].year, vm.competitionNoEdited._id, false);
+								}
 							}
 						}
 					}
@@ -188,6 +190,24 @@
 			});
 		}
 
+		vm.addSeason = function () {
+			var stages = [];
+			for (var i = 0; i < vm.competition.numberStages; i++) {
+				stages.push({
+					"description": "Etapa " + i,
+					"winner": "-"
+				})
+			}
+			if (!vm.competition.seasons)
+				vm.competition.seasons = [];
+			vm.competition.seasons.push({
+				year: vm.newSeasonYear,
+				stages: stages,
+				winner: "",
+				mountain: "",
+				regularity: ""
+			});
+		}
 
 	}
 })();
