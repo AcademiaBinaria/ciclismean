@@ -77,8 +77,8 @@
 					<tr ng-repeat="season in vm.competition.seasons">
 						<td>{{season.year}}</td>
 						<td>
-							<div class="btn-group-vertical" ng-repeat="stage in season.stages" data-toggle="modal" data-target="#editStage{{season.year}}-{{$index}}">
-								<button class="btn btn-default">{{stage.description}} | {{stage.winner}}</button>
+							<div class="btn-group-vertical" ng-repeat="stage in season.stages">
+								<button class="btn btn-default" data-toggle="modal" data-target="#editStage{{season.year}}-{{$index}}">{{stage.description}} | {{stage.winner}}</button>
 								<!-- Modal editSeason -->
 								<div class="modal fade" id="editStage{{season.year}}-{{$index}}" tabindex="-1" role="dialog">
 									<div class="modal-dialog" role="document">
