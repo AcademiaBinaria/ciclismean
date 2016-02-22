@@ -23,10 +23,12 @@
 		}
 	}
 
-	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService) {
+	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService, $window) {
 		var vm = this;
 		vm.riderId = $stateParams.riderId;
 		vm.teamSafeNames = [];
+        
+        $window.scrollTo(0, 0);
 
 		init();
 
