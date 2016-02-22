@@ -23,15 +23,10 @@
 		}
 	}
 
-	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService, $location, $anchorScroll) {
+	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService) {
 		var vm = this;
 		vm.riderId = $stateParams.riderId;
 		vm.teamSafeNames = [];
-        
-        $location.hash('top');
-
-        // call $anchorScroll()
-        $anchorScroll();
 
 		init();
 
