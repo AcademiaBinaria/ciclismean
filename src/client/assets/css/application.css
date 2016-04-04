@@ -630,6 +630,9 @@ td.stages {
 .bold{
     font-weight: bold;
 }
+.displayable{
+    display:none;
+}
 .tour {
   background-color: #e4d49e; }
   .tour:hover, .tour:focus {

@@ -72,7 +72,9 @@
 						<tbody>
 							<tr ng-repeat="competition in season.palmares" ng-class="{tour: (competition.competition == 'Tour'), giro: (competition.competition == 'Giro'), vuelta: (competition.competition == 'Vuelta')}">
 								<td class="cup" scope="row">
-									<div ng-class="{fa fa-trophy: (competition.position == '1º')}"></div>
+								    <div ng-class="{displayable: (competition.position != '1º')}">
+									    <div class="fa fa-trophy"></div>
+									</div>
 								</td>
 								<td class="position" ng-class="{bold: (competition.position == '1º')}">{{::competition.position}}</td>
 								<td>{{::competition.competition}}</td>
