@@ -308,7 +308,7 @@ td.position{
 td.stages{
     text-align:left;
 }
-
+.bold{font-weight: bold;}
 .tour{
     @include lightenBgColor($yellow-tour);
     &:hover{
