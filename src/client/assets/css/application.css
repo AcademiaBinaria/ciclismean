@@ -627,7 +627,9 @@ td.position {
 
 td.stages {
   text-align: left; }
-
+.first-position{
+    font-weight: bold;
+}
 .tour {
   background-color: #e4d49e; }
   .tour:hover, .tour:focus {
