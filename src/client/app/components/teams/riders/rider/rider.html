@@ -76,7 +76,7 @@
 								</td>
 								<td class="position" ng-class="{bold: (competition.position == '1º')}">{{::competition.position}}</td>
 								<td>{{::competition.competition}}</td>
-								<td class="stages" ng-class="{bold: (competition.victories != '-')}">Etapas: {{::competition.victories}}</td>
+								<td class="stages">Etapas: <span ng-class="{bold: (competition.victories != '-')}">{{::competition.victories}}</span></td>
 								<td class="position">{{::competition.category}}</td>
 							</tr>
 						</tbody>
