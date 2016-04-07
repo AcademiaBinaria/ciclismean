@@ -37,3 +37,28 @@
           color: lighten($baseColor, 70%);
     }
 }
+
+// Media queries
+
+@mixin mq($break) {
+  @if $break == "x-small" {
+    @media (min-width: $brkpoint-xs) and (max-width: $brkpoint-sm) {
+      @content;
+    }
+  }
+  @else if $break == "small" {
+    @media (min-width: $brkpoint-xs) and (max-width: $brkpoint-md){
+      @content;
+    }
+  }
+  @else if $break == "medium" {
+    @media (min-width: $brkpoint-md + 1) {
+      @content;
+    }
+  }
+  @else if $break == "large" {
+    @media (min-width: $brkpoint-lg) {
+      @content;
+    }
+  }
+}

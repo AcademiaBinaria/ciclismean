@@ -1902,4 +1902,8 @@ footer {
     .btn-social-icon.instagram:hover {
       background-color: #497293; }
 
+.navbar-nav {
+    margin: 4.5px -15px;
+}
+
 /*# sourceMappingURL=application.css.map */
