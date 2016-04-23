@@ -23,20 +23,24 @@ exports.findingByKeywords = function (keywords, skip, limit) { //colName, query,
     return mongodb.finding(colName, {
         $or: [{
             _id: rq
-                }, {
-            lob: rq
-                }, {
-            team: rq
-                }, {
-            safe_name: rq
-                }, {
-            team_rol: rq
-                }]
+        }, {
+                lob: rq
+            }, {
+                team: rq
+            }, {
+                safe_name: rq
+            }, {
+                team_rol: rq
+            }]
     }, null, skip, limit);
 }
 
 exports.findingAllRiders = function () { //colName, query, proj, skip, limit, sort
     return mongodb.finding(colName, {});
+}
+
+exports.findingByDorsal = function () { //colName, query, proj, skip, limit, sort
+    return mongodb.finding(colName, { 'dorsal_actual': { '$exists': true, '$ne': null } });
 }
 
 exports.updatingRider = function (rider) { //colName, query, proj, skip, limit, sort

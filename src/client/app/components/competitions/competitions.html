@@ -1,7 +1,19 @@
 <div class="container">
-    <h1>Competitions</h1>
-    <div ng-repeat="competitions in vm.competitions" class="row col-md-4">
-        <h3><a ng-href="#">{{competitions._id}}</a></h3>
-        <p>{{competitions.category}}</p>
-    </div>
+	<div class="control-group">
+		<input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
+		<div class="mini-filters-wrapper">
+			<span>Ordernar por:</span>
+			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('-dob')">+ Viejo</button>
+			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('dob')">+ Joven</button>
+			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('total_victories')">+ Victorias</button>
+			<!--<button type="button" class="btn-lg " ng-click="vm.orderBy('current')" disabled>Más Victorias 2015</button>-->
+		</div>
+	</div>{{vm.keywords}}
+	<div class="cards-wrapper row row-centered">
+		<rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.keywords" class="col-md-4" rider-id="rider"></rider-card>
+	</div>
+	<div class="btn-more-wrapper">
+		<button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" ng-if="!vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
+		<button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.findBykeywords()" ng-if="vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
+	</div>
 </div>

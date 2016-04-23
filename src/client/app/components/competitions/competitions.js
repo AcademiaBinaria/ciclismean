@@ -9,7 +9,7 @@
     function config($stateProvider) {
         $stateProvider
             .state('competitions', {
-                url: '/competitions/:name',
+                url: '/competitions',
                 template: '<competitions></competitions>'
             });
     }
@@ -23,19 +23,22 @@
         }
     }
 
-    function controller(competitionDataService) {
+    function controller(competitionDataService, ridersDataService) {
         var vm = this;
 
         init();
 
         function init() {
-            competitionDataService.gettingCompetitions({
-                    limit: 10000,
-                    sort: 'status'
-                })
-                .then(function (competitions) {
-                    vm.competitions = competitions;
-                });
+            ridersDataService.gettingRidersByDorsal().then(function (riders) {
+                vm.riders = riders;
+            })
+            /* competitionDataService.gettingCompetitions({
+                     limit: 10000,
+                     sort: 'status'
+                 })
+                 .then(function (competitions) {
+                     vm.competitions = competitions;
+                 });*/
         }
 
     }
@@ -47,10 +50,10 @@
         factory.competition = $resource('api/competitions/:id', {
             id: '@_id'
         }, {
-            'update': {
-                method: 'PUT'
-            }
-        });
+                'update': {
+                    method: 'PUT'
+                }
+            });
 
         factory.gettingCompetitions = function (params) {
             return factory.competitions.query(params).$promise;

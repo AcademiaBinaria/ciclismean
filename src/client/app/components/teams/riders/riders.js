@@ -96,6 +96,7 @@
         var factory = {};
         factory.addSeason = $resource('api/riders/add-season/:newSeasonYear', {});
         factory.riders = $resource('api/riders', {});
+        factory.ridersByDorsal = $resource('api/riders/dorsal', {});
         factory.rider = $resource('api/riders/:id', {
             id: '@_id'
         }, {
@@ -107,6 +108,10 @@
 
         factory.gettingRiders = function (params) {
             return factory.riders.query(params).$promise;
+        }
+        
+        factory.gettingRidersByDorsal = function () {
+            return factory.ridersByDorsal.query().$promise;
         }
 
         factory.gettingRidersBykeywords = function (params) {
