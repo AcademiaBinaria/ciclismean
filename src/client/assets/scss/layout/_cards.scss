@@ -331,3 +331,12 @@ td.stages{
         @include ultraLightenBgColor($red-vuelta);
     }
 }
+.dorsal-comp{
+    background-color: #ffffff;
+    width: 30px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    border: 2px solid #666;
+}
