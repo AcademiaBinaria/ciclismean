@@ -50,3 +50,6 @@ input.dorsal-searcher{
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
 }
+input.dorsal-searcher:focus{
+    border: 3px solid #e8a0b2!important;
+}
