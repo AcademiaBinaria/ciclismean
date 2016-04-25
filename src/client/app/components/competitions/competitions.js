@@ -25,6 +25,8 @@
 
     function controller(competitionDataService, ridersDataService) {
         var vm = this;
+        
+        vm.order = "dorsal_actual";
 
         init();
 
