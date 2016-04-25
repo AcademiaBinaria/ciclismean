@@ -66,7 +66,7 @@
 				<div class="col-md-2 text-right">
 					<div class="row ng-class:{'has-error': vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)}">
 						<label for="dorsal_actual">Dorsal:</label>
-						<input class="form-control med-input" name="dorsal_actual" type="number" ng-model="vm.rider.dorsal_actual">
+						<input class="form-control med-input" name="dorsal_actual" type="text" ng-model="vm.rider.dorsal_actual">
 						<div class="help-block has-error" ng-if="vm.has_error(vm.addRiderForm, vm.addRiderForm.dorsal_actual)">
 							<form-messages field="vm.addRiderForm.dorsal_actual"></form-messages>
 						</div>

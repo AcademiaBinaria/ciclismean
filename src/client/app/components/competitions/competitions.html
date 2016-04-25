@@ -1,13 +1,12 @@
 <div class="container">
 	<div class="control-group">
 		<input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
-		<div class="mini-filters-wrapper">
+		<!--<div class="mini-filters-wrapper">
 			<span>Ordernar por:</span>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('-dob')">+ Viejo</button>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('dob')">+ Joven</button>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('total_victories')">+ Victorias</button>
-			<!--<button type="button" class="btn-lg " ng-click="vm.orderBy('current')" disabled>Más Victorias 2015</button>-->
-		</div>
+		</div>-->
 	</div>{{vm.keywords}}
 	<div class="cards-wrapper row row-centered">
 		<rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.keywords" class="col-md-4" rider-id="rider"></rider-card>
