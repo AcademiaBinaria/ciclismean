@@ -1,75 +1,76 @@
 <html ng-app="template">
 
 <head>
-	<meta charset="utf-8" />
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
-	<meta content="!" name="fragment">
-	<base href="/">
-	<title>Ciclismania</title>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="!" name="fragment">
+    <base href="/">
+    <title>Ciclismania</title>
 
-	<link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet">
-	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/application.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/application.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+
+
+
+    <!-- build:js node_modules.js -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/api-check/dist/api-check.min.js"></script>
+    <script src="node_modules/angular-formly/dist/formly.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="node_modules/ngstorage/ngStorage.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js common.js -->
+    <script src="app/_common/app.js"></script>
+    <script src="app/_common/states.js"></script>
+    <script src="app/_common/security.js"></script>
+    <script src="app/_common/main/main.js"></script>
+    <script src="app/_common/navbar/navbar.js"></script>
+    <script src="app/_common/footer/footer.js"></script>
+    <script src="app/_common/form-messages/form-messages.js"></script>
+    <script src="app/_common/util/util.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js components.js -->
+    <script src="app/components/user/user.js"></script>
+    <script src="app/components/user/login/login.js"></script>
+    <script src="app/components/user/register/register.js"></script>
+    <script src="app/components/user/forgot-password/forgot-password.js"></script>
+    <script src="app/components/user/profile/profile.js"></script>
+    <script src="app/components/teams/teams.js"></script>
+    <script src="app/components/teams/team/team.js"></script>
+    <script src="app/components/teams/riders/riders.js"></script>
+    <script src="app/components/teams/riders/rider/rider.js"></script>
+    <script src="app/components/teams/riders/rider-card/rider-card.js"></script>
+    <script src="app/components/competitions/competitions.js"></script>
+    <script src="app/components/user/dashboard/dashboard.js"></script>
+    <script src="app/components/user/forms/riderForm.js"></script>
+    <script src="app/components/user/forms/teamForm.js"></script>
+    <script src="app/components/user/forms/competitionsForm.js"></script>
+    <script src="app/components/user/forms/editSeason.js"></script>
+    <script src="app/components/user/forms/addSeason.js"></script>
+    <!-- endbuild -->
 
 </head>
 
 <body>
-	<navbar></navbar>
+    <navbar></navbar>
 
-	<main-content></main-content>
+    <main-content></main-content>
 
-	<footerbar></footerbar>
-
-	<!-- build:js node_modules.js -->
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/angular-resource/angular-resource.min.js"></script>
-	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
-	<script src="node_modules/angular-animate/angular-animate.min.js"></script>
-	<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<script src="node_modules/api-check/dist/api-check.min.js"></script>
-	<script src="node_modules/angular-formly/dist/formly.min.js"></script>
-	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
-	<script src="node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js"></script>
-	<script src="node_modules/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
-	<script src="node_modules/ngstorage/ngStorage.min.js"></script>
-	<!-- endbuild -->
-
-	<!-- build:js common.js -->
-	<script src="app/_common/app.js"></script>
-	<script src="app/_common/states.js"></script>
-	<script src="app/_common/security.js"></script>
-	<script src="app/_common/main/main.js"></script>
-	<script src="app/_common/navbar/navbar.js"></script>
-	<script src="app/_common/footer/footer.js"></script>
-	<script src="app/_common/form-messages/form-messages.js"></script>
-	<script src="app/_common/util/util.js"></script>
-	<!-- endbuild -->
-
-	<!-- build:js components.js -->
-	<script src="app/components/user/user.js"></script>
-	<script src="app/components/user/login/login.js"></script>
-	<script src="app/components/user/register/register.js"></script>
-	<script src="app/components/user/forgot-password/forgot-password.js"></script>
-	<script src="app/components/user/profile/profile.js"></script>
-	<script src="app/components/teams/teams.js"></script>
-	<script src="app/components/teams/team/team.js"></script>
-	<script src="app/components/teams/riders/riders.js"></script>
-	<script src="app/components/teams/riders/rider/rider.js"></script>
-	<script src="app/components/teams/riders/rider-card/rider-card.js"></script>
-	<script src="app/components/competitions/competitions.js"></script>
-	<script src="app/components/user/dashboard/dashboard.js"></script>
-	<script src="app/components/user/forms/riderForm.js"></script>
-	<script src="app/components/user/forms/teamForm.js"></script>
-	<script src="app/components/user/forms/competitionsForm.js"></script>
-	<script src="app/components/user/forms/editSeason.js"></script>
-	<script src="app/components/user/forms/addSeason.js"></script>
-	<!-- endbuild -->
-
+    <footerbar></footerbar>
 </body>
 
 </html>

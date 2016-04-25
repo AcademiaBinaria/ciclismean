@@ -1,24 +1,25 @@
 <a ui-sref="rider({teamId: vm.riderId.safe_name_team, year: vm.year, riderId: vm.riderId.safe_name})">
     <div class="rider-image">
-            <div class="victories">
-                <div class="fa fa-trophy"></div>
-                <div>
-                    <small>{{vm.riderId.total_victories}}</small>
-                    <!--<small>{{vm.riderId.currentVictories}}</small>--> <!-- VICTORIAS AÑO EN CURSO -->
-                </div>
+        <div class="victories">
+            <div class="fa fa-trophy"></div>
+            <div>
+                <small>{{vm.riderId.total_victories}}</small>
+                <!--<small>{{vm.riderId.currentVictories}}</small>-->
+                <!-- VICTORIAS AÑO EN CURSO -->
             </div>
-            <div class="rider-flag">
-                <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
-            </div>
-            <img class="rider-card-img" ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
-            <div class="team-name-wrapper text-center" itemprop="affiliation">{{::vm.riderId.team}}</div>
+        </div>
+        <div class="rider-flag">
+            <img itemprop="nacionality" ng-src="{{vm.getRiderFlag}}" />
+        </div>
+        <img class="rider-card-img" ng-src="{{::vm.getRiderImage}}" ng-attr-alt="{{::vm.riderId._id}}" width="240" heigth="304" />
+        <div class="team-name-wrapper text-center" itemprop="affiliation">{{::vm.riderId.team}}</div>
     </div>
     <div class="member-meta text-center" itemscope itemtype="http://schema.org/Person">
         <div itemprop="name" class="card-name">
             <b>{{::vm.riderId._id}}</b>
-            <!--<div class="dorsal-comp">
-                {{::vm.riderId.dorsal_actual}}
-            </div>-->
+            <div class="dorsal-comp" ng-if="vm.dorsal">
+                {{::vm.dorsal}}
+            </div>
         </div>
         <small itempropclass="title">{{::vm.riderId.lob}}</small>
         <small>-</small>
@@ -34,7 +35,8 @@
         <div class="best-positions">
             <div class="best-position giro pull-left">
                 <div>
-                    <b class="ng-binding">{{::vm.riderId.giroBestResult}}</b><br>
+                    <b class="ng-binding">{{::vm.riderId.giroBestResult}}</b>
+                    <br>
                     <small class="title ng-binding">{{::vm.riderId.giroYearBestResult}}</small>
                 </div>
                 <div class="victories-wrapper">
@@ -44,7 +46,8 @@
             </div>
             <div class="best-position tour pull-left">
                 <div>
-                    <b class="ng-binding">{{::vm.riderId.tourBestResult}}</b><br>
+                    <b class="ng-binding">{{::vm.riderId.tourBestResult}}</b>
+                    <br>
                     <small class="title ng-binding">{{::vm.riderId.tourYearBestResult}}</small>
                 </div>
                 <div class="victories-wrapper">
@@ -54,7 +57,8 @@
             </div>
             <div class="best-position vuelta pull-left">
                 <div>
-                    <b class="ng-binding">{{::vm.riderId.vueltaBestResult}}</b><br>
+                    <b class="ng-binding">{{::vm.riderId.vueltaBestResult}}</b>
+                    <br>
                     <small class="title ng-binding">{{::vm.riderId.vueltaYearBestResult}}</small>
                 </div>
                 <div class="victories-wrapper">
@@ -69,7 +73,8 @@
                     </div>
                 </div>
                 <div>
-                    <b class="ng-binding">{{::vm.riderId.wcBestResult}}</b><br>
+                    <b class="ng-binding">{{::vm.riderId.wcBestResult}}</b>
+                    <br>
                     <small class="title ng-binding">{{::vm.riderId.wcYearBestResult}}</small>
                 </div>
                 <div class="victories-wrapper wc">

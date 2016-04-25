@@ -1,18 +1,18 @@
 <div class="container">
-	<div class="control-group">
-		<input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
-		<!--<div class="mini-filters-wrapper">
+    <div class="control-group">
+        <input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
+        <!--<div class="mini-filters-wrapper">
 			<span>Ordernar por:</span>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('-dob')">+ Viejo</button>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('dob')">+ Joven</button>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('total_victories')">+ Victorias</button>
 		</div>-->
-	</div>{{vm.keywords}}
-	<div class="cards-wrapper row row-centered">
-		<rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.keywords | orderBy:'dorsal_actual'" class="col-md-4" rider-id="rider" ></rider-card>
-	</div>
-	<div class="btn-more-wrapper">
-		<button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" ng-if="!vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
-		<button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.findBykeywords()" ng-if="vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
-	</div>
+    </div>{{vm.keywords}}
+    <div class="cards-wrapper row row-centered">
+        <rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.keywords | orderBy:'dorsal_actual'" class="col-md-4" rider-id="rider" dorsal="rider.dorsal_actual"></rider-card>
+    </div>
+    <div class="btn-more-wrapper">
+        <button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" ng-if="!vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
+        <button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.findBykeywords()" ng-if="vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
+    </div>
 </div>

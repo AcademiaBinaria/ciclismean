@@ -31,7 +31,10 @@
         function init() {
             ridersDataService.gettingRidersByDorsal().then(function (riders) {
                 vm.riders = riders;
-            })
+                angular.forEach(vm.riders, function (rider) {
+                    rider.dorsal_actual = parseFloat(rider.dorsal_actual);
+                });
+            });
             /* competitionDataService.gettingCompetitions({
                      limit: 10000,
                      sort: 'status'
@@ -50,10 +53,10 @@
         factory.competition = $resource('api/competitions/:id', {
             id: '@_id'
         }, {
-                'update': {
-                    method: 'PUT'
-                }
-            });
+            'update': {
+                method: 'PUT'
+            }
+        });
 
         factory.gettingCompetitions = function (params) {
             return factory.competitions.query(params).$promise;

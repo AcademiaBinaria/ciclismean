@@ -1,3 +1,4 @@
 node_modules
 _work/_ops/dist/
 src/server/lib/settings.js
+dist/
