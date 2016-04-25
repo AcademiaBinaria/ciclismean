@@ -1,6 +1,6 @@
 <div class="container">
     <div class="control-group">
-        <input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un corredor, equipo o país" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca un corredor, equipo o país'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.keywords">
+        <input class="searcher main-search form-control search ng-pristine ng-valid ng-touched" type="text" placeholder="Busca un dorsal" ng-focus="this.placeholder=''" ng-blur="this.placeholder='Busca dorsal'" ng-Keydown="vm.isSubmit($event.keyCode)" ng-model="vm.dorsalFilter">
         <!--<div class="mini-filters-wrapper">
 			<span>Ordernar por:</span>
 			<button type="button" class="btn btn-grey btn-xs" ng-click="vm.orderBy('-dob')">+ Viejo</button>
@@ -9,7 +9,7 @@
 		</div>-->
     </div>{{vm.keywords}}
     <div class="cards-wrapper row row-centered">
-        <rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.keywords | orderBy:'dorsal_actual'" class="col-md-4" rider-id="rider" dorsal="rider.dorsal_actual"></rider-card>
+        <rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders | filter: vm.dorsalFilter | orderBy:'dorsal_actual'" class="col-md-4" rider-id="rider" dorsal="rider.dorsal_actual"></rider-card>
     </div>
     <div class="btn-more-wrapper">
         <button type="button" class="btn btn-color btn-lg btn-outline btn-block sendmail heading-font" ng-click="vm.init()" ng-if="!vm.searchByKeywords && vm.showMore">Ver mas ciclistas</button>
