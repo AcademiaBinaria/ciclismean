@@ -31,9 +31,11 @@
         function init() {
             ridersDataService.gettingRidersByDorsal().then(function (riders) {
                 vm.riders = riders;
-                angular.forEach(vm.riders, function (rider) {
-                    rider.dorsal_actual = parseFloat(rider.dorsal_actual);
-                });
+                vm.riders_bak = [];
+                for (var i = 0; i < vm.riders.length; i++) {
+                    vm.riders[i].dorsal_actual = parseInt(vm.riders[i].dorsal_actual);
+                    vm.riders_bak[i] = angular.copy(vm.riders[i]);
+                }
             });
             /* competitionDataService.gettingCompetitions({
                      limit: 10000,
@@ -42,6 +44,13 @@
                  .then(function (competitions) {
                      vm.competitions = competitions;
                  });*/
+        }
+
+        vm.changeFilter = function () {
+            if (vm.dorsal_actual == "" || !vm.dorsal_actual) {
+                vm.riders = angular.copy(vm.riders_bak);
+                delete vm.dorsal_actual;
+            }
         }
 
     }
