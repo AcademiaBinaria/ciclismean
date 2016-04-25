@@ -40,3 +40,13 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     background-color: $grey;
     outline: 0;
 }
+.dorsal-searcher{
+    font-size: 38px;
+    font-weight: bold;
+    width: 245px;
+    height: 60px;
+    margin: 30px auto 0px;
+    border: 3px solid rgb(51, 51, 51);
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
