@@ -22,6 +22,9 @@
         float: left;
         font-weight: bold;
         letter-spacing: 0;
+        @media (max-width: 450px){
+            display:none;
+        }
     }
     svg{
         float: left;
