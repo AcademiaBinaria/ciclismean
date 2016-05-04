@@ -1,0 +1,23 @@
+{
+    "name": "ciclismean",
+    "version": "1.0.0",
+    "description": "ciclismean",
+    "author": "Agora Binaria",
+    "license": "ISC",
+    "scripts": {
+        "clean": "rimraf dist",
+        "dependencies": "npm install && cd ../../src/client && npm install",
+        "prestart": "npm run dependencies && npm run clean",
+        "start": "gulp build-dist",
+        "poststart": "cd dist/server && npm install --production && node ciclismean.js"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-if": "^1.2.5",
+        "gulp-minify-html": "^1.0.4",
+        "gulp-ng-annotate": "^1.1.0",
+        "gulp-uglify": "^1.2.0",
+        "gulp-useref": "^1.2.0",
+        "rimraf": "^2.4.3"
+    }
+}
