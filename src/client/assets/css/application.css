@@ -11,6 +11,9 @@ body {
 a:focus, a:hover {
   text-decoration: none !important; }
 
+.displayable {
+  display: none; }
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
