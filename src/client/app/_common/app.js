@@ -6,7 +6,8 @@ angular
         urlBase: 'http://localhost:3000/',
         currentSeason: 2016
     })
-    .config(function ($httpProvider, settings, $sceDelegateProvider) {
+    .config(function ($httpProvider, settings, $sceDelegateProvider, $compileProvider) {
+        $compileProvider.debugInfoEnabled(false);
         $sceDelegateProvider.resourceUrlWhitelist([
                 "self",
                 "http://localhost:3000/**",
