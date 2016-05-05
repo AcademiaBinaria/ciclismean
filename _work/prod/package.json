@@ -9,7 +9,7 @@
         "dependencies": "npm install && cd ../../src/client && npm install",
         "prestart": "npm run dependencies && npm run clean",
         "start": "gulp build-dist",
-        "poststart": "cd dist/server && npm install --production && node ciclismean.js"
+        "poststart": "cd dist/server && npm install --production && pm2 start ciclismean.js"
     },
     "devDependencies": {
         "gulp": "^3.9.0",
