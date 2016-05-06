@@ -461,7 +461,8 @@ input.dorsal-searcher:focus {
   border-radius: 20px; }
 
 .victories-wrapper .fa-trophy {
-  color: #000; }
+  color: #000;
+  margin: 0 2px; }
 
 .best-position.tour {
   background-color: #e4d49e;
@@ -567,6 +568,8 @@ img.big-card-flag {
   border-radius: 52px;
   font-size: 19px;
   margin: 20px auto; }
+  .victories-wrapper-card span {
+    margin: 0 0 0 3px; }
 
 .best-position-card.giro {
   background-color: #e8a0b2;
@@ -612,6 +615,8 @@ img.big-card-flag {
   padding: 12px 0 0 0px;
   border-radius: 30px;
   text-align: center; }
+  .card-total-victories span {
+    margin: 0 0 0 3px; }
 
 .yellow-tour {
   color: #E0E006; }
