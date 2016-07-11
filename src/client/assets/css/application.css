@@ -220,6 +220,53 @@ th {
 .headline-secondary {
   margin: 0.76923em 0 0; }
 
+.loading-wrapper {
+  margin: 50px auto; }
+
+.cup, .rider, .rider-head, .wheel {
+  fill: #333333; }
+
+.bike {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+  display: block; }
+
+.wheel {
+  transform-origin: 50% 50%;
+  animation: spin 2s infinite linear; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+.loading-text {
+  font-family: Georgia, Serif;
+  color: #333;
+  width: 95px;
+  margin: 0 auto;
+  font-style: italic;
+  text-align: left;
+  font-size: 16px;
+  margin-top: 10px; }
+
+.loading-text:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(5, end) 2s infinite;
+  animation: ellipsis steps(5, end) 2s infinite;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px; }
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em; } }
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em; } }
 .navbar-default {
   background-color: rgba(0, 0, 0, 0.95);
   color: rgba(255, 255, 255, 0.8);
