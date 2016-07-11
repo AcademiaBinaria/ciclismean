@@ -27,7 +27,7 @@
 		}
 	}
 
-	function controller(teamsDataService, UtilService, settings) {
+	function controller(teamsDataService, UtilService, settings, $timeout) {
 		var vm = this;
 		vm.showLoader = true;
 
@@ -53,9 +53,13 @@
 			});
 			getTeams('PC').then(function (teams) {
 				vm.teams_PCT = teams;
-				vm.showLoader = false;
+				$timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
 			}).catch(function () {
-				vm.showLoader = false;
+				$timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
 			});
 		}
 	}

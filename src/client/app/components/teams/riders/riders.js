@@ -23,7 +23,7 @@
         }
     }
 
-    function controller(ridersDataService) {
+    function controller(ridersDataService, $timeout) {
         var vm = this;
         vm.showLoader = true;
         vm.now = new Date().getTime();
@@ -40,11 +40,11 @@
         vm.init = function () {
             vm.searchByKeywords = false;
             ridersDataService.gettingRiders({
-                    limit: limit,
-                    skip: skip,
-                    sort: vm.order,
-                    q: 'retired:false'
-                })
+                limit: limit,
+                skip: skip,
+                sort: vm.order,
+                q: 'retired:false'
+            })
                 .then(function (riders) {
                     fillRidersArray(riders)
                 });
@@ -80,7 +80,9 @@
         }
 
         function fillRidersArray(riders) {
-            vm.showLoader = false;
+            $timeout(function () {
+                vm.showLoader = false;
+            }, 1000);
             if (riders.length < limit) {
                 vm.showMore = false;
             } else {
@@ -102,16 +104,16 @@
         factory.rider = $resource('api/riders/:id', {
             id: '@_id'
         }, {
-            'update': {
-                method: 'PUT'
-            }
-        });
+                'update': {
+                    method: 'PUT'
+                }
+            });
         var riderskeywords = $resource('api/riders/keywords/:keywords');
 
         factory.gettingRiders = function (params) {
             return factory.riders.query(params).$promise;
         }
-        
+
         factory.gettingRidersByDorsal = function () {
             return factory.ridersByDorsal.query().$promise;
         }

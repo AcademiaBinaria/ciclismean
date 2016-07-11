@@ -22,7 +22,7 @@
         }
     }
 
-    function controller(ridersDataService, teamsDataService, $stateParams) {
+    function controller(ridersDataService, teamsDataService, $stateParams, $timeout) {
         var vm = this;
         vm.showLoader = true;
         vm.team_id = $stateParams.id;
@@ -37,7 +37,9 @@
                 limit: 50,
                 q: 'safe_name_team:' + vm.team_id
             }).then(function (riders) {
-                vm.showLoader = false;
+                $timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
                 vm.riders = riders;
             });
         };

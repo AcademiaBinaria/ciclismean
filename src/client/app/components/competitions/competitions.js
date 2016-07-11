@@ -23,7 +23,7 @@
         }
     }
 
-    function controller(competitionDataService, ridersDataService) {
+    function controller(competitionDataService, ridersDataService, $timeout) {
         var vm = this;
         vm.showLoader = true;
 
@@ -31,7 +31,9 @@
 
         function init() {
             ridersDataService.gettingRidersByDorsal().then(function (riders) {
-                vm.showLoader = false;
+                $timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
                 vm.riders = riders;
                 vm.riders_bak = [];
                 for (var i = 0; i < vm.riders.length; i++) {
