@@ -25,11 +25,13 @@
 
     function controller(competitionDataService, ridersDataService) {
         var vm = this;
+        vm.showLoader = true;
 
         init();
 
         function init() {
             ridersDataService.gettingRidersByDorsal().then(function (riders) {
+                vm.showLoader = false;
                 vm.riders = riders;
                 vm.riders_bak = [];
                 for (var i = 0; i < vm.riders.length; i++) {
@@ -62,10 +64,10 @@
         factory.competition = $resource('api/competitions/:id', {
             id: '@_id'
         }, {
-            'update': {
-                method: 'PUT'
-            }
-        });
+                'update': {
+                    method: 'PUT'
+                }
+            });
 
         factory.gettingCompetitions = function (params) {
             return factory.competitions.query(params).$promise;

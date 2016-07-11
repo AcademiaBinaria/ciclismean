@@ -29,6 +29,7 @@
 
 	function controller(teamsDataService, UtilService, settings) {
 		var vm = this;
+		vm.showLoader = true;
 
 		function getTeams(status) {
 			return teamsDataService.gettingTeams({
@@ -52,7 +53,10 @@
 			});
 			getTeams('PC').then(function (teams) {
 				vm.teams_PCT = teams;
-			})
+				vm.showLoader = false;
+			}).catch(function () {
+				vm.showLoader = false;
+			});
 		}
 	}
 

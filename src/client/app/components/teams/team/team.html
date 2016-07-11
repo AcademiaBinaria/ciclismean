@@ -1,4 +1,5 @@
-<div class="container">
+<loader ng-if="vm.showLoader"></loader>
+<div ng-if="!vm.showLoader" class="container">
     <h1 class="text-center headline-primary">Ciclistas del {{vm.team[0]._id}}</h1>
     <div class="cards-wrapper row row-centered">
         <rider-card class="rider-card-wrapper" ng-repeat="rider in vm.riders" class="col-md-4" rider-id="rider">                </rider-card>

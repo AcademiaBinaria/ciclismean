@@ -24,6 +24,7 @@
 
     function controller(ridersDataService, teamsDataService, $stateParams) {
         var vm = this;
+        vm.showLoader = true;
         vm.team_id = $stateParams.id;
         vm.team = new teamsDataService.team.query({
             q: 'safe_name:' + $stateParams.id
@@ -36,6 +37,7 @@
                 limit: 50,
                 q: 'safe_name_team:' + vm.team_id
             }).then(function (riders) {
+                vm.showLoader = false;
                 vm.riders = riders;
             });
         };

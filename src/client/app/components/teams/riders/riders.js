@@ -25,6 +25,7 @@
 
     function controller(ridersDataService) {
         var vm = this;
+        vm.showLoader = true;
         vm.now = new Date().getTime();
         vm.year = new Date().getFullYear();
         var skip = 0;
@@ -79,6 +80,7 @@
         }
 
         function fillRidersArray(riders) {
+            vm.showLoader = false;
             if (riders.length < limit) {
                 vm.showMore = false;
             } else {
