@@ -33,7 +33,7 @@
             ridersDataService.gettingRidersByDorsal().then(function (riders) {
                 $timeout(function () {
                     vm.showLoader = false;
-                }, 1000);
+                }, 1500);
                 vm.riders = riders;
                 vm.riders_bak = [];
                 for (var i = 0; i < vm.riders.length; i++) {
