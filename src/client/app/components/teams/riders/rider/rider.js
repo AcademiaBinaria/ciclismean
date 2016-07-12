@@ -23,8 +23,9 @@
 		}
 	}
 
-	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService, $window) {
+	function controller($stateParams, ridersDataService, riderLogicService, competitionDataService, teamsDataService, $window, $timeout) {
 		var vm = this;
+        vm.showLoader = true;
 		vm.riderId = $stateParams.riderId;
 		vm.teamSafeNames = [];
         
@@ -47,6 +48,9 @@
 
 		function init() {
 			ridersDataService.gettingRiders({
+                $timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
 				limit: 1,
 				q: 'safe_name:' + vm.riderId
 			}).then(function (riders) {
