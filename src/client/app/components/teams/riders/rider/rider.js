@@ -48,12 +48,12 @@
 
 		function init() {
 			ridersDataService.gettingRiders({
-                $timeout(function () {
-                    vm.showLoader = false;
-                }, 1000);
 				limit: 1,
 				q: 'safe_name:' + vm.riderId
 			}).then(function (riders) {
+                $timeout(function () {
+                    vm.showLoader = false;
+                }, 1000);
 				vm.rider = riders[0];
 				vm.imageUrl = riderLogicService.getRiderImageUrl(vm.rider);
 				vm.rider.age = riderLogicService.getRiderAge(vm.rider.dob);
