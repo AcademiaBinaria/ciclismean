@@ -17,7 +17,7 @@ footer{
     height: em(25px);
     width: em(25px);
     font-size: $big__font-size;
-    padding: em(6px) 0 0 em(1px);
+    padding: 8px 0 0 0;
     @include border-radius(20px,20px,20px,20px);
     color: $white!important;
     &.facebook{
@@ -26,7 +26,13 @@ footer{
     &.twitter{
         @include darkenBgColor($twitter-color);
     }
-    &.instagram{
+    &.envelope{
         @include darkenBgColor($instagram-color);
+    }
+    &.instagram{
+        background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+        background-size: 38px 38px;
+        background-position: -2px -2px;
+        background-repeat: no-repeat;
     }
 }

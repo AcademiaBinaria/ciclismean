@@ -1965,7 +1965,7 @@ footer {
   height: 1.92308em;
   width: 1.92308em;
   font-size: 18px;
-  padding: 0.46154em 0 0 0.07692em;
+  padding: 8px 0 0 0;
   border-radius: 20px 20px 20px 20px;
   -webkit-border-radius: 20px 20px 20px 20px;
   -moz-border-radius: 20px 20px 20px 20px;
@@ -1978,9 +1978,14 @@ footer {
     background-color: #55acee; }
     .btn-social-icon.twitter:hover {
       background-color: #3ea1ec; }
-  .btn-social-icon.instagram {
+  .btn-social-icon.envelope {
     background-color: #517fa4; }
-    .btn-social-icon.instagram:hover {
+    .btn-social-icon.envelope:hover {
       background-color: #497293; }
+  .btn-social-icon.instagram {
+    background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+    background-size: 38px 38px;
+    background-position: -2px -2px;
+    background-repeat: no-repeat; }
 
 /*# sourceMappingURL=application.css.map */
