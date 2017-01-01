@@ -4,8 +4,7 @@
             <h2 class="text-center headline-primary">Equipos ciclistas WorldTour</h2>
         <div class="row row-centered">
             <div itemtype="http://schema.org/SportsTeam" ng-repeat="team in vm.teams_WT" class="col-sm-3 col-centered text-center" ng-if="!team.retired">
-                <!--<a ui-sref="team({id: team.safe_name, year: vm.year})">-->
-                   <a ui-sref="team({id: team.safe_name, year: 2017})">
+                <a ui-sref="team({id: team.safe_name, year: vm.year})">
                     <img class="team-img shrink" ng-src="{{vm.getMaillot(team.safe_name)}}" ng-attr-alt="{{team._id}}" />
                 </a>
                 <div class="feature-description text-center">
