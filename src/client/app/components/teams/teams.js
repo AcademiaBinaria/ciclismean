@@ -47,7 +47,8 @@
 		init();
 
 		function init() {
-			vm.year = settings.currentSeason;
+			vm.year = 2017;
+			//vm.year = settings.currentSeason;
 			getTeams('WT').then(function (teams) {
 				vm.teams_WT = teams;
 			});
