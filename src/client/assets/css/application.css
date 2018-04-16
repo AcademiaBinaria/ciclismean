@@ -232,10 +232,12 @@ th {
   margin: 0 auto;
   display: block; }
 
-.wheel {
+.wheel-1 {
   transform-origin: 50% 50%;
   animation: spin 2s infinite linear; }
-
+.wheel-2 {
+  transform-origin: 50% 50%;
+  animation: spin 2s infinite linear; }
 @keyframes spin {
   from {
     transform: rotate(0deg); }
