@@ -233,10 +233,8 @@ th {
   display: block; }
 
 .wheel-1 {
-  transform-origin: 50% 50%;
   animation: spin 2s infinite linear; }
 .wheel-2 {
-  transform-origin: 50% 50%;
   animation: spin 2s infinite linear; }
 @keyframes spin {
   from {
