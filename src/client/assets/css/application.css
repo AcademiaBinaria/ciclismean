@@ -232,10 +232,10 @@ th {
   margin: 0 auto;
   display: block; }
 .wheel-1-container{
-    position: absolute;
+    position: relative;
 }
 .wheel-2-container{
-    position: absolute;
+    position: relative;
 }
 .wheel-1 {
   transform-origin: 50% 50%;
