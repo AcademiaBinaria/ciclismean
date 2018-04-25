@@ -231,7 +231,12 @@ th {
   max-width: 150px;
   margin: 0 auto;
   display: block; }
-
+.wheel-1-container{
+    position: absolute;
+}
+.wheel-2-container{
+    position: absolute;
+}
 .wheel-1 {
   transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
