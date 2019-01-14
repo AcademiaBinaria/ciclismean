@@ -47,7 +47,7 @@
         }
 
         function init() {
-            vm.year = 2018;
+            vm.year = 2019;
             vm.riderId.age = UtilService.calculateAge(vm.riderId.dob);
             vm.riderId.dob = new Date(vm.riderId.dob);
             getCurrentVictories();

@@ -126,7 +126,7 @@
 		}
 
 		factory.getRiderImageUrl = function (rider) {
-			var year = 2018;
+			var year = 2019;
 			var team = rider.safe_name_team;
 			var rider = rider.safe_name;
 			return "assets/images/riders_img/" + year + "/" + team + "/" + rider + ".jpg";

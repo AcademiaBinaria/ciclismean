@@ -47,7 +47,7 @@
 		init();
 
 		function init() {
-			vm.year = 2018;
+			vm.year = 2019;
 			getTeams('WT').then(function (teams) {
 				vm.teams_WT = teams;
 			});
