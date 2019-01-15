@@ -9,8 +9,7 @@ angular
     .config(function ($httpProvider, settings, $sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             "self",
-            "http://ciclismania.es/**",
-            "http://46.101.149.113**"
+            "http://ciclismania.es/**"
         ]);
         $httpProvider.interceptors.push(function ($q) {
             return {
